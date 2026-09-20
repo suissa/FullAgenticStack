@@ -1,5 +1,5 @@
 const std = @import("std");
-const Harness = @import("../../../../tools/conformance_harness.zig").Harness;
+const Harness = @import("conformance_harness").Harness;
 
 pub const AuthorityMode = enum { human_in_loop, human_on_loop, delegated, deterministic_auto };
 
