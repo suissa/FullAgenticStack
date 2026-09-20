@@ -79,3 +79,17 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-OBS-001 | REQUIRED | relevant_execution_occurs | machine-readable evidence | execution leaves only human-only or no evidence |
+| FAS-OBS-002 | REQUIRED | protected_or_relevant_execution_occurs | correlation trace | Intent/Action/authority/effect/result cannot be correlated |
+| FAS-OBS-003 | REQUIRED | capability_selection_occurs | selection rationale/evidence | system cannot explain selected capability |
+| FAS-OBS-004 | REQUIRED | observation_occurs | authority test | observability component gains domain mutation authority |
+| FAS-OBS-005 | REQUIRED | execution_completes | outcome status evidence | success/failure/unresolved are indistinguishable |
+| FAS-OBS-006 | REQUIRED | always | technology-neutral evidence mapping | conformance requires one logs/metrics/traces product |
+| FAS-OBS-007 | CONDITIONAL | evidence_used_for_audit_governance_or_conformance | integrity evidence | tampered evidence passes verification |
+| FAS-OBS-008 | REQUIRED | sensitive_data_possible | data minimization evidence | observability unnecessarily copies sensitive content |
