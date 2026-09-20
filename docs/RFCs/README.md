@@ -69,3 +69,48 @@ and associate each identifier with implementation artifacts, tests and runtime e
 Core RFCs SHOULD use semantic names such as Vector Capability, Event Capability, Intent Resolver or Projection Agent rather than vendor products.
 
 A developer only needs to specify the desired technology constraints separately. An implementation Agent should then map the semantic RFC requirements to those constraints without changing the architecture's meaning.
+
+
+## Machine-actionable conformance model
+
+From RFC series version 0.3.0 onward, normative requirements are intended to expose explicit metadata for Agent-driven implementation and verification.
+
+Canonical metadata fields:
+
+- RequirementClass: REQUIRED, CONDITIONAL, OPTIONAL
+- ActivationCondition
+- RequiredEvidence
+- VerificationProperty
+- AdversarialProperty
+- ProfileOverrides
+
+Conformance adds:
+
+- ConformanceTarget
+- PASS, FAIL, NOT_APPLICABLE, NOT_VERIFIED, STALE
+- CLAIMED, SELF_VERIFIED, INDEPENDENTLY_VERIFIED assurance
+- capability coverage metrics
+- anti-masking checks
+- artifact/configuration fingerprint binding
+- drift/staleness detection
+- exact profile requirement manifests
+
+The intended flow is:
+
+~~~text
+RFCs
+  + Technology Profile
+  + Project Context
+      ↓
+Implementation Agent
+      ↓
+Executable System
+      ↓
+Conformance Agent
+      ↓
+Positive + Adversarial Verification
+      ↓
+Evidence-backed FAS-Core / FAS-Native / FAS-Extreme result
+~~~
+
+A profile target is not a conformance claim. A system MAY state that it is targeting a profile before verification, but MUST NOT claim conformance unless the applicable required requirements evaluate to PASS.
