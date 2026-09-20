@@ -5,74 +5,82 @@ generated_by: tools/rfc_lock.py
 source_of_truth: semantic.md
 requirements:
   FAS-ID-001:
-    statement_hash: "blake3:f2c37897601aee7d9e39a6c7682ccb0f2696df9ea9133f318138babcdf98fffc"
+    requirement_class: required
+    activation_condition: "FAS-Extreme claim"
+    statement_hash: "blake3:484342b3a09c0b53d7afd7025759ff31218ffe990a2005ab95828ada2532aa72"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-001 — No reusable passwords
-A FullAgenticStack Extreme implementation MUST NOT require reusable shared-secret passwords for human authentication."
+    normalized_statement: "FAS-ID-001 — No reusable passwords\\nA FullAgenticStack Extreme implementation MUST NOT require reusable shared-secret passwords for human authentication."
   FAS-ID-002:
-    statement_hash: "blake3:fc66529829d1d11f157f8afd0b573c5d0599aaaad8e3220b515d02fc30f054bc"
+    requirement_class: required
+    activation_condition: "FAS-Extreme claim"
+    statement_hash: "blake3:49dac9d4cdeeb51e1d2f8f59f4f637c0f9f0ad3699b997fe23980e9f30793ecb"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-002 — Email independence
-Email MUST NOT be required as the primary authentication secret or mandatory foundational identity anchor."
+    normalized_statement: "FAS-ID-002 — Email independence\\nEmail MUST NOT be required as the primary authentication secret or mandatory foundational identity anchor."
   FAS-ID-003:
-    statement_hash: "blake3:9645c588ef21862f6f9c07d09e85bee288c6869d18bc4a7a661edc65fcaead69"
+    requirement_class: required
+    activation_condition: "protected_identity_used"
+    statement_hash: "blake3:b791270ebda54e973bdc4a7736be04dd87ff37b32d8b7af2c24e7e67b5db963b"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-003 — Verifiable identity
-Human and Agent identities SHOULD be bound to verifiable credentials or proofs appropriate to their authority."
+    normalized_statement: "FAS-ID-003 — Verifiable identity\\nHuman and Agent identities SHOULD be bound to verifiable credentials or proofs appropriate to their authority."
   FAS-ID-004:
-    statement_hash: "blake3:c30d7dfef8b84b83236f05bf0808848e44d6c1d600e2a83a41e3c065a6f4f66c"
+    requirement_class: required
+    activation_condition: "authentication_occurs"
+    statement_hash: "blake3:0048fe3d98e6ad65cc5008a69d8a2bc2278bb5c01cffa62f504131a312a28b70"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-004 — Authentication/authorization separation
-Authentication MUST remain semantically separate from authorization."
+    normalized_statement: "FAS-ID-004 — Authentication/authorization separation\\nAuthentication MUST remain semantically separate from authorization."
   FAS-ID-005:
-    statement_hash: "blake3:c2995d50046ab224689008f5151de53814ecf1fd8727f1777b6194b606479754"
+    requirement_class: required
+    activation_condition: "communication_identifier_used"
+    statement_hash: "blake3:467678f168067061c1d0d54ff84fc887789bd80b6d655f9b06a6569c9578e999"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-005 — Communication identifiers are insufficient
-Possession of a communication identifier alone MUST NOT prove protected authority."
+    normalized_statement: "FAS-ID-005 — Communication identifiers are insufficient\\nPossession of a communication identifier alone MUST NOT prove protected authority."
   FAS-ID-006:
-    statement_hash: "blake3:7fe47de1199444c2bffe26165f287ac6422c173691c9401069a45e9333846b23"
+    requirement_class: required
+    activation_condition: "agent_identity_exists"
+    statement_hash: "blake3:7eba5629762441bf1badbb7e242c2b321e9746403da9b14e7f6fbc313c67a041"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-006 — Agent attribution
-Agent identity SHOULD be uniquely attributable within its trust domain."
+    normalized_statement: "FAS-ID-006 — Agent attribution\\nAgent identity SHOULD be uniquely attributable within its trust domain."
   FAS-ID-007:
-    statement_hash: "blake3:d0ed9e6d2684e6f67f441ba649ff038d1ab69e69d4bf433d9d51cd6a31ea43ba"
+    requirement_class: required
+    activation_condition: "identity_recovery_supported"
+    statement_hash: "blake3:c93fc744dd73baddf0d61443863d2855db99519af50ea3947c56f96a7237a2af"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-007 — Secure recovery
-Identity recovery MUST NOT silently weaken the guarantees of the primary identity model."
+    normalized_statement: "FAS-ID-007 — Secure recovery\\nIdentity recovery MUST NOT silently weaken the guarantees of the primary identity model."
   FAS-ID-008:
-    statement_hash: "blake3:e074b8085f8b949603d17d2fa2495e2e63072358dbaee73eeb9904842212baec"
+    requirement_class: required
+    activation_condition: "agent_credential_exists"
+    statement_hash: "blake3:7f1e96da92de71424be6208c5f192d20576d2b432411a88b8d20850dadcd4f1c"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-008 — Credential scope
-Agent credentials SHOULD be scoped to the authority actually required."
+    normalized_statement: "FAS-ID-008 — Credential scope\\nAgent credentials SHOULD be scoped to the authority actually required."

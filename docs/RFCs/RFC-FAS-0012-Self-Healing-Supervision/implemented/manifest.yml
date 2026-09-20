@@ -5,77 +5,85 @@ generated_by: tools/rfc_lock.py
 source_of_truth: semantic.md
 requirements:
   FAS-HEAL-001:
-    statement_hash: "blake3:f2850b8d3d0b0a24e6bee401abd27a5eaf6e13d552dbb46efd2dc9b1925d6d2c"
+    requirement_class: required
+    activation_condition: "supervised_action_failure_occurs"
+    statement_hash: "blake3:8b1c674eff756b33437b887c51dd0e45c339bd219c10498761935bd858935056"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-001 — Semantic failure
-Supervised Actions SHOULD expose failures as semantic conditions rather than opaque implementation exceptions."
+    normalized_statement: "FAS-HEAL-001 — Semantic failure\\nSupervised Actions SHOULD expose failures as semantic conditions rather than opaque implementation exceptions."
   FAS-HEAL-002:
-    statement_hash: "blake3:3e125d8e5632c4b6b9110c3156284551726262992657ab3e784aff0e2486575e"
+    requirement_class: required
+    activation_condition: "failure_received_by_supervisor"
+    statement_hash: "blake3:68e7308f635d4c400baf48322939a838dcd7a11e6c4fb8b0100f130694ffa909"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-002 — Recovery classification
-A Supervisor SHOULD classify whether a failure is retryable, substitutable, healable, non-recoverable or requires human escalation."
+    normalized_statement: "FAS-HEAL-002 — Recovery classification\\nA Supervisor SHOULD classify whether a failure is retryable, substitutable, healable, non-recoverable or requires human escalation."
   FAS-HEAL-003:
-    statement_hash: "blake3:e7f320f8bf5b671de3c5f542b7c13b9121baedd77524a2a89672fb93c179f11e"
+    requirement_class: required
+    activation_condition: "healing_attempted"
+    statement_hash: "blake3:14f820b39db039280a024cdc5e1f18e99b9a3d52870d1f2a86a152d1441d8d20"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-003 — Goal preservation
-Healing MUST preserve the governing Intent unless an explicit reinterpretation is accepted."
+    normalized_statement: "FAS-HEAL-003 — Goal preservation\\nHealing MUST preserve the governing Intent unless an explicit reinterpretation is accepted."
   FAS-HEAL-004:
-    statement_hash: "blake3:6fa9537998229e6a2d2928ef79cc304a8adf3a82045cef5b6aebadbfba9bbe17"
+    requirement_class: required
+    activation_condition: "healing_attempted"
+    statement_hash: "blake3:fd732af14ad991c8a4c5986a2f3bddf5c8a991bec46e085cb372df2b6dd4c767"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-004 — Authority preservation
-Healing MUST NOT broaden authority."
+    normalized_statement: "FAS-HEAL-004 — Authority preservation\\nHealing MUST NOT broaden authority."
   FAS-HEAL-005:
-    statement_hash: "blake3:67877f8affd5c93502cea4f28528c018c8f6617efa0dcb3e808a47a4c2f6a29f"
+    requirement_class: required
+    activation_condition: "healing_attempted"
+    statement_hash: "blake3:f8d656cdee6edc01536c82c6bc66ab3e1178965ba58d013a0a04136e5c5a6bd1"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-005 — Invariant preservation
-A healing strategy MUST NOT be accepted if it violates required invariants."
+    normalized_statement: "FAS-HEAL-005 — Invariant preservation\\nA healing strategy MUST NOT be accepted if it violates required invariants."
   FAS-HEAL-006:
-    statement_hash: "blake3:f9ea93ee60cc1387c972ff321826d8bca5aac6335afd83b167519d01a9bc269d"
+    requirement_class: required
+    activation_condition: "healing_attempted"
+    statement_hash: "blake3:86399004f16a7ec26798ebc4c406f47b82671426d3b551fd422298894c711016"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-006 — Evidence
-Healing SHOULD produce evidence describing detected condition, diagnosis, selected strategy and outcome."
+    normalized_statement: "FAS-HEAL-006 — Evidence\\nHealing SHOULD produce evidence describing detected condition, diagnosis, selected strategy and outcome."
   FAS-HEAL-007:
-    statement_hash: "blake3:9ca63c2236b033612898b48d5c016a1a56624aed902f9f647beca62803230759"
+    requirement_class: required
+    activation_condition: "autonomous_recovery_not_authorized_or_insufficient"
+    statement_hash: "blake3:746252ebede4560b4f90ab66e051957faa1f73b667e73c403e255c11571c519a"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-007 — Human escalation
-Escalation MUST remain available when autonomous recovery is unauthorized or insufficient."
+    normalized_statement: "FAS-HEAL-007 — Human escalation\\nEscalation MUST remain available when autonomous recovery is unauthorized or insufficient."
   FAS-HEAL-008:
-    statement_hash: "blake3:b5836c345d0fdba6953688b8f59c3cc43d482a70948bc6300df0ab70df014c04"
+    requirement_class: required
+    activation_condition: "retry_possible"
+    statement_hash: "blake3:83a3a0f0dd12f1285260d716157833cd0748e79d9c8916485a8ecef52f01b36b"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-HEAL-008 — Bounded retries
-Retry behavior SHOULD be bounded by semantic or policy constraints so that healing cannot become unbounded repetition."
+    normalized_statement: "FAS-HEAL-008 — Bounded retries\\nRetry behavior SHOULD be bounded by semantic or policy constraints so that healing cannot become unbounded repetition."

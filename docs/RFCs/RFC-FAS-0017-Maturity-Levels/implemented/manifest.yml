@@ -5,47 +5,52 @@ generated_by: tools/rfc_lock.py
 source_of_truth: semantic.md
 requirements:
   FAS-MAT-001:
-    statement_hash: "blake3:610340d470842acb4d9052aa9004c65d830a55352cbf216def49821cca4a628c"
+    requirement_class: required
+    activation_condition: "maturity_claim_exists"
+    statement_hash: "blake3:d61d39db46c56ff7bbbb873ef4d5524812f1a5bf4ad89b2134d1da617a6f956f"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MAT-001 — No technology counting
-Maturity MUST NOT be inferred from the number of LLMs, Agents, databases or services."
+    normalized_statement: "FAS-MAT-001 — No technology counting\\nMaturity MUST NOT be inferred from the number of LLMs, Agents, databases or services."
   FAS-MAT-002:
-    statement_hash: "blake3:a4fd1d2d022a1b48a19b9254f3ea1984cc38262d78f7e451c8ea7e19a0016096"
+    requirement_class: required
+    activation_condition: "level_above_1_claimed"
+    statement_hash: "blake3:07fb611593af33bf32a7ce872e8f5b9ce3871f3aa7ab5596f7321d2c2c076edb"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MAT-002 — Cumulative semantics
-A higher level SHOULD preserve the semantic capabilities of preceding levels."
+    normalized_statement: "FAS-MAT-002 — Cumulative semantics\\nA higher level SHOULD preserve the semantic capabilities of preceding levels."
   FAS-MAT-003:
-    statement_hash: "blake3:ad3693ddf3e46ba1c31874ee98671a8d3d1b97ad0c822f950a0d3beb5a4a6ba6"
+    requirement_class: required
+    activation_condition: "formal_profile_exists_for_claimed_capability"
+    statement_hash: "blake3:800e723bc246e8c793dd3a9282b322039a76d23d45cd0c1e2ffc6dd0e1871074"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MAT-003 — Evidence
-Maturity claims SHOULD reference conformance evidence where formal profiles exist."
+    normalized_statement: "FAS-MAT-003 — Evidence\\nMaturity claims SHOULD reference conformance evidence where formal profiles exist."
   FAS-MAT-004:
-    statement_hash: "blake3:4561b3090c60ada37015b3557c003abe51238254e6f73c02e8b7fcab5b5f649a"
+    requirement_class: required
+    activation_condition: "agent_framework_used"
+    statement_hash: "blake3:6360a408b937ddf5f81cb873697ef5b173d4cb46fbc89301b723f9ab92d50af8"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MAT-004 — Framework neutrality
-Using a named Agent framework alone MUST NOT qualify a system for a maturity level."
+    normalized_statement: "FAS-MAT-004 — Framework neutrality\\nUsing a named Agent framework alone MUST NOT qualify a system for a maturity level."
   FAS-MAT-005:
-    statement_hash: "blake3:a2224b09ac0f5b72600bca1343e0f4baae926a807cc43bc8f517e636818d75c7"
+    requirement_class: required
+    activation_condition: "maturity_claim_exists"
+    statement_hash: "blake3:3d5b1ee8837e6985ada5000ab5ba92d0b39791c04404d402c49b8dc0a4566f52"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MAT-005 — Architectural meaning
-The determining factor is which semantic responsibilities are agentic and governed, not which products are installed."
+    normalized_statement: "FAS-MAT-005 — Architectural meaning\\nThe determining factor is which semantic responsibilities are agentic and governed, not which products are installed."

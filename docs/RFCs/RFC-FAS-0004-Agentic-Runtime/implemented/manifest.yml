@@ -5,88 +5,94 @@ generated_by: tools/rfc_lock.py
 source_of_truth: semantic.md
 requirements:
   FAS-RUNTIME-001:
-    statement_hash: "blake3:7dac43757f98d6fb088b82337c9ac2efc63307d6a0c73e7c837b7173f7a182b1"
+    requirement_class: required
+    activation_condition: "accepted_intent_exists"
+    statement_hash: "blake3:557076d9a56dc39c432732cf9396c8b41650e8ae6e964f6a5d4bcfb855b10d5a"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-001 — Resolution
-The Runtime MUST resolve accepted Intent to one or more candidate capabilities."
+    normalized_statement: "FAS-RUNTIME-001 — Resolution\\nThe Runtime MUST resolve accepted Intent to one or more candidate capabilities."
   FAS-RUNTIME-002:
-    statement_hash: "blake3:1c7aa4828712bd297c0a7a4d044e00d9221c379822599b0b464d5715624d6488"
+    requirement_class: required
+    activation_condition: "capability_selected"
+    statement_hash: "blake3:fa5bf47f729fb21543ba857d19e23c2ef036c32d84f9f38147ff7a3f770e90b9"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-002 — Binding
-The Runtime MUST bind selected semantic responsibilities to executable owners."
+    normalized_statement: "FAS-RUNTIME-002 — Binding\\nThe Runtime MUST bind selected semantic responsibilities to executable owners."
   FAS-RUNTIME-003:
-    statement_hash: "blake3:028750d3cf3465b70b377a8f3be26a25f5fd22b0605b594ad4297a5b69a9ed25"
+    requirement_class: required
+    activation_condition: "protected_effect_possible"
+    statement_hash: "blake3:aca5facee0786e15d42975069b4c06af1942ad74934eebf0da070e16e9ce9a2a"
     verified_against: "blake3:028750d3cf3465b70b377a8f3be26a25f5fd22b0605b594ad4297a5b69a9ed25"
-    status: implemented
+    status: stale
     sources:
-      - "tools/rfc_lock.py"
     tests:
       - "docs/RFCs/RFC-FAS-0004-Agentic-Runtime/implemented/conformance.zig"
     evidence_assertions:
-      - path: "tools/rfc_lock.py"
-        assertion: "Governance.Rejected"
-    normalized_statement: "FAS-RUNTIME-003 — Governance
-Protected effects MUST be evaluated against applicable authority and constraints before acceptance."
+    normalized_statement: "FAS-RUNTIME-003 — Governance\\nProtected effects MUST be evaluated against applicable authority and constraints before acceptance."
   FAS-RUNTIME-004:
-    statement_hash: "blake3:8280546d3d991be9f88b272342f95ae6e4b4d9abf71a9af91a207d75ad9e1ece"
+    requirement_class: required
+    activation_condition: "intent_accepted"
+    statement_hash: "blake3:c3f367237aed10d7f4740847496871f641df49363332133d0939e4650dfb6943"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-004 — Goal preservation
-The Runtime MUST preserve the accepted Intent's semantic objective."
+    normalized_statement: "FAS-RUNTIME-004 — Goal preservation\\nThe Runtime MUST preserve the accepted Intent's semantic objective."
   FAS-RUNTIME-005:
-    statement_hash: "blake3:889414eab5dc08eac2936c09af64205e378a642907cc6ae66ba7987de34287d7"
+    requirement_class: required
+    activation_condition: "always"
+    statement_hash: "blake3:22e39762ce3a65e9b3bbab017cf640be9e9022b0bf0f212accfdb81b9f3b431f"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-005 — Responsibility separation
-Resolution, execution authority and result acceptance MUST remain semantically distinguishable even if implemented in one component."
+    normalized_statement: "FAS-RUNTIME-005 — Responsibility separation\\nResolution, execution authority and result acceptance MUST remain semantically distinguishable even if implemented in one component."
   FAS-RUNTIME-006:
-    statement_hash: "blake3:0881ee0ec83f6a88ac830eb1a0f87eaf16dce44ee54e92e2bc6b98339a7009f5"
+    requirement_class: required
+    activation_condition: "execution_path_selected"
+    statement_hash: "blake3:f4997937434a76b6b5b4bff16500943c02c3989823460da98ad93be78ef1ad02"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0004-Agentic-Runtime/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-006 — Evidence
-The Runtime MUST produce enough evidence to explain the selected execution path."
+    normalized_statement: "FAS-RUNTIME-006 — Evidence\\nThe Runtime MUST produce enough evidence to explain the selected execution path."
   FAS-RUNTIME-007:
-    statement_hash: "blake3:07a2f1345ceeb9ca25eb04c706900d01e87d620427c7a7d3d9a5f0eeb51d64af"
+    requirement_class: required
+    activation_condition: "action_executes"
+    statement_hash: "blake3:9693faeae2efe4cedc79bc0966f02b0fc13b8b085ee0be9e1dc4527a5f9cff97"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-007 — Acceptance
-The Runtime SHOULD distinguish “Action executed” from “result accepted as satisfying Intent.”"
+    normalized_statement: "FAS-RUNTIME-007 — Acceptance\\nThe Runtime SHOULD distinguish “Action executed” from “result accepted as satisfying Intent.”"
   FAS-RUNTIME-008:
-    statement_hash: "blake3:493894fbadb2c935e80523f83dff0f012c9713313cc2275773894a5a0d8b0e2f"
+    requirement_class: required
+    activation_condition: "action_failure_occurs"
+    statement_hash: "blake3:3a84011548e6407ed92357945c897196342bcfe275512c7bf0a3d60197209764"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-008 — Failure containment
-A failing Action MUST NOT silently corrupt unrelated execution contexts."
+    normalized_statement: "FAS-RUNTIME-008 — Failure containment\\nA failing Action MUST NOT silently corrupt unrelated execution contexts."
   FAS-RUNTIME-009:
-    statement_hash: "blake3:09846db0eba60660f1cc2a6b1273d144cbc6485e8eb1549648f295422c2134f6"
+    requirement_class: optional
+    activation_condition: "always"
+    statement_hash: "blake3:45b55c483d9e39d687de08cb89ff2bac1478a7f3a1db8249806437b78207c4d0"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-RUNTIME-009 — Topology neutrality
-The Runtime MAY be local, distributed, actor-based, service-based, embedded or otherwise."
+    normalized_statement: "FAS-RUNTIME-009 — Topology neutrality\\nThe Runtime MAY be local, distributed, actor-based, service-based, embedded or otherwise."

@@ -5,63 +5,71 @@ generated_by: tools/rfc_lock.py
 source_of_truth: semantic.md
 requirements:
   FAS-AUTH-001:
-    statement_hash: "blake3:fe025349944a8099d7473cc03886767ec009c9a1fcb5dec1016fa059cb7c949b"
+    requirement_class: required
+    activation_condition: "protected_action_exists"
+    statement_hash: "blake3:c0ac3fbb48b9f871f263c32fa9754a1fbd5ec35c86a06afd15bcce176235fc19"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-001 — Authority context
-Every protected Action MUST execute under an identifiable authority context."
+    normalized_statement: "FAS-AUTH-001 — Authority context\\nEvery protected Action MUST execute under an identifiable authority context."
   FAS-AUTH-002:
-    statement_hash: "blake3:586471b3cf8f0d688bf80467550cf6800acbf11076814a02fc2d3e58138bbd49"
+    requirement_class: required
+    activation_condition: "authority_granted"
+    statement_hash: "blake3:b49fbdd74c31d32125a5443544edca19b29e9a4c347fe5ec5ea329a8e71cf90d"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0015-Human-Agent-Authority/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-002 — Explicit scope
-Authority MUST define permitted scope and SHOULD define relevant limits such as duration, value, target, resource or frequency."
+    normalized_statement: "FAS-AUTH-002 — Explicit scope\\nAuthority MUST define permitted scope and SHOULD define relevant limits such as duration, value, target, resource or frequency."
   FAS-AUTH-003:
-    statement_hash: "blake3:ec33cdad7bf82fb25337e826b1a680ae97e3cb3818ec23037620713df3e7e603"
+    requirement_class: required
+    activation_condition: "natural_language_request_exists"
+    statement_hash: "blake3:d87617d872ef781c3581f4721085811af0fe6cb72a0a6c98c9aef370dc658011"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0015-Human-Agent-Authority/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-003 — No linguistic escalation
-An Agent MUST NOT infer additional authority merely because a user requested an outcome in natural language."
+    normalized_statement: "FAS-AUTH-003 — No linguistic escalation\\nAn Agent MUST NOT infer additional authority merely because a user requested an outcome in natural language."
   FAS-AUTH-004:
-    statement_hash: "blake3:ac5d9132f83e489f9f6f54b600c2c0fcafee560c610166e3d16b4fe62623ce0d"
+    requirement_class: required
+    activation_condition: "policy_requires_human_approval"
+    statement_hash: "blake3:e9df7e2bdcd882a6cbc738e2db143f6de286a050b4107d8613e95a298e1c5a25"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-004 — Human approval
-The Runtime MUST be able to require human approval when policy demands it."
+    normalized_statement: "FAS-AUTH-004 — Human approval\\nThe Runtime MUST be able to require human approval when policy demands it."
   FAS-AUTH-005:
-    statement_hash: "blake3:b49cdcd3e93419183b2171d6d37ba807d9811179deae0125448f3665f63125bc"
+    requirement_class: optional
+    activation_condition: "delegated_autonomy_supported"
+    statement_hash: "blake3:171cb704eb12e9ec87ef3b1172215ebd7e14affc33f79db51bfde9a300693fb5"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-005 — Delegation
-Delegated authority MAY permit autonomous execution when scope and constraints are explicit."
+    normalized_statement: "FAS-AUTH-005 — Delegation\\nDelegated authority MAY permit autonomous execution when scope and constraints are explicit."
   FAS-AUTH-006:
-    statement_hash: "blake3:c44cfd8d07223f773e1336f0946a23b6b8788d17d86ce4130067ec11fb326ebb"
+    requirement_class: conditional
+    activation_condition: "delegation_is_revocable"
+    statement_hash: "blake3:0b7671c4e2ac156b13c9be79cca3bda4ad0e86272297683f687b9ba32610218e"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-006 — Revocation
-Delegated authority SHOULD be revocable unless the domain explicitly requires irrevocable effects."
+    normalized_statement: "FAS-AUTH-006 — Revocation\\nDelegated authority SHOULD be revocable unless the domain explicitly requires irrevocable effects."
   FAS-AUTH-007:
-    statement_hash: "blake3:84eb4a24da5a7c324cdb2a3b39c65a62add44d96f688987a5092afa9c736538b"
+    requirement_class: required
+    activation_condition: "authority_decision_occurs"
+    statement_hash: "blake3:47c2df06479fef28e498fb0e1bd455ee08c38cad87f80a95fe128e9cad2ff061"
     verified_against: null
     status: not_implemented
     sources:
@@ -69,14 +77,14 @@ Delegated authority SHOULD be revocable unless the domain explicitly requires ir
     evidence_assertions:
       - path: "docs/RFCs/RFC-FAS-0015-Human-Agent-Authority/implemented/conformance.zig"
         assertion: "Authority.Rejected"
-    normalized_statement: "FAS-AUTH-007 — Evidence
-Authority decisions SHOULD produce evidence suitable for later explanation and audit."
+    normalized_statement: "FAS-AUTH-007 — Evidence\\nAuthority decisions SHOULD produce evidence suitable for later explanation and audit."
   FAS-AUTH-008:
-    statement_hash: "blake3:7bf4f6a81decba562b4b97613e69654b21aaad555101632cec5e097c2df6727b"
+    requirement_class: required
+    activation_condition: "agent_authority_granted"
+    statement_hash: "blake3:b882d5bb8f8fb11a1dc46299a05fdfe21bd78b4f0c3fa55bbb54e5e615d3f352"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-008 — Least authority
-An Agent SHOULD receive no more authority than required to satisfy its assigned capability."
+    normalized_statement: "FAS-AUTH-008 — Least authority\\nAn Agent SHOULD receive no more authority than required to satisfy its assigned capability."

@@ -5,84 +5,92 @@ generated_by: tools/rfc_lock.py
 source_of_truth: semantic.md
 requirements:
   FAS-CORE-001:
-    statement_hash: "blake3:93af2dc68722d6da1ea0eacf3362f68e6a3cc54113d1ee67da91100db8710124"
+    requirement_class: required
+    activation_condition: "human_facing_capability_exists"
+    statement_hash: "blake3:0755a52023e16c2ff699c3320a44d418de276cef79a182976c79a7bfb895374d"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-001 — Universal capability accessibility
-Every capability intentionally exposed to a human user MUST also be invocable through natural-language Intent."
+    normalized_statement: "FAS-CORE-001 — Universal capability accessibility\\nEvery capability intentionally exposed to a human user MUST also be invocable through natural-language Intent."
   FAS-CORE-002:
-    statement_hash: "blake3:d3c7d6da3d13265d13378049780d3ef597b090a23119c9eeb1fab916d553152c"
+    requirement_class: required
+    activation_condition: "always"
+    statement_hash: "blake3:0392f56514886defb56b414a497ac9899fddee61c193fb4cc972035c239494f9"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-002 — Natural-language ingress
-The system MUST expose at least one human-facing ingress capable of receiving natural-language requests."
+    normalized_statement: "FAS-CORE-002 — Natural-language ingress\\nThe system MUST expose at least one human-facing ingress capable of receiving natural-language requests."
   FAS-CORE-003:
-    statement_hash: "blake3:5655d9b705414d2bc2868d02824a74f950d3ae78fc3162ad5148b11f070e117d"
+    requirement_class: required
+    activation_condition: "always"
+    statement_hash: "blake3:a5b7f64eaf55ed209d4be330e9281689c70f6e56aae78e73e253316afc788331"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-003 — POST submission semantics
-At least one public human-facing ingress MUST support POST submission semantics, or an equivalent operation whose meaning is “submit a desired outcome for resolution.”
-A conforming system MAY expose only this single public application route to humans."
+    normalized_statement: "FAS-CORE-003 — POST submission semantics\\nAt least one public human-facing ingress MUST support POST submission semantics, or an equivalent operation whose meaning is “submit a desired outcome for resolution.”\\nA conforming system MAY expose only this single public application route to humans."
   FAS-CORE-004:
-    statement_hash: "blake3:92f007f5877f6d1ac4d2eb7a165107e389a4568ec8129b5e8c5da8425e19b18a"
+    requirement_class: required
+    activation_condition: "always"
+    statement_hash: "blake3:206df88bec09d4d111b98df7d4e0b75e306bd125dd090c9b90a6dd217a9d86db"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-004 — Internal-topology hiding
-The caller MUST NOT be required to know which internal Agent, service, database, programming language or topology fulfills the Intent."
+    normalized_statement: "FAS-CORE-004 — Internal-topology hiding\\nThe caller MUST NOT be required to know which internal Agent, service, database, programming language or topology fulfills the Intent."
   FAS-CORE-005:
-    statement_hash: "blake3:03ec8d3dbce4de7fc4f3824017662a405579100feaeaa0fa46def5b05ef5c8a2"
+    requirement_class: required
+    activation_condition: "FAS-Core claim"
+    statement_hash: "blake3:04f52e565b0fb8490607615d9d04ea70a2d41facd6df2586d7d939c74681750f"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-005 — Multimodality
-Core conformance MUST support text, audio and image input according to RFC-FAS-0003."
+    normalized_statement: "FAS-CORE-005 — Multimodality\\nCore conformance MUST support text, audio and image input according to RFC-FAS-0003."
   FAS-CORE-006:
-    statement_hash: "blake3:a29111d378b42defaced11635f0b8bbfa1991970f026715426d3d4d3f411c1a4"
+    requirement_class: required
+    activation_condition: "accepted_intent_exists"
+    statement_hash: "blake3:365d4fe1812e8f9e84462c46cc4e6a96571a95add8204a35c14ebbf30a46400c"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-006 — Semantic orchestration
-Accepted Intent MUST resolve to one or more executable capabilities or to an explicit semantic failure."
+    normalized_statement: "FAS-CORE-006 — Semantic orchestration\\nAccepted Intent MUST resolve to one or more executable capabilities or to an explicit semantic failure."
   FAS-CORE-007:
-    statement_hash: "blake3:b28b3fce058ebc9c6614174338bcd944b1c6a6930585bd804d7f46c3eade5203"
+    requirement_class: required
+    activation_condition: "protected_effect_possible"
+    statement_hash: "blake3:cf79a5289736aa37c4609a415697cd4c32b717d758053ddca03a56b88ec0aa83"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-007 — Interpretation/authority separation
-Interpreting a request MUST NOT by itself authorize a protected effect."
+    normalized_statement: "FAS-CORE-007 — Interpretation/authority separation\\nInterpreting a request MUST NOT by itself authorize a protected effect."
   FAS-CORE-008:
-    statement_hash: "blake3:e7238b55c4352148680d49bbd1da0a3f2a33a5c971c2197bad0318f91f3eefb5"
+    requirement_class: required
+    activation_condition: "relevant_execution_occurs"
+    statement_hash: "blake3:4897daf196ddff3c2a4125fdbf1758e1c6fe7bc514001bf44b3dccfa599463fe"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-008 — Evidence
-Relevant execution MUST produce enough evidence to determine what was requested, what execution path was selected and what outcome occurred."
+    normalized_statement: "FAS-CORE-008 — Evidence\\nRelevant execution MUST produce enough evidence to determine what was requested, what execution path was selected and what outcome occurred."
   FAS-CORE-009:
-    statement_hash: "blake3:cbe87f2dbdb83aba6508d5ef8d9e9d6bbd9825a4c1a5eb51d3810226fe6c1c86"
+    requirement_class: conditional
+    activation_condition: "independent_responsibility_domain_exists"
+    statement_hash: "blake3:1ecce727aeace97378d4a5db2153da569d0c2c9444769ee70982167057c1b9a0"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-CORE-009 — Specialization
-Independent semantic responsibility domains SHOULD have explicit Agent or capability ownership."
+    normalized_statement: "FAS-CORE-009 — Specialization\\nIndependent semantic responsibility domains SHOULD have explicit Agent or capability ownership."
