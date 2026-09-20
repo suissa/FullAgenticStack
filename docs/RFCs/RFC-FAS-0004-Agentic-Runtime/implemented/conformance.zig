@@ -13,8 +13,8 @@ test "FAS-RUNTIME-003 governance rejects and emits evidence without authority" {
     };
 
     try std.testing.expectError(error.GovernanceRejected, runtime.execute(&ctx));
-    try std.testing.expect(evidence.emitted("Governance.Rejected"));
-    try std.testing.expect(!evidence.emitted("Runtime.Orchestration.Ok"));
+    try evidence.expectEmitted("Governance.Rejected");
+    try evidence.expectNotEmitted("Runtime.Orchestration.Ok");
 }
 
 // @test FAS-RUNTIME-006
@@ -32,6 +32,6 @@ test "FAS-RUNTIME-006 successful execution leaves correlated stage evidence" {
     try std.testing.expect(evidence.emitted("Intent.Resolve.Ok"));
     try std.testing.expect(evidence.emitted("Governance.Accepted"));
     try std.testing.expect(evidence.emitted("Runtime.Proof.Ok"));
-    try std.testing.expect(evidence.emitted("Runtime.Acceptance.Ok"));
+    try evidence.expectEmitted("Runtime.Acceptance.Ok");
     try std.testing.expect(evidence.emitted("Runtime.Persistence.Ok"));
 }
