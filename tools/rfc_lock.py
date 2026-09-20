@@ -89,6 +89,8 @@ def scan_annotations():
     for path in ROOT.rglob("*"):
         if not path.is_file() or ignored(path):
             continue
+        if path.resolve() == Path(__file__).resolve():
+            continue
         if path.suffix not in SOURCE_EXTS:
             continue
         try:
