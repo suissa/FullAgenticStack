@@ -9,7 +9,7 @@ requirements:
     activation_condition: "human_facing_capability_exists"
     required_evidence: "capability inventory + intent coverage"
     statement_hash: "blake3:5b00c751f99ad2adc7fff139ec18f0b32364683194603412eec64cb9cb063424"
-    verified_against: null
+    verified_against: "blake3:5b00c751f99ad2adc7fff139ec18f0b32364683194603412eec64cb9cb063424"
     status: implemented
     sources:
       - "src/fullagenticstack.zig"
