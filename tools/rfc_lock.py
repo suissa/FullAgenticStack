@@ -26,6 +26,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[1]
 RFCS = ROOT / "docs" / "RFCs"
 REQ_RE = re.compile(r"^###\s+(FAS-[A-Z0-9-]+)\s+[—-]\s+(.+?)\s*$")
+META_RE = re.compile(r"^\|\s*(FAS-[A-Z0-9-]+)\s*\|\s*(REQUIRED|CONDITIONAL|OPTIONAL)\s*\|\s*([^|]+?)\s*\|")
 ANNOT_RE = re.compile(r"@(?P<kind>satisfies|test|evidence)\s+(?P<id>FAS-[A-Z0-9-]+)(?:\s+(?P<value>[^\r\n]+))?")
 NA_RE = re.compile(r"@not-applicable\s+(?P<id>FAS-[A-Z0-9-]+)\s+condition=(?P<condition>\S+)\s+reason=(?P<reason>\S+)")
 SOURCE_EXTS = {".zig", ".rs", ".go", ".ts", ".tsx", ".js", ".py", ".hs", ".pl", ".c", ".cpp", ".java", ".kt", ".swift"}
