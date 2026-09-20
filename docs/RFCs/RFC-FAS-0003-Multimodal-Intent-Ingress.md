@@ -82,3 +82,15 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-MULTI-001 | REQUIRED | FAS-Core claim | text/audio/image executable tests | one mandatory modality is absent |
+| FAS-MULTI-002 | REQUIRED | required_modality_received | cross-modality Intent evidence | modalities enter incompatible business semantic models |
+| FAS-MULTI-003 | REQUIRED | modality_processing_occurs | source-to-semantic trace | processor changes user goal |
+| FAS-MULTI-004 | REQUIRED | protected_effect_possible | authority trace | modality extraction directly grants business authority |
+| FAS-MULTI-005 | REQUIRED | equivalent_cross_modality_cases_exist | equivalence corpus | same meaning resolves to materially different Intent |
+| FAS-MULTI-006 | OPTIONAL | extended_modality_supported | modality contract | extended modality bypasses core semantic/authority rules |
