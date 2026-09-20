@@ -1,17 +1,58 @@
 rfc: RFC-FAS-0001
 semantic: ../semantic.md
 implementation_readme: README.md
+
 binding_policy:
   source_of_truth: semantic
   technology_profile: reference
   project_override_allowed: true
   project_override_must_preserve_semantics: true
+  require_requirement_component_map: true
+
+requirements:
+  FAS-CORE-001:
+    components:
+      - fullagenticstack.capability_registry
+      - fullagenticstack.intent_coverage
+    artifacts:
+      - src/fullagenticstack.zig
+      - docs/RFCs/RFC-FAS-0001-Core-Architecture/implemented/conformance.zig
+  FAS-CORE-002:
+    components:
+      - intent_ingress
+  FAS-CORE-003:
+    components:
+      - public_submission_contract
+  FAS-CORE-004:
+    components:
+      - topology_hiding
+  FAS-CORE-005:
+    components:
+      - multimodal_ingress
+  FAS-CORE-006:
+    components:
+      - intent_resolution
+      - capability_binding
+  FAS-CORE-007:
+    components:
+      - authority_governance
+  FAS-CORE-008:
+    components:
+      - execution_evidence
+  FAS-CORE-009:
+    components:
+      - semantic_ownership
+    activation:
+      independent_responsibility_domain_exists: false
+    not_applicable_reason: reference_registry_uses_single_core_owner
+
 agent_inputs:
   - project_goal
   - semantic_rfc
   - implementation_profile
   - existing_project
   - technology_constraints
+
 agent_outputs:
   - capability_plan
   - implementation_plan
