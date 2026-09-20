@@ -1,9 +1,10 @@
 # FullAgenticStack RFC Series
 
-The FullAgenticStack RFC series is split into two synchronized layers for every RFC:
+The FullAgenticStack RFC series is split into three synchronized layers for every RFC:
 
 - `*.semantic.md` — normative, technology-independent meaning, invariants, authority, failure semantics, evidence and conformance.
 - `*.implementation.md` — the current AllasCode/FullAgenticStack reference implementation: languages, runtime, databases, protocols, deployment patterns and operational choices.
+- `*.implemented.zig` — executable Zig 0.16 reference contract implementing the semantic invariants and concrete implementation profile as types, validation logic, boundaries and tests.
 
 ## Precedence rule
 
@@ -22,9 +23,10 @@ Before implementing a FullAgenticStack project, an AI Agent SHOULD load in this 
 1. the developer/project goal;
 2. all applicable `*.semantic.md` RFCs;
 3. all paired `*.implementation.md` RFCs;
-4. project-local Technology Profile and constraints;
-5. existing source code, configuration and tests;
-6. current conformance evidence if any.
+4. all paired `*.implemented.zig` executable reference contracts;
+5. project-local Technology Profile and constraints;
+6. existing source code, configuration and tests;
+7. current conformance evidence if any.
 
 Then derive:
 
@@ -172,3 +174,40 @@ Agent = derives the concrete implementation
 ```
 
 This split is intentional: the same semantic FullAgenticStack architecture can be generated for a different technology stack without changing its architectural meaning.
+
+
+## Executable RFC layer
+
+Each RFC now has a third paired artifact:
+
+```text
+RFC-FAS-NNNN-Name.semantic.md
+RFC-FAS-NNNN-Name.implementation.md
+RFC-FAS-NNNN-Name.implemented.zig
+```
+
+The Zig file is the executable reference contract for Zig 0.16. It encodes semantic concepts as concrete types, enums, validation rules, state transitions, authority boundaries and tests.
+
+An implementation Agent MAY translate the `.implemented.zig` reference to another project language, but the translated implementation MUST preserve the paired semantic RFC and SHOULD preserve the behavior demonstrated by the Zig tests.
+
+The `.implemented.zig` file is not allowed to weaken the `.semantic.md` contract. If code and semantic RFC disagree, the semantic RFC is authoritative and the code must be repaired.
+
+### Agent implementation loop
+
+```text
+Goal
+  + semantic.md
+  + implementation.md
+  + implemented.zig
+  + existing project
+      ↓
+adapt / generate concrete project implementation
+      ↓
+run invariant tests
+      ↓
+run adversarial tests
+      ↓
+collect evidence
+      ↓
+evaluate conformance
+```
