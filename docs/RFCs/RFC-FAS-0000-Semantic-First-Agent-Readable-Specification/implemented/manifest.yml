@@ -144,7 +144,7 @@ RequirementClass is distinct from MUST/SHOULD/MAY wording. The normative verb de
     requirement_class: conditional
     activation_condition: "requirement_class=CONDITIONAL"
     required_evidence: "activation condition"
-    statement_hash: "blake3:1783e16544daf86154819511618501ade23d9514ea8723fba397124649068255"
+    statement_hash: "blake3:6cd7fc38be5e63f2eeed9d0b6f116f0887d46d0d98fb03ac805ed9b4cf0d46f3"
     verified_against: null
     status: not_implemented
     sources:
@@ -153,12 +153,12 @@ RequirementClass is distinct from MUST/SHOULD/MAY wording. The normative verb de
     normalized_statement: "FAS-SPEC-012 — Activation condition
 CONDITIONAL requirements MUST define a machine-evaluable or semantically explicit ActivationCondition
 Example:
-```text
+text
 Requirement: FAS-PROJ-001
 Class: CONDITIONAL
 ActivationCondition:
 independent_projection_exists == true
-```"
+"
   FAS-SPEC-013:
     requirement_class: required
     activation_condition: "normative_requirement_exists"

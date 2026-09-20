@@ -278,7 +278,7 @@ A public conformance claim SHOULD identify report identity target fingerprint ev
     requirement_class: required
     activation_condition: "always"
     required_evidence: "unspecified"
-    statement_hash: "blake3:4e3b5c9348e5117b41d3305eef45eb2ca67ea1eaf4996e44cad3becb1f5328c0"
+    statement_hash: "blake3:c78a31c3772b9a18b7f25b372556cf8220020d4681533f5c8a220e23435f1e59"
     verified_against: null
     status: not_implemented
     sources:
@@ -291,7 +291,7 @@ implementation annotations or discovered source bindings
 executable test bindings
 asserted evidence bindings
 evaluated non-applicability declarations
-A handwritten `status: implemented` field MUST NOT be accepted as sufficient implementation evidence"
+A handwritten status: implemented field MUST NOT be accepted as sufficient implementation evidence"
   FAS-CONF-022:
     requirement_class: required
     activation_condition: "always"
@@ -317,7 +317,7 @@ A change to one requirement MUST NOT automatically make unrelated requirements S
     requirement_class: required
     activation_condition: "always"
     required_evidence: "unspecified"
-    statement_hash: "blake3:1f2128d4a65e82517d7bd69795090f05dbca6d0ff4ab97bb091a025956f491f1"
+    statement_hash: "blake3:b9f7ad2380f5591880bc7a5411caaeb132cae70a9397a2321ced5057a348080c"
     verified_against: null
     status: not_implemented
     sources:
@@ -330,8 +330,8 @@ partial
 not_implemented
 not_applicable
 stale
-`not_applicable` is valid only for a CONDITIONAL requirement whose ActivationCondition has been evaluated false and whose justification is recorded
-`partial` means some implementation/test/evidence binding exists but the requirement cannot yet be claimed complete"
+not_applicable is valid only for a CONDITIONAL requirement whose ActivationCondition has been evaluated false and whose justification is recorded
+partial means some implementation/test/evidence binding exists but the requirement cannot yet be claimed complete"
   FAS-CONF-024:
     requirement_class: required
     activation_condition: "always"
@@ -349,7 +349,7 @@ Missing renamed or deleted referenced artifacts MUST invalidate or downgrade the
     requirement_class: required
     activation_condition: "always"
     required_evidence: "unspecified"
-    statement_hash: "blake3:c1302ed2e0e09c06f7456ae5b77e4028211a089a938b1d90d881b58c06aa20d7"
+    statement_hash: "blake3:9e40550f1867353dc81073c6bb5690cc00d23d5bbe00f8cb60a3762a24fdab35"
     verified_against: null
     status: not_implemented
     sources:
@@ -357,7 +357,7 @@ Missing renamed or deleted referenced artifacts MUST invalidate or downgrade the
     evidence_assertions:
     normalized_statement: "FAS-CONF-025 — Evidence assertion requirement
 For machine-verifiable evidence obligations conformance MUST assert evidence production
-For example testing only that execution returns `GovernanceRejected` is insufficient when the requirement also requires governance evidence
+For example testing only that execution returns GovernanceRejected is insufficient when the requirement also requires governance evidence
 A conforming executable proof SHOULD assert both semantic outcome and evidence:
 ~~~zig
 try expectError(error.GovernanceRejected runtime.execute(&ctx))
@@ -384,14 +384,14 @@ MUST compile and execute all RFC conformance suites"
     requirement_class: required
     activation_condition: "always"
     required_evidence: "unspecified"
-    statement_hash: "blake3:d28ba44327b2b314edf0e6aba027544bd22a38e1408a8d8d6a88aa9e7f710333"
+    statement_hash: "blake3:380dad3a5d973297ee7037585a99b4555b847c7044f30eeb8f59fe6cb1c2b268"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
     normalized_statement: "FAS-CONF-027 — Descriptive binding non-authority
-`implementation/bindings.yml` is descriptive planning metadata
+implementation/bindings.yml is descriptive planning metadata
 It MAY map semantic requirements to conceptual components but it MUST NOT independently establish conformance
 The generated manifest is the authoritative implementation binding artifact
 CI SHOULD verify that any requirement identifiers appearing in descriptive bindings exist in the generated lockfile"
