@@ -16,8 +16,8 @@ pub const Resolution = union(enum) {
 pub const IntentResolver = struct {
     pub fn resolve(_: *IntentResolver, text: []const u8) Resolution {
         if (text.len == 0) return .{ .incomplete = "empty input" };
-        if (std.mem.indexOf(u8, text, "invoice") != null or std.mem.indexOf(u8, text, "fatura") != null) {
-            if (std.mem.indexOf(u8, text, "send") != null or std.mem.indexOf(u8, text, "mande") != null)
+        if (std.mem.find(u8, text, "invoice") != null or std.mem.find(u8, text, "fatura") != null) {
+            if (std.mem.find(u8, text, "send") != null or std.mem.find(u8, text, "mande") != null)
                 return .{ .resolved = .{ .label = "Billing.Invoice.Send", .goal = "send invoice", .authority_required = false } };
             return .{ .ambiguous = "invoice intent requires operation" };
         }
