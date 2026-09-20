@@ -32,16 +32,23 @@ NA_RE = re.compile(r"@not-applicable\s+(?P<id>FAS-[A-Z0-9-]+)\s+condition=(?P<co
 SOURCE_EXTS = {".zig", ".rs", ".go", ".ts", ".tsx", ".js", ".py", ".hs", ".pl", ".c", ".cpp", ".java", ".kt", ".swift"}
 
 def normalize_statement(text: str) -> str:
-    # Editorial-only whitespace changes do not affect the requirement hash.
+    """Normalize editorial formatting while retaining semantic tokens.
+
+    Ignore whitespace, Markdown emphasis/code markers, commas, semicolons,
+    and sentence-terminal periods. Preserve identifiers, normative keywords,
+    paths, event names, and internal numeric punctuation.
+    """
     lines = []
     for raw in text.splitlines():
         line = raw.strip()
         if not line:
             continue
-        line = re.sub(r"\s+", " ", line)
+        line = line.replace("*", "").replace("_", "").replace("`", "")
+        line = re.sub(r"[,;](?=\\s|$)", "", line)
+        line = re.sub(r"\\.(?=\\s*$)", "", line)
+        line = re.sub(r"\\s+", " ", line)
         lines.append(line)
-    return "\n".join(lines)
-
+    return "\\n".join(lines)
 def extract_requirements(path: Path):
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
