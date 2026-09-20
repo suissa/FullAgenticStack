@@ -105,7 +105,7 @@ def scan_annotations():
                 item["tests"].append(rel)
             elif kind == "evidence":
                 literal = re.escape(value)
-                if not re.search(r'expectEmitted\\(\\s*["\\']' + literal + r'["\\']\\s*\\)', text):
+                if not re.search(r'expectEmitted\\(\\s*"' + literal + r'"\\s*\\)', text):
                     raise ValueError(f"{rel}: @evidence {m.group('id')} {value!r} has no matching expectEmitted assertion")
                 item["evidence"].append({"path": rel, "assertion": value})
         for m in NA_RE.finditer(text):
