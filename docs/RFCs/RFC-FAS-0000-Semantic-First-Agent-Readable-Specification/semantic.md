@@ -2,7 +2,7 @@
 
 **Status:** Draft Standard  
 **Category:** Standards Track  
-**Version:** 0.3.0  
+**Version:** 0.4.0  
 **Last Updated:** 2026-09-20  
 **Dependencies:** None
 
@@ -272,3 +272,79 @@ Minor revisions MAY clarify wording without silently changing the meaning of sta
 | FAS-SPEC-016 | REQUIRED | NOT_APPLICABLE_possible | non-applicability evidence | missing feature is laundered as N/A |
 | FAS-SPEC-017 | REQUIRED | conformance_evaluated | masking detection | capability is disabled to avoid failure |
 | FAS-SPEC-018 | CONDITIONAL | profile_override_exists | profile manifest | profile silently changes requirement class |
+
+
+## 16. Generated semantic lockfiles
+
+### FAS-SPEC-019 — Generated semantic lockfiles
+The implemented manifest MUST be generated from semantic requirements and implementation evidence. It MUST NOT be treated as a manually authoritative declaration.
+
+A generated lockfile MAY be committed to version control, but CI MUST be able to regenerate it deterministically and detect divergence.
+
+### FAS-SPEC-020 — Requirement-level fingerprints
+Semantic drift MUST be tracked at requirement granularity rather than only at file granularity.
+
+Each normative requirement SHOULD have a fingerprint computed from its normalized normative statement.
+
+Editorial changes that do not change the normalized statement SHOULD NOT invalidate unrelated requirements.
+
+### FAS-SPEC-021 — Source-derived implementation binding
+Implementation status SHOULD be derived from verifiable implementation annotations, source references, tests and evidence rather than handwritten status fields.
+
+A missing source or test reference MUST invalidate the generated implementation claim.
+
+### FAS-SPEC-022 — Asserted evidence
+Evidence obligations MUST be verified by executable assertions where machine verification is practical.
+
+Listing an event name or proof identifier without asserting that it was produced MUST NOT satisfy an evidence-critical requirement.
+
+### FAS-SPEC-023 — Build-visible conformance
+Executable conformance proofs MUST participate in the project build or CI graph.
+
+A conformance source file that is never compiled or executed MUST NOT count as verification.
+
+### FAS-SPEC-024 — Single authoritative implementation chain
+Implementation planning metadata MAY describe conceptual components, but conformance authority MUST come from one generated chain connecting requirement → real source → test → evidence.
+
+If descriptive bindings and generated implementation bindings diverge, CI MUST fail or report the divergence explicitly.
+
+## 17. Recommended implementation annotations
+
+Projects MAY expose source-level annotations such as:
+
+~~~text
+// @satisfies FAS-RUNTIME-003
+// @test FAS-RUNTIME-003
+// @evidence FAS-RUNTIME-003 Governance.Rejected
+~~~
+
+Conditional non-applicability MAY be expressed as:
+
+~~~text
+// @not-applicable FAS-PROJ-001 condition=independent_projection_exists:false reason=no_independent_projections
+~~~
+
+A NOT_APPLICABLE annotation MUST include both the evaluated activation condition and a justification.
+
+## 18. Normalized statement hashing
+
+The fingerprint input SHOULD include the requirement identifier, title and normative body after normalization.
+
+Normalization SHOULD:
+- trim leading/trailing whitespace;
+- collapse semantically irrelevant whitespace;
+- preserve normative words and semantic content;
+- exclude unrelated neighboring requirements.
+
+The recommended fingerprint algorithm for the current reference implementation is BLAKE3.
+
+A conformance system SHOULD preserve:
+
+~~~text
+requirement_id
+statement_hash
+verified_against
+status
+~~~
+
+If `verified_against != statement_hash`, a previously verified requirement becomes STALE until revalidated.
