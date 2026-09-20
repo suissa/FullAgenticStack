@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:3ac9a79cd137341d580ead79fc0e5eb2e0da5974e97338fe59311d474a1a2812"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-001 — Explicit ownership
 Each data responsibility MUST have an explicit semantic owner"
   FAS-DATA-002:
@@ -23,9 +23,9 @@ Each data responsibility MUST have an explicit semantic owner"
     statement_hash: "blake3:9376297a7c5cf527412040244454e3b62db45eb25dbfe82bcba506126bea128a"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-002 — Write authority
 Write responsibility MUST identify which state transitions are authoritative"
   FAS-DATA-003:
@@ -35,9 +35,9 @@ Write responsibility MUST identify which state transitions are authoritative"
     statement_hash: "blake3:55efa79a37447d6d3e20ee84a166eefd21838dc3b68b4dd92fa1022e6f9713d7"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-003 — Read derivation
 Read responsibility MUST identify how read state relates to authoritative state or evidence"
   FAS-DATA-004:
@@ -47,9 +47,9 @@ Read responsibility MUST identify how read state relates to authoritative state 
     statement_hash: "blake3:57c159feb127072918875488990ae372e66e2c05500acfcd9309b98eb3786932"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-004 — Cache non-authority
 Cache MUST NOT silently become canonical authority unless explicitly declared by another semantic contract"
   FAS-DATA-005:
@@ -59,9 +59,9 @@ Cache MUST NOT silently become canonical authority unless explicitly declared by
     statement_hash: "blake3:a98094469f912e06493c9415a3fbd4cfa9e7eacf74fd7a2ae52b94c17bf0e628"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-005 — Vector semantics
 Vector responsibility MUST expose retrieval according to semantic representation-space relationships"
   FAS-DATA-006:
@@ -71,9 +71,9 @@ Vector responsibility MUST expose retrieval according to semantic representation
     statement_hash: "blake3:2c53b11831dec906e4ce6d874f2fbce9ce97ccf356d61b083e3c2a63f24c42c6"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-006 — Graph semantics
 Graph responsibility MUST expose traversable semantic relationships and their meaning"
   FAS-DATA-007:
@@ -83,9 +83,9 @@ Graph responsibility MUST expose traversable semantic relationships and their me
     statement_hash: "blake3:0e25bd6f3424eed6ddae3088f48b4634a5b48c28e23305ba8b69531d50fb2342"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-007 — Event semantics
 Event responsibility MUST preserve relevant temporal facts required by the architecture"
   FAS-DATA-008:
@@ -95,9 +95,9 @@ Event responsibility MUST preserve relevant temporal facts required by the archi
     statement_hash: "blake3:832e5034a36cb224c217ee34eedf1a5a2c9065903cd30c3081709911c0a80184"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-008 — Observability semantics
 Observability responsibility MUST retain execution evidence required for operational reasoning and audit"
   FAS-DATA-009:
@@ -107,9 +107,9 @@ Observability responsibility MUST retain execution evidence required for operati
     statement_hash: "blake3:4a72d549a111aad60688f1ea874deca70a9bd6dcb38fd8c84822719991d6b895"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-009 — Physical independence
 Physical storage topology MUST NOT define semantic authority by itself"
   FAS-DATA-010:
@@ -119,8 +119,8 @@ Physical storage topology MUST NOT define semantic authority by itself"
     statement_hash: "blake3:ff68187436701cdf7a8ef288f61cb49958e540bad5fc18b19534de5023bd683f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-DATA-010 — Lineage
 Derived data SHOULD expose enough lineage to identify its semantic source"
