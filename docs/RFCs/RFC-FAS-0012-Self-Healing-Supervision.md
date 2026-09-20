@@ -83,3 +83,17 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-HEAL-001 | REQUIRED | supervised_action_failure_occurs | semantic failure evidence | opaque exception prevents diagnosis |
+| FAS-HEAL-002 | REQUIRED | failure_received_by_supervisor | recovery classification evidence | Supervisor retries or mutates without classifying failure |
+| FAS-HEAL-003 | REQUIRED | healing_attempted | Intent before/after evidence | healing changes requested goal |
+| FAS-HEAL-004 | REQUIRED | healing_attempted | authority before/after evidence | healing broadens authority |
+| FAS-HEAL-005 | REQUIRED | healing_attempted | invariant verification | recovery succeeds by violating invariant |
+| FAS-HEAL-006 | REQUIRED | healing_attempted | diagnosis/strategy/outcome evidence | healing leaves no reconstructable evidence |
+| FAS-HEAL-007 | REQUIRED | autonomous_recovery_not_authorized_or_insufficient | escalation path evidence | system loops or fabricates success instead of escalating |
+| FAS-HEAL-008 | REQUIRED | retry_possible | retry bound evidence | recovery retries without semantic/policy bound |
