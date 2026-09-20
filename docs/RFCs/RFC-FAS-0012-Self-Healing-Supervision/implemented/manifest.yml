@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:d0dff4671f3be63e6b013c288cf2a56054f8f77d8b2651f0ff21c72ea301e1c5"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-HEAL-001 — Semantic failure
 Supervised Actions SHOULD expose failures as semantic conditions rather than opaque implementation exceptions"
   FAS-HEAL-002:
@@ -23,9 +23,9 @@ Supervised Actions SHOULD expose failures as semantic conditions rather than opa
     statement_hash: "blake3:d2c4c5ea34e69bd9a76d10ec6eadd9661c18ffdb045bdce6503a0f6529f0b1ca"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-HEAL-002 — Recovery classification
 A Supervisor SHOULD classify whether a failure is retryable substitutable healable non-recoverable or requires human escalation"
   FAS-HEAL-003:
@@ -35,9 +35,9 @@ A Supervisor SHOULD classify whether a failure is retryable substitutable healab
     statement_hash: "blake3:266ecf7fe8cee5ff52afcf25dd2efb5bdb260669b6892ffd8b2956f78dc8e5da"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-HEAL-003 — Goal preservation
 Healing MUST preserve the governing Intent unless an explicit reinterpretation is accepted"
   FAS-HEAL-004:
@@ -47,10 +47,10 @@ Healing MUST preserve the governing Intent unless an explicit reinterpretation i
     statement_hash: "blake3:b12c7c32637d4316b4377636118621e1de009488d4d2ffeb6593730e14b5c077"
     verified_against: null
     status: partial
-    sources:
+    sources: []
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
-    evidence_assertions:
+    evidence_assertions: []
     normalized_statement: "FAS-HEAL-004 — Authority preservation
 Healing MUST NOT broaden authority"
   FAS-HEAL-005:
@@ -60,9 +60,9 @@ Healing MUST NOT broaden authority"
     statement_hash: "blake3:e7c7b48909d23643fd36df5ab9306250877dbea04bf1455e2dd822d2e1c581a0"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-HEAL-005 — Invariant preservation
 A healing strategy MUST NOT be accepted if it violates required invariants"
   FAS-HEAL-006:
@@ -72,7 +72,7 @@ A healing strategy MUST NOT be accepted if it violates required invariants"
     statement_hash: "blake3:65eb4841e76806003f3f02b95e7a634009d673bbe84512279733041c4b1e59b0"
     verified_against: null
     status: partial
-    sources:
+    sources: []
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
     evidence_assertions:
@@ -87,10 +87,10 @@ Healing SHOULD produce evidence describing detected condition diagnosis selected
     statement_hash: "blake3:d5ec19ab43eeb52ee7d11d5d2d65a4b3211b34f0ed84cdadbe46d59ec0ccdac9"
     verified_against: null
     status: partial
-    sources:
+    sources: []
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
-    evidence_assertions:
+    evidence_assertions: []
     normalized_statement: "FAS-HEAL-007 — Human escalation
 Escalation MUST remain available when autonomous recovery is unauthorized or insufficient"
   FAS-HEAL-008:
@@ -100,7 +100,7 @@ Escalation MUST remain available when autonomous recovery is unauthorized or ins
     statement_hash: "blake3:a84dd3e99a916c2ecc6aadf91c0817afb2a0fa9cc2c35b890e13d745c9c1b76a"
     verified_against: null
     status: partial
-    sources:
+    sources: []
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
     evidence_assertions:
