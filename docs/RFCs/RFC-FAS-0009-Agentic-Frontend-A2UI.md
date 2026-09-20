@@ -78,3 +78,16 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-UI-001 | REQUIRED | user_facing_visual_operation_exists | intent equivalence coverage | visual-only capability has no Intent path |
+| FAS-UI-002 | OPTIONAL | dynamic_frontend_supported | dynamic rendering evidence | dynamic rendering changes domain semantics |
+| FAS-UI-003 | REQUIRED | ui_agent_exists | authority test | UI Agent gains business authority from rendering/input role |
+| FAS-UI-004 | CONDITIONAL | dynamic_interface_element_exists | semantic link metadata | element has no link to capability/Intent |
+| FAS-UI-005 | REQUIRED | multiple_interaction_modes_supported | cross-mode equivalence tests | same capability changes meaning by interaction mode |
+| FAS-UI-006 | OPTIONAL | agent_to_user_interface_supported | protocol-neutral conformance evidence | conformance depends on one specific wire format |
+| FAS-UI-007 | REQUIRED | confirmation_required | confirmation/action correlation | displayed confirmation misrepresents protected effect |
