@@ -193,9 +193,14 @@ def main():
     mode = ap.add_mutually_exclusive_group(required=True)
     mode.add_argument("--write", action="store_true")
     mode.add_argument("--check", action="store_true")
+    ap.add_argument("--verify", action="store_true", help="mark fully bound requirements verified after successful conformance")
     args = ap.parse_args()
 
-    if args.verify and not args.write:\n        print("error: --verify requires --write", file=sys.stderr)\n        return 2\n\n    annotations = scan_annotations()
+    if args.verify and not args.write:
+        print("error: --verify requires --write", file=sys.stderr)
+        return 2
+
+    annotations = scan_annotations()
     changed = False
     errors = []
 
