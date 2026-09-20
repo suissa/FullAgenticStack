@@ -1,5 +1,5 @@
 const std = @import("std");
-const Harness = @import("../../../../tools/conformance_harness.zig").Harness;
+const Harness = @import("conformance_harness").Harness;
 
 pub const Stage = enum {
     intake,
