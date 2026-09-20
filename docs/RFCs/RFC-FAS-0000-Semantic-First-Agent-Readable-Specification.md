@@ -2,7 +2,7 @@
 
 **Status:** Draft Standard  
 **Category:** Standards Track  
-**Version:** 0.2.0  
+**Version:** 0.3.0  
 **Last Updated:** 2026-09-20  
 **Dependencies:** None
 
@@ -127,6 +127,117 @@ An Agent SHOULD be able to normalize a requirement into:
 - verification.
 
 No private knowledge from the specification author’s implementation should be required.
+
+## 10. Machine-actionable requirement model
+
+Every normative requirement SHOULD expose explicit metadata sufficient for deterministic evaluation by an Agent.
+
+### FAS-SPEC-011 — Requirement class
+Each normative requirement SHOULD declare one of:
+
+- **REQUIRED** — must be evaluated whenever the containing conformance profile includes it.
+- **CONDITIONAL** — must be evaluated when its ActivationCondition is true.
+- **OPTIONAL** — does not block profile conformance unless a profile explicitly elevates it.
+
+RequirementClass is distinct from MUST/SHOULD/MAY wording. The normative verb defines obligation strength inside the requirement; RequirementClass defines profile applicability.
+
+### FAS-SPEC-012 — Activation condition
+CONDITIONAL requirements MUST define a machine-evaluable or semantically explicit ActivationCondition.
+
+Example:
+
+```text
+Requirement: FAS-PROJ-001
+Class: CONDITIONAL
+ActivationCondition:
+  independent_projection_exists == true
+```
+
+### FAS-SPEC-013 — Required evidence
+A requirement SHOULD define the minimum evidence class needed to support PASS.
+
+### FAS-SPEC-014 — Verification property
+A requirement SHOULD define at least one observable property whose satisfaction supports PASS.
+
+### FAS-SPEC-015 — Adversarial property
+Security-, authority-, integrity-, healing- and conformance-critical requirements SHOULD define at least one negative or adversarial property that attempts to falsify the invariant.
+
+### FAS-SPEC-016 — Non-applicability
+A CONDITIONAL requirement MAY become NOT_APPLICABLE only when its ActivationCondition is demonstrably false.
+
+NOT_APPLICABLE MUST NOT be used merely because implementation or evidence is missing.
+
+### FAS-SPEC-017 — No capability masking
+A requirement MUST NOT be satisfied by removing, disabling, hiding, short-circuiting or making unreachable the behavior being evaluated when that behavior is required by the claimed profile.
+
+### FAS-SPEC-018 — Profile elevation
+A conformance profile MAY elevate OPTIONAL or CONDITIONAL requirements to REQUIRED for that profile. Such elevation MUST be explicit in the profile manifest.
+
+## 11. Canonical requirement metadata
+
+The canonical semantic fields are:
+
+```text
+RequirementMetadata {
+  requirement_id
+  requirement_class
+  activation_condition
+  verification_property
+  required_evidence
+  adversarial_property
+  profile_overrides
+}
+```
+
+A human-readable table is acceptable when the same fields are unambiguous.
+
+## 12. Evidence classes
+
+RFCs and conformance profiles MAY require one or more of:
+
+- **StaticEvidence** — declarations, schemas, contracts, source structure or configuration.
+- **TestEvidence** — reproducible positive, negative, property or conformance tests.
+- **RuntimeEvidence** — observed execution traces, events, proofs or state transitions.
+- **FormalEvidence** — proof artifacts, model checking, theorem or invariant verification.
+- **HumanAttestation** — explicit human assertion when machine verification is unavailable or inappropriate.
+
+HumanAttestation alone SHOULD NOT satisfy a requirement whose semantics are directly machine-verifiable and security- or authority-critical.
+
+## 13. Verification-oriented wording
+
+A normative requirement SHOULD be expressible as:
+
+```text
+Given <precondition/context>
+When <semantic action or observation>
+Then <required property>
+And NOT <forbidden/adversarial property>
+Evidence <required evidence class>
+```
+
+This form is recommended because an implementation Agent can derive tests and evidence collectors from it without requiring a particular programming language.
+
+## 14. Semantic executability
+
+The long-term objective of the RFC series is semantic executability:
+
+```text
+RFCs
+  + Technology Profile
+  + Project Context
+      ↓
+Implementation Agent
+      ↓
+Implementation
+      ↓
+Conformance Agent
+      ↓
+Requirement evaluation
+      ↓
+Evidence-backed report
+```
+
+“Executable” in this context does not mean that RFC prose is source code. It means the semantics are explicit enough for an Agent to deterministically derive implementation obligations and verification properties.
 
 ## Agent implementation guidance
 
