@@ -27,6 +27,18 @@ pub fn build(b: *std.Build) void {
 
     const conformance = b.step("conformance", "Compile and run every RFC conformance suite");
 
+    const lock_write_cmd = b.addSystemCommand(&.{ "python", "tools/rfc_lock.py", "--write" });
+    const lock_write = b.step("rfc-lock", "Regenerate semantic lockfiles");
+    lock_write.dependOn(&lock_write_cmd.step);
+
+    const lock_check_cmd = b.addSystemCommand(&.{ "python", "tools/rfc_lock.py", "--check" });
+    const lock_check = b.step("rfc-lock-check", "Verify semantic lockfiles are generated and current");
+    lock_check.dependOn(&lock_check_cmd.step);
+
+    const rfc_check = b.step("rfc-check", "Verify semantic locks and run all RFC conformance proofs");
+    rfc_check.dependOn(lock_check);
+    rfc_check.dependOn(conformance);
+
     const harness_module = b.createModule(.{
         .root_source_file = b.path("tools/conformance_harness.zig"),
         .target = target,
