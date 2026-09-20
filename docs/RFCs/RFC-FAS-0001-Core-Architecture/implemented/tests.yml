@@ -9,3 +9,6 @@ test_policy:
   stale_on_semantic_drift: true
   stale_on_implementation_profile_drift: true
 project_tests: []
+semantic_lock:
+  normative_fingerprint_only: true
+  canonicalize_unicode_quotes: true
