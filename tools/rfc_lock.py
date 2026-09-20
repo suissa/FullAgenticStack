@@ -522,6 +522,25 @@ def verify_bindings(rfc_dir: Path, generated: str):
                 )
 
 
+def validate_conformance_surface(rfc_dir: Path) -> None:
+    path = rfc_dir / "implemented" / "conformance.zig"
+    if not path.exists():
+        raise ValueError(f"{rfc_dir}: missing implemented/conformance.zig")
+
+    text = path.read_text(encoding="utf-8")
+    if '@import("fullagenticstack")' not in text:
+        raise ValueError(
+            f"{path}: conformance must import the public fullagenticstack surface"
+        )
+
+    forbidden = re.search(r"^\s*pub\s+(?:const|fn|var)\s+", text, re.M)
+    if forbidden:
+        raise ValueError(
+            f"{path}: conformance must not define public implementation stubs; "
+            "move semantics to src/ and exercise @import(\"fullagenticstack\")"
+        )
+
+
 def validate_refs(generated: str):
     for ref in re.findall(r'^\s+- "([^"]+)"\s*$', generated, re.M):
         if ref.startswith(("docs/", "src/", "tests/", "tools/")):
@@ -575,6 +594,7 @@ def main():
         try:
             generated = manifest_for(rfc_dir, annotations, mark_verified=args.verify)
             validate_test_policy(rfc_dir, annotations)
+            validate_conformance_surface(rfc_dir)
             verify_bindings(rfc_dir, generated)
             validate_refs(generated)
             validate_test_visibility(generated)
