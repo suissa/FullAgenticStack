@@ -1,5 +1,5 @@
 const std = @import("std");
-const Harness = @import("../../../../tools/conformance_harness.zig").Harness;
+const Harness = @import("conformance_harness").Harness;
 
 pub const FailureClass = enum { retryable, substitutable, healable, non_recoverable, escalate };
 pub const HealingResult = enum { recovered, retry, rollback, escalated };
