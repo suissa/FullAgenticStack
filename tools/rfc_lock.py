@@ -53,7 +53,7 @@ def normalize_statement(text: str) -> str:
         if not line:
             continue
 
-        line = line.replace("**", "").replace("__", "").replace("\`", "")
+        line = line.replace("**", "").replace("__", "").replace("`", "")
         line = re.sub(r"^[-*+]\s+", "", line)
         line = re.sub(r"[,;](?=\s|$)", "", line)
         line = re.sub(r"\.(?=\s*$)", "", line)
