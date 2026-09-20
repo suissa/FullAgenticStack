@@ -1,83 +1,132 @@
 # FullAgenticStack RFC Series
 
-The FullAgenticStack RFC series defines a semantic, technology-independent software architecture intended to be read by both humans and AI Agents.
+The FullAgenticStack RFC series is split into two synchronized layers for every RFC:
 
-The RFCs define **what the architecture means and guarantees**. Technology Profiles define how a particular project chooses to realize those guarantees.
+- `*.semantic.md` — normative, technology-independent meaning, invariants, authority, failure semantics, evidence and conformance.
+- `*.implementation.md` — the current AllasCode/FullAgenticStack reference implementation: languages, runtime, databases, protocols, deployment patterns and operational choices.
 
-## Governing model
+## Precedence rule
 
-RFC = semantics and invariants  
-Technology Profile = developer constraints  
-Implementation Agent = realization  
-Conformance = observable behavior + evidence
+```text
+semantic > implementation
+```
 
-## RFC index
+If an implementation profile conflicts with the paired semantic RFC, the semantic RFC wins.
 
-| RFC | Title | Purpose |
+Implementation files are allowed to evolve faster than semantic RFCs.
+
+## Required Agent read order
+
+Before implementing a FullAgenticStack project, an AI Agent SHOULD load in this order:
+
+1. the developer/project goal;
+2. all applicable `*.semantic.md` RFCs;
+3. all paired `*.implementation.md` RFCs;
+4. project-local Technology Profile and constraints;
+5. existing source code, configuration and tests;
+6. current conformance evidence if any.
+
+Then derive:
+
+```text
+Project Goal
+   +
+Semantic RFCs
+   +
+Implementation RFCs
+   +
+Existing Project Context
+      ↓
+Capability Inventory
+      ↓
+Intent / Agent / Actor / Action Plan
+      ↓
+Technology Bindings
+      ↓
+Implementation
+      ↓
+Positive + Adversarial Tests
+      ↓
+Runtime Evidence
+      ↓
+Conformance Report
+```
+
+An Agent MUST NOT alter semantic requirements merely to fit the current implementation profile.
+
+## RFC pairs
+
+| RFC | Semantic | Implementation |
 |---|---|---|
-| 0000 | Semantic-First and Agent-Readable Specification Model | Governs RFC language and technology neutrality |
-| 0001 | FullAgenticStack Core Architecture | Defines the paradigm and minimum invariants |
-| 0002 | Intent as the Universal Software Interface | Defines Intent as the universal human/Agent interface |
-| 0003 | Multimodal Intent Ingress | Defines text, audio and image convergence |
-| 0004 | Agentic Runtime | Defines Runtime-owned orchestration |
-| 0005 | Agent-Actor-Action Model | Defines core execution roles |
-| 0006 | Agentic Data Architecture | Defines semantic data responsibilities |
-| 0007 | Agent per Projection | Defines projection ownership and lifecycle |
-| 0008 | Agentic Event Architecture | Defines event semantics |
-| 0009 | Agentic Frontend and A2UI | Defines dynamic Agent-to-user interface semantics |
-| 0010 | Polyglot Agent Actions | Defines technology-independent Action execution |
-| 0011 | Agentic Observability | Defines evidence as a first-class responsibility |
-| 0012 | Self-Healing and Supervision | Defines bounded recovery |
-| 0013 | eXtreme Zero Trust | Defines system-wide explicit trust |
-| 0014 | Passwordless Agentic Identity | Defines passwordless and email-independent identity |
-| 0015 | Human-Agent Authority | Defines explicit delegated authority |
-| 0016 | FullAgenticStack Conformance | Defines testable conformance profiles |
-| 0017 | FullAgenticStack Maturity Levels | Defines architectural maturity |
+| 0000 | Semantic-First and Agent-Readable Specification | Reference authoring, language and generation profile |
+| 0001 | FullAgenticStack Core Architecture | Zig Runtime + universal POST Intent gateway |
+| 0002 | Intent as Universal Software Interface | Canonical labels, resolver, vector aliases, 2flow binding |
+| 0003 | Multimodal Intent Ingress | Text/audio/image, GatewayAgent, WhatsApp-first |
+| 0004 | Agentic Runtime | Zig 0.16 Runtime pipeline and bounded execution |
+| 0005 | Agent-Actor-Action | A³, Atomic Actions, supervisors, skills |
+| 0006 | Agentic Data Architecture | PostgreSQL/MongoDB/Redis/Qdrant/Neo4j/Cozo/EventStoreDB/BadgerDB/etc. |
+| 0007 | Agent per Projection | Projection Agents, CDC/Outbox, rebuild/healing |
+| 0008 | Agentic Event Architecture | emit/listen, EventStoreDB, BadgerDB, NATS/Kafka bindings |
+| 0009 | Agentic Frontend and A2UI | UIAgent, GatewayAgent, TypeScript, WebSocket/SSE, offline-first |
+| 0010 | Polyglot Agent Actions | Zig/Rust/Go/TypeScript/Python/Prolog/Haskell + WASM |
+| 0011 | Agentic Observability | OpenTelemetry, ClickHouse, Tempo, Grafana, SSE/NDJSON |
+| 0012 | Self-Healing and Supervision | Supervisor, CodeManager, CodeHealerAgent, SystemHealerAgent |
+| 0013 | eXtreme Zero Trust | QUIC, TLS 1.3, mTLS, DPoP, Ed25519/X25519/ML-KEM, UbiQ walls |
+| 0014 | Passwordless Agentic Identity | Passkeys/WebAuthn, WhatsApp-first, no passwords/email identity |
+| 0015 | Human-Agent Authority | Governor, delegated authority, Human-in/on-the-Loop, Prolog policies |
+| 0016 | FullAgenticStack Conformance | CI evaluator, BLAKE3 fingerprints, TLA+/Alloy where useful |
+| 0017 | FullAgenticStack Maturity Levels | Concrete migration path from AI-Enhanced to FAS-Extreme |
 
-## Common RFC structure
+## Current reference language profile
 
-Where applicable, RFCs define:
-- scope and purpose;
-- semantic model;
-- terminology;
-- normative requirements;
-- preconditions;
-- postconditions;
-- invariants;
-- authority boundaries;
-- failure semantics;
-- evidence requirements;
-- normative and non-conforming examples;
-- Agent implementation guidance;
-- compatibility rules.
+Preferred languages by responsibility:
 
-## Stable requirement identifiers
+- **Zig 0.16** — Runtime, systems, edge, bounded high-performance Actions.
+- **Rust** — high-assurance/high-performance Actions and security-sensitive components.
+- **Go** — operational and network services.
+- **TypeScript** — web/A2UI, gateways, tooling and adapters.
+- **Python** — ML, model integration, data/analytical Actions.
+- **Prolog** — legal/compliance/policy/symbolic reasoning.
+- **Haskell** — formal/compiler/highly typed semantic transformations.
+- **WASM** — portable external-language boundary.
 
-Requirement IDs are intended for machine traceability.
+Language binding is preferably selected per Action rather than per Agent.
 
-An implementation may declare, for example:
+## Current reference data profiles
 
-implements:
-- FAS-INTENT-001
-- FAS-RUNTIME-004
-- FAS-OBS-003
+### Polyglot
 
-and associate each identifier with implementation artifacts, tests and runtime evidence.
+- Write → PostgreSQL
+- Read → MongoDB
+- Cache → Redis
+- Vector → Qdrant
+- Graph → Neo4j / Cozo
+- Events → EventStoreDB/Kurrent-compatible
+- Local Event Sourcing → BadgerDB
+- Search → Meilisearch
+- Analytics → DuckDB / Cassandra when justified
+- Logs → ClickHouse
+- Traces → Tempo
+- Secrets → Infisical
 
-## Technology neutrality
+### Full-Postgres / Junior
 
-Core RFCs SHOULD use semantic names such as Vector Capability, Event Capability, Intent Resolver or Projection Agent rather than vendor products.
+PostgreSQL plus extensions/projections MAY implement multiple semantic responsibilities when operational simplicity is preferred.
 
-A developer only needs to specify the desired technology constraints separately. An implementation Agent should then map the semantic RFC requirements to those constraints without changing the architecture's meaning.
+### Embedded
 
+SQLite, RocksDB, DuckDB and file-based Outbox MAY implement the embedded profile.
 
-## Machine-actionable conformance model
+## Configuration conventions
 
-From RFC series version 0.3.0 onward, normative requirements are intended to expose explicit metadata for Agent-driven implementation and verification.
+- TOML preferred for Runtime/core configuration.
+- YAML preferred for Agent manifests, declarative application structure and project Technology Profiles.
 
-Canonical metadata fields:
+## Machine-actionable requirement model
 
-- RequirementClass: REQUIRED, CONDITIONAL, OPTIONAL
+Normative RFCs expose or define:
+
+- RequirementClass: REQUIRED / CONDITIONAL / OPTIONAL
 - ActivationCondition
 - RequiredEvidence
 - VerificationProperty
@@ -87,30 +136,39 @@ Canonical metadata fields:
 Conformance adds:
 
 - ConformanceTarget
-- PASS, FAIL, NOT_APPLICABLE, NOT_VERIFIED, STALE
-- CLAIMED, SELF_VERIFIED, INDEPENDENTLY_VERIFIED assurance
-- capability coverage metrics
-- anti-masking checks
-- artifact/configuration fingerprint binding
+- PASS / FAIL / NOT_APPLICABLE / NOT_VERIFIED / STALE
+- CLAIMED / SELF_VERIFIED / INDEPENDENTLY_VERIFIED assurance
+- capability coverage
+- anti-masking
+- fingerprint binding
 - drift/staleness detection
-- exact profile requirement manifests
+- exact profile manifests
 
-The intended flow is:
+## Implementation Agent contract
 
-~~~text
-RFCs
-  + Technology Profile
-  + Project Context
-      ↓
-Implementation Agent
-      ↓
-Executable System
-      ↓
-Conformance Agent
-      ↓
-Positive + Adversarial Verification
-      ↓
-Evidence-backed FAS-Core / FAS-Native / FAS-Extreme result
-~~~
+An implementation Agent SHOULD:
 
-A profile target is not a conformance claim. A system MAY state that it is targeting a profile before verification, but MUST NOT claim conformance unless the applicable required requirements evaluate to PASS.
+1. parse the goal into desired capabilities and constraints;
+2. discover existing architecture before proposing replacements;
+3. map applicable semantic requirements;
+4. read each paired implementation profile;
+5. choose/adapt technology bindings;
+6. create Intent/Agent/Actor/Action and data responsibility plans;
+7. generate code/configuration;
+8. generate invariant and adversarial tests;
+9. generate evidence instrumentation;
+10. run or prepare conformance evaluation.
+
+The Agent MUST preserve semantic requirements even when the project uses technologies different from the reference implementation.
+
+## Important distinction
+
+```text
+RFC semantic layer = what MUST remain true
+RFC implementation layer = how we currently choose to make it true
+Project goal = what the developer wants built
+Technology Profile = project-specific constraints
+Agent = derives the concrete implementation
+```
+
+This split is intentional: the same semantic FullAgenticStack architecture can be generated for a different technology stack without changing its architectural meaning.
