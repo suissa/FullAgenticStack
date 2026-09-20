@@ -415,7 +415,7 @@ def manifest_for(rfc_dir: Path, annotations, mark_verified: bool = False):
 
 def validate_test_policy(rfc_dir: Path, annotations) -> None:
     policy_text = _test_policy_text(rfc_dir)
-    if not policy_text:
+    if not policy_text or not _bool_setting(policy_text, "policy_engine_enabled"):
         return
 
     requirements = extract_requirements(
