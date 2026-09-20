@@ -115,3 +115,19 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-DATA-001 | REQUIRED | mature_data_layer_claim | ownership map | required responsibility has no semantic owner |
+| FAS-DATA-002 | REQUIRED | write_responsibility_exists | authoritative transition contract | write path cannot identify authority |
+| FAS-DATA-003 | REQUIRED | read_responsibility_exists | read lineage/derivation evidence | read state origin is unknown |
+| FAS-DATA-004 | REQUIRED | cache_exists | authority test | cache silently becomes canonical authority |
+| FAS-DATA-005 | REQUIRED | vector_responsibility_exists | semantic retrieval tests | vector layer cannot demonstrate semantic-space retrieval |
+| FAS-DATA-006 | REQUIRED | graph_responsibility_exists | relationship traversal tests | graph relationships have undefined semantics |
+| FAS-DATA-007 | REQUIRED | event_responsibility_exists | temporal history evidence | required temporal facts are not preserved |
+| FAS-DATA-008 | REQUIRED | observability_responsibility_exists | audit/reasoning evidence | execution cannot be reconstructed |
+| FAS-DATA-009 | REQUIRED | multiple_or_single_physical_stores | authority map independent of storage topology | physical store location determines authority implicitly |
+| FAS-DATA-010 | REQUIRED | derived_data_exists | lineage evidence | derived data cannot identify semantic source |
