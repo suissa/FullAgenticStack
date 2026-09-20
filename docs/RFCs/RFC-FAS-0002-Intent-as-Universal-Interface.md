@@ -106,3 +106,18 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-INTENT-001 | REQUIRED | human_facing_capability_exists | capability inventory + intent coverage | a capability exists with no natural-language path |
+| FAS-INTENT-002 | REQUIRED | semantic_equivalence_cases_exist | equivalence test set | equivalent expressions resolve to materially different canonical Intents |
+| FAS-INTENT-003 | CONDITIONAL | multiple_supported_surfaces_or_modalities | cross-surface resolution evidence | same goal changes canonical Intent by surface |
+| FAS-INTENT-004 | REQUIRED | always | canonical Intent schema + topology mutation test | topology change changes semantic Intent identity |
+| FAS-INTENT-005 | REQUIRED | intent_accepted | before/after Intent evidence | execution silently changes requested goal |
+| FAS-INTENT-006 | REQUIRED | material_reinterpretation_occurs | reinterpretation/confirmation evidence | material reinterpretation is silently substituted |
+| FAS-INTENT-007 | REQUIRED | protected_effect_possible | separate resolution and authority evidence | resolved Intent alone authorizes protected effect |
+| FAS-INTENT-008 | OPTIONAL | multiple_behaviors_exist | behavior selection evidence | alternative Behavior bypasses policy or invariant |
+| FAS-INTENT-009 | REQUIRED | resolution_or_execution_failure_occurs | semantic failure evidence | failure is reported as successful fulfillment |
