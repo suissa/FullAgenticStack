@@ -1,0 +1,7 @@
+flowchart TD
+  U[User] --> UI[UIAgent/A2UI]
+  UI --> G[GatewayAgent]
+  G --> I[Intent]
+  I --> R[Runtime]
+  R --> E[Semantic Events]
+  E --> UI

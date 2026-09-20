@@ -1,0 +1,17 @@
+rfc: RFC-FAS-0003
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "TypeScript"
+  - "Python"
+  - "Zig 0.16"
+  - "WhatsApp"
+  - "Web/A2UI"
+  - "audio"
+  - "image"
+  - "text"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

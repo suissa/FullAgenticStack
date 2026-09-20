@@ -1,0 +1,8 @@
+flowchart TD
+  H[Human/Agent] --> G[POST Intent Gateway]
+  G --> M[Multimodal Intake]
+  M --> R[Intent Resolution]
+  R --> RT[AllasCode Runtime]
+  RT --> A[Agents/Actors/Actions]
+  A --> D[Data/Services/Infra]
+  D --> E[Events/Proof/Observability]

@@ -1,0 +1,14 @@
+rfc: RFC-FAS-0011
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "OpenTelemetry"
+  - "ClickHouse"
+  - "Tempo"
+  - "Grafana"
+  - "SSE/NDJSON"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

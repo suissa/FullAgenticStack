@@ -1,0 +1,16 @@
+rfc: RFC-FAS-0014
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "Passkeys"
+  - "WebAuthn"
+  - "WhatsApp"
+  - "Ed25519"
+  - "mTLS"
+  - "DPoP"
+  - "device-bound credentials"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

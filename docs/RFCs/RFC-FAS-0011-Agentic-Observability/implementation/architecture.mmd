@@ -1,0 +1,6 @@
+flowchart LR
+  R[Runtime/Actions] --> O[OpenTelemetry]
+  O --> T[Tempo]
+  O --> C[ClickHouse]
+  C --> G[Grafana]
+  R --> S[SSE/NDJSON]

@@ -1,0 +1,15 @@
+rfc: RFC-FAS-0015
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "Governor"
+  - "Human-in-the-Loop"
+  - "Human-on-the-Loop"
+  - "Delegated Authority"
+  - "Prolog"
+  - "ResponsibilityEnvelope"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

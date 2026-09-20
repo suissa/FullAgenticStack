@@ -1,0 +1,15 @@
+rfc: RFC-FAS-0002
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "canonical_label"
+  - "Qdrant"
+  - "2flow"
+  - "LLM optional"
+  - "Prolog optional"
+  - "vector retrieval"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

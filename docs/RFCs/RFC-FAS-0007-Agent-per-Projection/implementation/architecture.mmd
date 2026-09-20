@@ -1,0 +1,5 @@
+flowchart LR
+  S[Authoritative Source] --> E[Event/Outbox]
+  E --> PA[Projection Agent]
+  PA --> P[Projection]
+  PA --> V[Validate/Rebuild/Heal]

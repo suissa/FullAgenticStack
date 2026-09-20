@@ -1,0 +1,15 @@
+rfc: RFC-FAS-0008
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "EventStoreDB"
+  - "BadgerDB"
+  - "NATS"
+  - "Kafka optional"
+  - "Outbox"
+  - "emit/listen"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

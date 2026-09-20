@@ -1,0 +1,11 @@
+rfc: RFC-FAS-0006
+conformance_suite: conformance.zig
+semantic_source: ../semantic.md
+test_policy:
+  derive_positive_properties: true
+  derive_adversarial_properties: true
+  forbid_requirement_weakening: true
+  forbid_capability_masking: true
+  stale_on_semantic_drift: true
+  stale_on_implementation_profile_drift: true
+project_tests: []

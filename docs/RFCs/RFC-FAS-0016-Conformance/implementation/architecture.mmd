@@ -1,0 +1,8 @@
+flowchart TD
+  T[Target] --> R[RFC Set]
+  R --> C[Capability Inventory]
+  C --> P[Positive Tests]
+  C --> A[Adversarial Tests]
+  P --> E[Evidence]
+  A --> E
+  E --> F[PASS/FAIL/N-A/NOT-VERIFIED/STALE]

@@ -1,0 +1,19 @@
+rfc: RFC-FAS-0000
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "Zig 0.16"
+  - "TypeScript"
+  - "Rust"
+  - "Go"
+  - "Python"
+  - "Prolog"
+  - "Haskell"
+  - "WASM"
+  - "TOML"
+  - "YAML"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

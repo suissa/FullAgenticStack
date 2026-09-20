@@ -1,0 +1,8 @@
+flowchart TD
+  F[Action Failure] --> S[Supervisor]
+  S --> D[CodeManager Diagnosis]
+  D --> C[CodeHealerAgent]
+  D --> Y[SystemHealerAgent]
+  C --> V[Verify Invariants]
+  Y --> V
+  V --> A[Accept/Rollback/Escalate]

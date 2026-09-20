@@ -1,0 +1,8 @@
+flowchart TD
+  W[Write/PostgreSQL] --> O[Outbox]
+  O --> R[Read]
+  O --> C[Cache]
+  O --> V[Vector]
+  O --> G[Graph]
+  O --> E[Events]
+  O --> OBS[Observability]

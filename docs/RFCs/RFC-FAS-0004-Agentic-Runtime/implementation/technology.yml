@@ -1,0 +1,16 @@
+rfc: RFC-FAS-0004
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "Zig 0.16"
+  - "A³"
+  - "2flow"
+  - "BadgerDB"
+  - "in-memory broker"
+  - "EventStoreDB"
+  - "NATS optional"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

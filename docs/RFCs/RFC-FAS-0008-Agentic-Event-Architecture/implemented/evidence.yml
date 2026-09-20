@@ -1,0 +1,11 @@
+rfc: RFC-FAS-0008
+status: NOT_VERIFIED
+evidence: []
+required_fields:
+  - requirement_id
+  - evidence_class
+  - source
+  - claim
+  - observed_at
+  - target_fingerprint
+  - reproducible

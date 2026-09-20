@@ -1,0 +1,23 @@
+rfc: RFC-FAS-0006
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "PostgreSQL"
+  - "MongoDB"
+  - "Redis"
+  - "Qdrant"
+  - "Neo4j"
+  - "Cozo"
+  - "EventStoreDB"
+  - "BadgerDB"
+  - "Meilisearch"
+  - "DuckDB"
+  - "Cassandra"
+  - "ClickHouse"
+  - "Tempo"
+  - "Infisical"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

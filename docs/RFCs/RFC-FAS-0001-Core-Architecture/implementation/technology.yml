@@ -1,0 +1,16 @@
+rfc: RFC-FAS-0001
+profile: AllasCode-FullAgenticStack
+semantic_authority: ../semantic.md
+technologies:
+  - "Zig 0.16"
+  - "POST /intent"
+  - "2flow"
+  - "emit/listen"
+  - "QUIC"
+  - "WebSocket"
+  - "SSE/NDJSON"
+rules:
+  semantic_precedence: true
+  adapt_to_project_goal: true
+  preserve_invariants: true
+  avoid_unnecessary_operational_complexity: true

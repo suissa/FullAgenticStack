@@ -1,0 +1,20 @@
+rfc: RFC-FAS-0008
+semantic: ../semantic.md
+implementation_readme: README.md
+binding_policy:
+  source_of_truth: semantic
+  technology_profile: reference
+  project_override_allowed: true
+  project_override_must_preserve_semantics: true
+agent_inputs:
+  - project_goal
+  - semantic_rfc
+  - implementation_profile
+  - existing_project
+  - technology_constraints
+agent_outputs:
+  - capability_plan
+  - implementation_plan
+  - tests
+  - evidence
+  - conformance_result

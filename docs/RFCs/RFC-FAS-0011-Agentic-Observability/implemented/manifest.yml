@@ -1,0 +1,20 @@
+rfc: RFC-FAS-0011
+semantic: ../semantic.md
+implementation: ../implementation/README.md
+conformance: conformance.zig
+implementation_state: reference_contract
+source_of_truth: semantic
+real_source_bindings: []
+test_bindings:
+  - conformance.zig
+evidence_bindings:
+  - evidence.yml
+drift:
+  semantic_fingerprint: TO_BE_COMPUTED_BY_CI
+  implementation_fingerprint: TO_BE_COMPUTED_BY_CI
+  verified_semantic_fingerprint: null
+  verified_implementation_fingerprint: null
+status: NOT_VERIFIED
+notes:
+  - "This specification repository does not claim that project/runtime source is implemented here."
+  - "Target projects MUST populate real_source_bindings and evidence after implementation."

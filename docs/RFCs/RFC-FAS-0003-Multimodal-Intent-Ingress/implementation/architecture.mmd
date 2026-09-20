@@ -1,0 +1,6 @@
+flowchart TD
+  T[Text] --> G[GatewayAgent]
+  A[Audio] --> G
+  I[Image] --> G
+  G --> N[Normalize]
+  N --> R[IntentResolver]
