@@ -88,3 +88,17 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-A3-001 | REQUIRED | agent_exists | responsibility contract | Agent has no bounded semantic responsibility |
+| FAS-A3-002 | REQUIRED | actor_state_exists | state-boundary evidence | Actor state leaks across unrelated responsibility |
+| FAS-A3-003 | REQUIRED | action_exists | Action contract | Action purpose/input/output/authority is unbounded |
+| FAS-A3-004 | REQUIRED | protected_action_exists | invariant declaration/test | protected Action has no declared/inherited invariants |
+| FAS-A3-005 | REQUIRED | action_executes | authority evidence | Action exceeds execution authority |
+| FAS-A3-006 | REQUIRED | implementation_binding_changes | cross-binding identity evidence | technology change changes semantic Action identity |
+| FAS-A3-007 | OPTIONAL | behavior_composes_actions | composition evidence | composition violates declared ordering/constraint semantics |
+| FAS-A3-008 | REQUIRED | action_completes | success/failure evidence | Runtime cannot distinguish Action outcome |
