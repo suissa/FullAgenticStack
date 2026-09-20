@@ -18,10 +18,10 @@ pub const ActionBinding = struct {
 };
 
 pub fn preferredLanguage(action: []const u8) Language {
-    if (std.mem.indexOf(u8, action, "Policy") != null) return .prolog;
-    if (std.mem.indexOf(u8, action, "ML") != null) return .python;
-    if (std.mem.indexOf(u8, action, "UI") != null) return .typescript;
-    if (std.mem.indexOf(u8, action, "Crypto") != null) return .rust;
+    if (std.mem.find(u8, action, "Policy") != null) return .prolog;
+    if (std.mem.find(u8, action, "ML") != null) return .python;
+    if (std.mem.find(u8, action, "UI") != null) return .typescript;
+    if (std.mem.find(u8, action, "Crypto") != null) return .rust;
     return .zig;
 }
 
