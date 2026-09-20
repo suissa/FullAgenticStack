@@ -16,6 +16,14 @@ pub const EvidenceJournal = struct {
         }
         return false;
     }
+
+    pub fn expectEmitted(self: *const EvidenceJournal, expected: []const u8) !void {
+        try @import("std").testing.expect(self.emitted(expected));
+    }
+
+    pub fn expectNotEmitted(self: *const EvidenceJournal, expected: []const u8) !void {
+        try @import("std").testing.expect(!self.emitted(expected));
+    }
 };
 
 pub const Authority = struct {
