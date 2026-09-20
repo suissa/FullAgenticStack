@@ -1,41 +1,111 @@
 const std = @import("std");
+const rt = @import("fullagenticstack");
 
-pub const Modality = enum { text, audio, image };
-pub const Outcome = union(enum) {
-    accepted: []const u8,
-    semantic_failure: []const u8,
-    escalated: []const u8,
-};
+// @test FAS-CORE-001
+test "FAS-CORE-001 real human-facing capability inventory has universal Intent coverage" {
+    const capabilities = rt.capabilityInventory();
+    try std.testing.expect(capabilities.len > 0);
 
-pub const Request = struct {
-    natural_language: []const u8,
-    modality: Modality,
-};
+    const coverage = try rt.evaluateIntentCoverage(capabilities);
+    try std.testing.expect(coverage.human_facing_total > 0);
+    try std.testing.expectEqual(
+        coverage.human_facing_total,
+        coverage.reachable_by_intent,
+    );
+    try std.testing.expectEqual(
+        @as(?f64, 1.0),
+        coverage.ratio,
+    );
 
-pub const Capability = struct {
-    name: []const u8,
-    natural_language_path: bool,
-};
+    try std.testing.expectEqual(
+        rt.RequirementApplicability.applicable,
+        try rt.validateUniversalIntentCoverage(capabilities),
+    );
 
-pub const Runtime = struct {
-    pub fn submit(_: *Runtime, req: Request, capability: Capability) Outcome {
-        if (req.natural_language.len == 0) return .{ .semantic_failure = "MissingIntent" };
-        if (!capability.natural_language_path) return .{ .semantic_failure = "UnsupportedIntent" };
-        return .{ .accepted = capability.name };
+    var runtime = rt.Runtime{};
+    for (capabilities) |capability| {
+        if (!capability.human_facing) continue;
+
+        const outcome = runtime.submit(
+            .{
+                .natural_language = "please perform the requested outcome",
+                .modality = .text,
+            },
+            capability.name,
+        );
+
+        switch (outcome) {
+            .accepted => |accepted| try std.testing.expectEqualStrings(
+                capability.name,
+                accepted,
+            ),
+            .semantic_failure, .escalated => {
+                return error.TestUnexpectedResult;
+            },
+        }
     }
-};
-
-pub fn intentCoverage(capabilities: []const Capability) f64 {
-    if (capabilities.len == 0) return 1.0;
-    var covered: usize = 0;
-    for (capabilities) |c| if (c.natural_language_path) { covered += 1; };
-    return @as(f64, @floatFromInt(covered)) / @as(f64, @floatFromInt(capabilities.len));
 }
 
-test "all human capabilities must have natural language path" {
-    const caps = [_]Capability{
-        .{ .name = "Customer.Create", .natural_language_path = true },
-        .{ .name = "Invoice.Create", .natural_language_path = true },
+// @test FAS-CORE-001
+// @adversarial FAS-CORE-001 capability_masking
+test "FAS-CORE-001 rejects a human capability that cannot be reached by Intent" {
+    const adversarial_inventory = [_]rt.Capability{
+        .{
+            .name = "Customer.Create",
+            .human_facing = true,
+            .natural_language_path = true,
+            .owner = "CoreAgent",
+        },
+        .{
+            .name = "Invoice.Create",
+            .human_facing = true,
+            .natural_language_path = false,
+            .owner = "CoreAgent",
+        },
     };
-    try std.testing.expectEqual(@as(f64, 1.0), intentCoverage(&caps));
+
+    const coverage = try rt.evaluateIntentCoverage(&adversarial_inventory);
+    try std.testing.expectEqual(@as(usize, 2), coverage.human_facing_total);
+    try std.testing.expectEqual(@as(usize, 1), coverage.reachable_by_intent);
+    try std.testing.expectEqual(@as(?f64, 0.5), coverage.ratio);
+
+    try std.testing.expectError(
+        error.UnreachableHumanCapability,
+        rt.validateUniversalIntentCoverage(&adversarial_inventory),
+    );
+}
+
+// @test FAS-CORE-001
+// @adversarial FAS-CORE-001 empty_inventory
+test "FAS-CORE-001 empty registry is not perfect coverage" {
+    const empty = [_]rt.Capability{};
+
+    try std.testing.expectError(
+        error.EmptyCapabilityInventory,
+        rt.evaluateIntentCoverage(&empty),
+    );
+    try std.testing.expectError(
+        error.EmptyCapabilityInventory,
+        rt.validateUniversalIntentCoverage(&empty),
+    );
+}
+
+// @test FAS-CORE-001
+test "FAS-CORE-001 explicitly reports not-applicable when registry has no human-facing capability" {
+    const internal_only = [_]rt.Capability{
+        .{
+            .name = "Runtime.Internal.Health",
+            .human_facing = false,
+            .natural_language_path = false,
+            .owner = "Runtime",
+        },
+    };
+
+    const coverage = try rt.evaluateIntentCoverage(&internal_only);
+    try std.testing.expectEqual(@as(usize, 0), coverage.human_facing_total);
+    try std.testing.expectEqual(@as(?f64, null), coverage.ratio);
+    try std.testing.expectEqual(
+        rt.RequirementApplicability.not_applicable,
+        try rt.validateUniversalIntentCoverage(&internal_only),
+    );
 }
