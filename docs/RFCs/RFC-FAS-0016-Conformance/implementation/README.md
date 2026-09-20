@@ -105,3 +105,55 @@ A Conformance Agent reads:
 - existing tests/evidence.
 
 It MUST NOT modify requirements merely to obtain PASS.
+
+
+## Executable commands
+
+Local conformance:
+
+~~~text
+zig build conformance
+~~~
+
+Regenerate semantic locks:
+
+~~~text
+python tools/rfc_lock.py --write
+~~~
+
+Verify committed locks are reproducible:
+
+~~~text
+python tools/rfc_lock.py --check
+~~~
+
+After all executable conformance tests pass, CI runs:
+
+~~~text
+python tools/rfc_lock.py --write --verify
+~~~
+
+Only requirements with real `@satisfies` and `@test` bindings can receive a current `verified_against` fingerprint.
+
+## Requirement-local drift
+
+The manifest stores one `statement_hash` per requirement. A punctuation/formatting change that normalizes to the same statement does not stale unrelated requirements.
+
+When a requirement changes normatively:
+
+~~~text
+statement_hash != verified_against
+→ status: stale
+~~~
+
+## Evidence assertions
+
+Evidence-critical conformance tests MUST assert the emitted event/proof/trace. Merely listing an event name in YAML is not sufficient.
+
+The reference harness is `tools/conformance_harness.zig`.
+
+## Binding authority
+
+`implementation/bindings.yml` is descriptive.
+
+`implemented/manifest.yml` is generated and authoritative for the requirement → source → test → evidence chain.
