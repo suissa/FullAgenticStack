@@ -78,3 +78,17 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-ID-001 | REQUIRED | FAS-Extreme claim | authentication flow evidence | reusable shared-secret password is mandatory |
+| FAS-ID-002 | REQUIRED | FAS-Extreme claim | identity model evidence | email is mandatory foundational identity anchor |
+| FAS-ID-003 | REQUIRED | protected_identity_used | credential/proof evidence | identity lacks verifiable basis appropriate to authority |
+| FAS-ID-004 | REQUIRED | authentication_occurs | authn/authz separation evidence | authentication automatically grants unrestricted authorization |
+| FAS-ID-005 | REQUIRED | communication_identifier_used | authority test | identifier possession alone grants protected authority |
+| FAS-ID-006 | REQUIRED | agent_identity_exists | attribution evidence | two Agents cannot be distinguished within trust domain |
+| FAS-ID-007 | REQUIRED | identity_recovery_supported | recovery security tests | recovery weakens primary identity guarantees |
+| FAS-ID-008 | REQUIRED | agent_credential_exists | credential scope evidence | Agent credential grants unrelated authority |
