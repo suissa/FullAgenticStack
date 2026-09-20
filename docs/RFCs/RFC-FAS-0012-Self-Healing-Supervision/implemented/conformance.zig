@@ -18,9 +18,9 @@ pub const Supervisor = struct {
 
     pub fn classify(_: *Supervisor, failure: Failure) FailureClass {
         if (!failure.authority_ok or !failure.invariant_ok) return .escalate;
-        if (std.mem.indexOf(u8, failure.reason, "transient") != null) return .retryable;
-        if (std.mem.indexOf(u8, failure.reason, "config") != null) return .healable;
-        if (std.mem.indexOf(u8, failure.reason, "dependency") != null) return .substitutable;
+        if (std.mem.find(u8, failure.reason, "transient") != null) return .retryable;
+        if (std.mem.find(u8, failure.reason, "config") != null) return .healable;
+        if (std.mem.find(u8, failure.reason, "dependency") != null) return .substitutable;
         return .non_recoverable;
     }
 
