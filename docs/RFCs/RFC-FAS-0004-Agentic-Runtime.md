@@ -2,7 +2,7 @@
 
 **Status:** Draft Standard  
 **Category:** Standards Track  
-**Version:** 0.2.0  
+**Version:** 0.3.0  
 **Last Updated:** 2026-09-20  
 **Dependencies:** RFC-FAS-0000, RFC-FAS-0001, RFC-FAS-0002
 
