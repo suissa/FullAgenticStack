@@ -1,4 +1,5 @@
 const std = @import("std");
+const Harness = @import("../../../../tools/conformance_harness.zig").Harness;
 
 pub const AuthorityMode = enum { human_in_loop, human_on_loop, delegated, deterministic_auto };
 
@@ -25,23 +26,39 @@ pub fn permits(authority: Authority, req: ActionRequest, now: i64) bool {
         if (req.resource == null or !std.mem.eql(u8, r, req.resource.?)) return false;
     }
     if (authority.max_value) |limit| {
-        if (req.value) |v| {
-            if (v > limit) return false;
-        }
+        if (req.value) |v| if (v > limit) return false;
     }
     return true;
+}
+
+pub fn authorize(authority: Authority, req: ActionRequest, now: i64, harness: *Harness) bool {
+    const accepted = permits(authority, req, now);
+    harness.emit(if (accepted) "Authority.Accepted" else "Authority.Rejected");
+    return accepted;
 }
 
 pub fn naturalLanguageMayExpandAuthority(_: []const u8) bool {
     return false;
 }
 
-test "delegated authority is scoped" {
+// @test FAS-AUTH-002
+// @test FAS-AUTH-008
+// @evidence FAS-AUTH-007 Authority.Rejected
+test "delegated authority is scoped and rejection is evidenced" {
+    var harness = Harness{};
     const auth = Authority{
         .subject = "agent:financial",
         .capability = "Financial.Pay",
         .max_value = 500,
     };
-    try std.testing.expect(permits(auth, .{ .capability = "Financial.Pay", .value = 100 }, 0));
-    try std.testing.expect(!permits(auth, .{ .capability = "Financial.Pay", .value = 1000 }, 0));
+
+    try std.testing.expect(authorize(auth, .{ .capability = "Financial.Pay", .value = 100 }, 0, &harness));
+    try std.testing.expect(!authorize(auth, .{ .capability = "Financial.Pay", .value = 1000 }, 0, &harness));
+    try harness.expectEmitted("Authority.Accepted");
+    try harness.expectEmitted("Authority.Rejected");
+}
+
+// @test FAS-AUTH-003
+test "natural language never broadens authority" {
+    try std.testing.expect(!naturalLanguageMayExpandAuthority("do whatever is necessary"));
 }
