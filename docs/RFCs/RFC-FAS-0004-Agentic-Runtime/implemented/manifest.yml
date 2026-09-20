@@ -33,8 +33,8 @@ The Runtime MUST bind selected semantic responsibilities to executable owners"
     activation_condition: "protected_effect_possible"
     required_evidence: "governance decision evidence"
     statement_hash: "blake3:3a327e37c3908e253b7876fef173b02dbbc804a653d97210a52c7e649369da4c"
-    verified_against: "blake3:028750d3cf3465b70b377a8f3be26a25f5fd22b0605b594ad4297a5b69a9ed25"
-    status: stale
+    verified_against: null
+    status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0004-Agentic-Runtime/implemented/conformance.zig"
