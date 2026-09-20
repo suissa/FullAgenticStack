@@ -2,7 +2,7 @@
 
 **Status:** Draft Standard  
 **Category:** Standards Track  
-**Version:** 0.3.0  
+**Version:** 0.4.0  
 **Last Updated:** 2026-09-20  
 **Dependencies:** RFC-FAS-0000
 
@@ -597,3 +597,158 @@ Technology choice remains non-normative except where a Technology Profile explic
 Changes to profile manifests, requirement states, evidence semantics or PASS computation are conformance-significant and SHOULD increment this RFC's minor or major version according to compatibility impact.
 
 Stable requirement identifiers MUST NOT silently change semantic meaning.
+
+
+## 22. Generated semantic lockfile protocol
+
+The `implemented/manifest.yml` file is a generated semantic lockfile.
+
+### FAS-CONF-021 — Manifest generation
+The manifest MUST be reproducibly generated from:
+- normalized semantic requirements;
+- implementation annotations or discovered source bindings;
+- executable test bindings;
+- asserted evidence bindings;
+- evaluated non-applicability declarations.
+
+A handwritten `status: implemented` field MUST NOT be accepted as sufficient implementation evidence.
+
+### FAS-CONF-022 — Requirement-level statement hash
+Each normative requirement MUST have an independent statement fingerprint.
+
+The current reference implementation uses BLAKE3 over the normalized requirement identifier, title and normative statement body.
+
+Semantic staleness is requirement-local:
+
+~~~text
+verified_against == statement_hash
+    => semantic statement unchanged since verification
+
+verified_against != statement_hash
+    => STALE
+~~~
+
+A change to one requirement MUST NOT automatically make unrelated requirements STALE.
+
+### FAS-CONF-023 — Implementation status vocabulary
+The generated implementation lockfile uses:
+
+- **implemented**
+- **partial**
+- **not_implemented**
+- **not_applicable**
+- **stale**
+
+`not_applicable` is valid only for a CONDITIONAL requirement whose ActivationCondition has been evaluated false and whose justification is recorded.
+
+`partial` means some implementation/test/evidence binding exists but the requirement cannot yet be claimed complete.
+
+### FAS-CONF-024 — Reference existence verification
+Every generated source and test reference MUST resolve to an existing artifact during lock verification.
+
+Missing, renamed or deleted referenced artifacts MUST invalidate or downgrade the affected requirement.
+
+### FAS-CONF-025 — Evidence assertion requirement
+For machine-verifiable evidence obligations, conformance MUST assert evidence production.
+
+For example, testing only that execution returns `GovernanceRejected` is insufficient when the requirement also requires governance evidence.
+
+A conforming executable proof SHOULD assert both semantic outcome and evidence:
+
+~~~zig
+try expectError(error.GovernanceRejected, runtime.execute(&ctx));
+try harness.expectEmitted("Governance.Rejected");
+~~~
+
+### FAS-CONF-026 — Build visibility
+Every committed executable conformance source MUST be reachable from an explicit build or CI target.
+
+For the Zig reference profile:
+
+~~~text
+zig build conformance
+~~~
+
+MUST compile and execute all RFC conformance suites.
+
+### FAS-CONF-027 — Descriptive binding non-authority
+`implementation/bindings.yml` is descriptive planning metadata.
+
+It MAY map semantic requirements to conceptual components, but it MUST NOT independently establish conformance.
+
+The generated manifest is the authoritative implementation binding artifact.
+
+CI SHOULD verify that any requirement identifiers appearing in descriptive bindings exist in the generated lockfile.
+
+## 23. Lockfile generation workflow
+
+Reference workflow:
+
+~~~text
+semantic.md
+   ↓ parse normative requirements
+normalize each requirement
+   ↓
+BLAKE3 per requirement
+   ↓
+scan source/test annotations
+   ↓
+verify referenced artifacts exist
+   ↓
+derive implementation status
+   ↓
+assert evidence bindings
+   ↓
+generate implemented/manifest.yml
+   ↓
+run conformance tests
+   ↓
+record verified_against after successful verification
+~~~
+
+The lockfile generator SHOULD support:
+
+~~~text
+--write
+--check
+~~~
+
+`--write` regenerates lockfiles.
+
+`--check` MUST fail when committed lockfiles cannot be reproduced from current semantic/source/test state.
+
+## 24. Requirement-local drift example
+
+Before semantic change:
+
+~~~yaml
+FAS-RUNTIME-003:
+  statement_hash: blake3:aaa
+  verified_against: blake3:aaa
+  status: implemented
+~~~
+
+After FAS-RUNTIME-003 changes normatively:
+
+~~~yaml
+FAS-RUNTIME-003:
+  statement_hash: blake3:bbb
+  verified_against: blake3:aaa
+  status: stale
+~~~
+
+Unchanged neighboring requirements retain their verified state.
+
+## 25. Conditional implementation example
+
+~~~yaml
+FAS-PROJ-001:
+  statement_hash: blake3:...
+  verified_against: null
+  status: not_applicable
+  not_applicable:
+    activation_condition: "independent_projection_exists:false"
+    justification: "no_independent_projections"
+~~~
+
+A missing capability required by the selected conformance profile MUST NOT use this mechanism to escape verification.
