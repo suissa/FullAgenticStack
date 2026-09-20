@@ -248,3 +248,27 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## 15. Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-SPEC-001 | REQUIRED | normative_capability_exists | requirement semantic fields | implementation requires inventing material semantics |
+| FAS-SPEC-002 | REQUIRED | always | technology-neutral wording | normative requirement unnecessarily binds a product/language |
+| FAS-SPEC-003 | REQUIRED | implementation_binding_changes | cross-binding semantic comparison | semantic meaning changes with technology |
+| FAS-SPEC-004 | REQUIRED | protected_effect_possible | authority declaration | protected effect has undefined authority boundary |
+| FAS-SPEC-005 | REQUIRED | capability_can_fail | semantic failure definitions | only opaque implementation exception exists |
+| FAS-SPEC-006 | REQUIRED | normative_requirement_exists | stable ID registry | requirement cannot be stably referenced |
+| FAS-SPEC-007 | REQUIRED | conformance_or_implementation_claim_exists | traceability chain | requirement cannot map to test/evidence |
+| FAS-SPEC-008 | REQUIRED | conformance_evaluated | behavior/invariant evidence | product choice substitutes for semantic verification |
+| FAS-SPEC-009 | OPTIONAL | developer_constraints_exist | Technology Profile | implementation Agent ignores explicit constraints |
+| FAS-SPEC-010 | OPTIONAL | technology_not_fully_bound | implementation rationale | Agent changes semantics to fit preferred technology |
+| FAS-SPEC-011 | REQUIRED | normative_requirement_exists | requirement metadata | applicability cannot be determined |
+| FAS-SPEC-012 | CONDITIONAL | requirement_class=CONDITIONAL | activation condition | N/A can be assigned without a false condition |
+| FAS-SPEC-013 | REQUIRED | normative_requirement_exists | evidence declaration | PASS has no evidence basis |
+| FAS-SPEC-014 | REQUIRED | normative_requirement_exists | verification property | requirement cannot be tested positively |
+| FAS-SPEC-015 | CONDITIONAL | requirement_is_critical | adversarial property | invariant is never challenged negatively |
+| FAS-SPEC-016 | REQUIRED | NOT_APPLICABLE_possible | non-applicability evidence | missing feature is laundered as N/A |
+| FAS-SPEC-017 | REQUIRED | conformance_evaluated | masking detection | capability is disabled to avoid failure |
+| FAS-SPEC-018 | CONDITIONAL | profile_override_exists | profile manifest | profile silently changes requirement class |
