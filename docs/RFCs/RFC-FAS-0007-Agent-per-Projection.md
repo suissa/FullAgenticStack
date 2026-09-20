@@ -94,3 +94,17 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-PROJ-001 | CONDITIONAL | independent_projection_exists | projection ownership map | independent projection has no owner |
+| FAS-PROJ-002 | CONDITIONAL | independent_projection_exists | source/derivation contract | owner cannot identify source authority or derivation |
+| FAS-PROJ-003 | CONDITIONAL | projection_serves_results | validity test | projection serves while validity is unknown |
+| FAS-PROJ-004 | CONDITIONAL | projection_rebuild_expected | rebuild evidence | projection cannot be rebuilt from sufficient source evidence |
+| FAS-PROJ-005 | OPTIONAL | projection_healing_supported | healing trace | healing mutates authoritative source without authority |
+| FAS-PROJ-006 | CONDITIONAL | projection_exists | lineage evidence | projection derivation cannot be explained |
+| FAS-PROJ-007 | CONDITIONAL | projection_maintenance_occurs | source mutation test | maintenance silently changes source authority |
+| FAS-PROJ-008 | CONDITIONAL | projection_exists | lifecycle status evidence | projection cannot report valid/stale/invalid state |
