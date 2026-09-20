@@ -105,3 +105,14 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-MAT-001 | REQUIRED | maturity_claim_exists | architecture evidence | maturity is inferred from counts of LLMs/Agents/stores/services |
+| FAS-MAT-002 | REQUIRED | level_above_1_claimed | lower-level capability evidence | higher level lacks required preceding semantics |
+| FAS-MAT-003 | REQUIRED | formal_profile_exists_for_claimed_capability | conformance references | maturity is claimed without available evidence |
+| FAS-MAT-004 | REQUIRED | agent_framework_used | semantic capability evidence | framework name alone determines maturity |
+| FAS-MAT-005 | REQUIRED | maturity_claim_exists | semantic responsibility map | installed products determine level instead of governed responsibilities |
