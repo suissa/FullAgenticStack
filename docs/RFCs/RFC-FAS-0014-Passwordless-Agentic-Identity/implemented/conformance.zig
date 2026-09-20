@@ -1,40 +1,22 @@
 const std = @import("std");
-
-pub const CredentialKind = enum { passkey, device_key, agent_ed25519, mtls, dpop };
-
-pub const Identity = struct {
-    subject: []const u8,
-    credential: CredentialKind,
-    email_required: bool = false,
-    password_required: bool = false,
-    proof_valid: bool = false,
-
-    pub fn validateExtreme(self: Identity) !void {
-        if (self.password_required) return error.PasswordForbidden;
-        if (self.email_required) return error.EmailIdentityForbidden;
-        if (!self.proof_valid) return error.IdentityProofInvalid;
-    }
-};
-
-pub const HumanLogin = struct {
-    whatsapp_context: ?[]const u8 = null,
-    passkey_verified: bool,
-
-    pub fn authenticated(self: HumanLogin) bool {
-        return self.passkey_verified;
-    }
-};
-
-pub fn authenticationImpliesAuthorization(_: Identity) bool {
-    return false;
-}
+const fas = @import("fullagenticstack");
 
 test "extreme identity is passwordless and email independent" {
-    const id = Identity{
+    const id = fas.identity.Identity{
         .subject = "human:1",
         .credential = .passkey,
         .proof_valid = true,
     };
     try id.validateExtreme();
-    try std.testing.expect(!authenticationImpliesAuthorization(id));
+    try std.testing.expect(!fas.identity.authenticationImpliesAuthorization(id));
+}
+
+test "password requirement is non-conforming in extreme identity" {
+    const id = fas.identity.Identity{
+        .subject = "human:1",
+        .credential = .passkey,
+        .password_required = true,
+        .proof_valid = true,
+    };
+    try std.testing.expectError(error.PasswordForbidden, id.validateExtreme());
 }
