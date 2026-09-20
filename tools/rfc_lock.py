@@ -120,7 +120,7 @@ def parse_previous_verified(path: Path):
 def q(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
-def manifest_for(rfc_dir: Path, annotations):
+def manifest_for(rfc_dir: Path, annotations, mark_verified=False):
     semantic = rfc_dir / "semantic.md"
     requirements = extract_requirements(semantic)
     previous = parse_previous_verified(rfc_dir / "implemented" / "manifest.yml")
@@ -134,11 +134,14 @@ def manifest_for(rfc_dir: Path, annotations):
     for req_id, normalized, statement_hash in requirements:
         a = annotations.get(req_id, {"sources": [], "tests": [], "evidence": [], "na": None})
         verified = previous.get(req_id)
+        fully_bound = bool(a["sources"] and a["tests"])
+        if mark_verified and fully_bound and not a["na"]:
+            verified = statement_hash
         if a["na"]:
             status = "not_applicable"
         elif verified and verified != statement_hash:
             status = "stale"
-        elif a["sources"] and a["tests"]:
+        elif fully_bound:
             status = "implemented"
         elif a["sources"] or a["tests"]:
             status = "partial"
@@ -174,7 +177,7 @@ def verify_bindings(rfc_dir: Path, generated: str):
     # bindings.yml is descriptive only. If it names a requirement, the requirement
     # must exist in the generated lock; this prevents silent component/requirement drift.
     lock_ids = set(re.findall(r"^\s{2}(FAS-[A-Z0-9-]+):", generated, re.M))
-    for req in set(re.findall(r"FAS-[A-Z0-9-]+", bindings.read_text(encoding="utf-8"))):
+    for req in set(re.findall(r"FAS-[A-Z][A-Z0-9]*-\\d+", bindings.read_text(encoding="utf-8"))):
         if req not in lock_ids:
             raise ValueError(f"{bindings}: references unknown requirement {req}")
 
@@ -192,13 +195,13 @@ def main():
     mode.add_argument("--check", action="store_true")
     args = ap.parse_args()
 
-    annotations = scan_annotations()
+    if args.verify and not args.write:\n        print("error: --verify requires --write", file=sys.stderr)\n        return 2\n\n    annotations = scan_annotations()
     changed = False
     errors = []
 
     for rfc_dir in sorted(p for p in RFCS.iterdir() if p.is_dir() and p.name.startswith("RFC-FAS-")):
         manifest = rfc_dir / "implemented" / "manifest.yml"
-        generated = manifest_for(rfc_dir, annotations)
+        generated = manifest_for(rfc_dir, annotations, mark_verified=args.verify)
         try:
             verify_bindings(rfc_dir, generated)
             validate_refs(generated)
