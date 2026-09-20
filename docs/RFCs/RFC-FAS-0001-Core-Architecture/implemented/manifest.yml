@@ -10,10 +10,17 @@ requirements:
     required_evidence: "capability inventory + intent coverage"
     statement_hash: "blake3:5b00c751f99ad2adc7fff139ec18f0b32364683194603412eec64cb9cb063424"
     verified_against: null
-    status: not_implemented
+    status: implemented
     sources:
+      - "src/fullagenticstack.zig"
     tests:
-    evidence_assertions:
+      - "docs/RFCs/RFC-FAS-0001-Core-Architecture/implemented/conformance.zig"
+    evidence_assertions: []
+    adversarial_tests:
+      - path: "docs/RFCs/RFC-FAS-0001-Core-Architecture/implemented/conformance.zig"
+        property: "capability_masking"
+      - path: "docs/RFCs/RFC-FAS-0001-Core-Architecture/implemented/conformance.zig"
+        property: "empty_inventory"
     normalized_statement: "FAS-CORE-001 — Universal capability accessibility
 Every capability intentionally exposed to a human user MUST also be invocable through natural-language Intent"
   FAS-CORE-002:
@@ -23,24 +30,23 @@ Every capability intentionally exposed to a human user MUST also be invocable th
     statement_hash: "blake3:c989badbf4a4f47f5593430b5cc0e79c78d9ad3aec58d08bf617fd2727d13067"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CORE-002 — Natural-language ingress
 The system MUST expose at least one human-facing ingress capable of receiving natural-language requests"
   FAS-CORE-003:
     requirement_class: required
     activation_condition: "always"
     required_evidence: "public ingress contract"
-    statement_hash: "blake3:66497fc015b5c67271c5a49fb766c06a92e198d4561163a26f5445c6b60eba3b"
+    statement_hash: "blake3:2fa269d9122c663a8ed50e65405bb0bfba7090aa2b6e21eb1d1e4a8a62c69015"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CORE-003 — POST submission semantics
-At least one public human-facing ingress MUST support POST submission semantics or an equivalent operation whose meaning is “submit a desired outcome for resolution.”
-A conforming system MAY expose only this single public application route to humans"
+At least one public human-facing ingress MUST support POST submission semantics or an equivalent operation whose meaning is \"submit a desired outcome for resolution.\""
   FAS-CORE-004:
     requirement_class: required
     activation_condition: "always"
@@ -48,9 +54,9 @@ A conforming system MAY expose only this single public application route to huma
     statement_hash: "blake3:c0b1ebbbca15d93eef0b6ce67a5667165bf34f416152a0492fbe4bcc7d0d3330"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CORE-004 — Internal-topology hiding
 The caller MUST NOT be required to know which internal Agent service database programming language or topology fulfills the Intent"
   FAS-CORE-005:
@@ -60,9 +66,9 @@ The caller MUST NOT be required to know which internal Agent service database pr
     statement_hash: "blake3:20d908c4904674bb956144659faf60f51293a514b55c5da1e215c53f815eed4f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CORE-005 — Multimodality
 Core conformance MUST support text audio and image input according to RFC-FAS-0003"
   FAS-CORE-006:
@@ -72,9 +78,9 @@ Core conformance MUST support text audio and image input according to RFC-FAS-00
     statement_hash: "blake3:417086d96aa6a3f21eecba1a4230bc6b1635fdeeaa132c03aedf1db55219cdc2"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CORE-006 — Semantic orchestration
 Accepted Intent MUST resolve to one or more executable capabilities or to an explicit semantic failure"
   FAS-CORE-007:
@@ -84,9 +90,9 @@ Accepted Intent MUST resolve to one or more executable capabilities or to an exp
     statement_hash: "blake3:6b6a5b49fb3281dabb6cfd5e7d449076b7265f120585bebc0b227eb49b10f1f8"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CORE-007 — Interpretation/authority separation
 Interpreting a request MUST NOT by itself authorize a protected effect"
   FAS-CORE-008:
@@ -96,9 +102,9 @@ Interpreting a request MUST NOT by itself authorize a protected effect"
     statement_hash: "blake3:9305490c6781b861e2ed390d8535c901ec114e1aca8503681d94efb55c826626"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CORE-008 — Evidence
 Relevant execution MUST produce enough evidence to determine what was requested what execution path was selected and what outcome occurred"
   FAS-CORE-009:
@@ -107,9 +113,13 @@ Relevant execution MUST produce enough evidence to determine what was requested 
     required_evidence: "ownership map"
     statement_hash: "blake3:301219b9b04bbbbfc54bbc75a1ff7c675691c5063735178d8bcf68eaa44c6bac"
     verified_against: null
-    status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    status: not_applicable
+    sources: []
+    tests: []
+    evidence_assertions: []
+    not_applicable:
+      activation_condition: "independent_responsibility_domain_exists:false"
+      justification: "reference_registry_uses_single_core_owner"
+      asserted_by: "src/fullagenticstack.zig"
     normalized_statement: "FAS-CORE-009 — Specialization
 Independent semantic responsibility domains SHOULD have explicit Agent or capability ownership"

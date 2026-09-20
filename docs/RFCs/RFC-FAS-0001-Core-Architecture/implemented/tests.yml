@@ -2,6 +2,7 @@ rfc: RFC-FAS-0001
 conformance_suite: conformance.zig
 semantic_source: ../semantic.md
 test_policy:
+  policy_engine_enabled: true
   derive_positive_properties: true
   derive_adversarial_properties: true
   forbid_requirement_weakening: true
@@ -9,3 +10,6 @@ test_policy:
   stale_on_semantic_drift: true
   stale_on_implementation_profile_drift: true
 project_tests: []
+semantic_lock:
+  normative_fingerprint_only: true
+  canonicalize_unicode_quotes: true

@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:dcd602869345a1103641415155eeab68ab7052da12f62430757d37b35ac26da4"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-001 — Factual semantics
 An Event MUST represent an occurrence not merely a future request"
   FAS-EVENT-002:
@@ -23,9 +23,9 @@ An Event MUST represent an occurrence not merely a future request"
     statement_hash: "blake3:cb740855f78edee6aa9fbd2920be6f835e4d94dcb54715c3c2b7ab0ed61be117"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-002 — Semantic identity
 Event identity SHOULD describe semantic source and outcome rather than broker or transport details"
   FAS-EVENT-003:
@@ -35,9 +35,9 @@ Event identity SHOULD describe semantic source and outcome rather than broker or
     statement_hash: "blake3:386fb6832dc76053e80c1dede40da2d0920030a152d2ed7b0a74953dc71df486"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-003 — Correlation
 Relevant Events SHOULD correlate to Intent Action or causal context where available"
   FAS-EVENT-004:
@@ -47,9 +47,9 @@ Relevant Events SHOULD correlate to Intent Action or causal context where availa
     statement_hash: "blake3:f7db18abe8d7e1e7072e713808746706efbcb735a16b9e3768e8554a28080915"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-004 — Transport independence
 Event semantics MUST remain independent from queue stream broker or protocol choice"
   FAS-EVENT-005:
@@ -59,9 +59,9 @@ Event semantics MUST remain independent from queue stream broker or protocol cho
     statement_hash: "blake3:3e37d1237d4929c2194548279c61fe52afda653299438dfc36d5ea78ec9c733c"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-005 — Listener autonomy
 Agents MAY react to Events without direct coupling to the producer"
   FAS-EVENT-006:
@@ -71,9 +71,9 @@ Agents MAY react to Events without direct coupling to the producer"
     statement_hash: "blake3:8bb0779f5484be6e73aea312c56985a604832515a2303e3bc748d52ef29b2c63"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-006 — Replay semantics
 If Events support replay or state reconstruction replay meaning MUST be explicit"
   FAS-EVENT-007:
@@ -83,9 +83,9 @@ If Events support replay or state reconstruction replay meaning MUST be explicit
     statement_hash: "blake3:0fb0ae2463eda4393db40903314a623d6474c41d900cb5b8d334d7904d061307"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-007 — Authority boundary
 Observing an Event MUST NOT automatically grant authority to mutate the originating domain"
   FAS-EVENT-008:
@@ -95,9 +95,9 @@ Observing an Event MUST NOT automatically grant authority to mutate the originat
     statement_hash: "blake3:2230d935bd9304a1c5fdae116b9895bea5be11ddb4c36d96822f50ee83d5f97b"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-008 — Outcome evidence
 Relevant Actions SHOULD produce semantic outcome Events or equivalent evidence"
   FAS-EVENT-009:
@@ -107,8 +107,8 @@ Relevant Actions SHOULD produce semantic outcome Events or equivalent evidence"
     statement_hash: "blake3:4acf72238f3ec3e018ccac78672b45fbb241c097df26a24ecd2a2cb5a81f3bcd"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-EVENT-009 — Duplicate awareness
 When duplicate delivery is possible consumers SHOULD preserve semantic correctness under duplicate observation"

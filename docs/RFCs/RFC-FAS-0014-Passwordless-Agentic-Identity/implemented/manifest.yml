@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:566eb74ea72c979ad72afbfef87837de527549eef38291cca0217606fb526ffb"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-001 — No reusable passwords
 A FullAgenticStack Extreme implementation MUST NOT require reusable shared-secret passwords for human authentication"
   FAS-ID-002:
@@ -23,9 +23,9 @@ A FullAgenticStack Extreme implementation MUST NOT require reusable shared-secre
     statement_hash: "blake3:a6128efbcc7cdee365bd0326e0a4c6ab71be199e1781286a6b0c41ce6cd23c5d"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-002 — Email independence
 Email MUST NOT be required as the primary authentication secret or mandatory foundational identity anchor"
   FAS-ID-003:
@@ -35,9 +35,9 @@ Email MUST NOT be required as the primary authentication secret or mandatory fou
     statement_hash: "blake3:0adce04719ff9c36beac9f2f14dfc57af9792c43ed094c58e49f0d1fe8b2d545"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-003 — Verifiable identity
 Human and Agent identities SHOULD be bound to verifiable credentials or proofs appropriate to their authority"
   FAS-ID-004:
@@ -47,9 +47,9 @@ Human and Agent identities SHOULD be bound to verifiable credentials or proofs a
     statement_hash: "blake3:c4bd07051537d5534fcb2fe2ea463c68c79e1451e00f4064ef0fc669b5a23f9c"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-004 — Authentication/authorization separation
 Authentication MUST remain semantically separate from authorization"
   FAS-ID-005:
@@ -59,9 +59,9 @@ Authentication MUST remain semantically separate from authorization"
     statement_hash: "blake3:7080a04b5333ff666543688ccb6299fa4124749a05215ee53f3f092a993c698d"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-005 — Communication identifiers are insufficient
 Possession of a communication identifier alone MUST NOT prove protected authority"
   FAS-ID-006:
@@ -71,9 +71,9 @@ Possession of a communication identifier alone MUST NOT prove protected authorit
     statement_hash: "blake3:028532c406003a5ff3ed2c507c8f8906c56bb7e42b0b1c2f523f2ee7b97fc0e0"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-006 — Agent attribution
 Agent identity SHOULD be uniquely attributable within its trust domain"
   FAS-ID-007:
@@ -83,9 +83,9 @@ Agent identity SHOULD be uniquely attributable within its trust domain"
     statement_hash: "blake3:0186f238f0e0813909f28a213d928c5b8029ba33cd79a1727367446c575c739a"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-007 — Secure recovery
 Identity recovery MUST NOT silently weaken the guarantees of the primary identity model"
   FAS-ID-008:
@@ -95,8 +95,8 @@ Identity recovery MUST NOT silently weaken the guarantees of the primary identit
     statement_hash: "blake3:e2ba429568e3a8326bbbb3bc7de1f1539a58587e4b45fe7c787d9288a8d7de56"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-ID-008 — Credential scope
 Agent credentials SHOULD be scoped to the authority actually required"

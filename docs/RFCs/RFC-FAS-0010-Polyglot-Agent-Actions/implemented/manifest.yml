@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:87c7d4bedf969ea223d8c2a7aeebfdabcc8e3e6031eb0063d2190a3695ad1fe7"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-POLY-001 — Language independence
 An Agent or Action MUST NOT be semantically defined by implementation language"
   FAS-POLY-002:
@@ -23,9 +23,9 @@ An Agent or Action MUST NOT be semantically defined by implementation language"
     statement_hash: "blake3:902a29a9cebe4ddb1bc807c47e75efaa5392a49c0ac17761fe689446bdeda03f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-POLY-002 — Per-Action binding
 Different Actions within the same Agent MAY use different language runtime or execution bindings"
   FAS-POLY-003:
@@ -35,9 +35,9 @@ Different Actions within the same Agent MAY use different language runtime or ex
     statement_hash: "blake3:53fe38f8eff8a15308ecbf299f557cbf0517a522aaa633ed62cf895fff91b461"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-POLY-003 — Semantic contract
 The Runtime MUST reason about capability contracts rather than language identity"
   FAS-POLY-004:
@@ -47,9 +47,9 @@ The Runtime MUST reason about capability contracts rather than language identity
     statement_hash: "blake3:293cdf2c01b655b363f704b0b3e2d7758e548745d6da7fc33b471a8673521267"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-POLY-004 — Equivalent behavior
 Changing implementation technology MUST preserve Action semantics authority invariants and evidence obligations"
   FAS-POLY-005:
@@ -59,9 +59,9 @@ Changing implementation technology MUST preserve Action semantics authority inva
     statement_hash: "blake3:5beeea7e4a4643fb12cd3af57a1f4958ff272af100688ec750536fe0be233651"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-POLY-005 — Developer constraints
 The developer MAY constrain allowed languages runtimes or interoperability boundaries"
   FAS-POLY-006:
@@ -71,9 +71,9 @@ The developer MAY constrain allowed languages runtimes or interoperability bound
     statement_hash: "blake3:436e3f1a9033917ccf560433e8e7f9dbb27627c2a868edd786fca683d0b4ca4f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-POLY-006 — Agent selection
 When technology is not fixed an implementation Agent MAY select it according to correctness resource constraints security performance portability and maintainability"
   FAS-POLY-007:
@@ -83,8 +83,8 @@ When technology is not fixed an implementation Agent MAY select it according to 
     statement_hash: "blake3:934a9cc6fbeccd1ccc02841c865b51d3f9eee316178262ca328084a2260b26b5"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-POLY-007 — Boundary preservation
 Cross-language communication MUST preserve all semantic information required for authority failure and evidence"

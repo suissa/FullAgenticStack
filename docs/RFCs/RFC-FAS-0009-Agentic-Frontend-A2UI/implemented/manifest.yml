@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:25130f526e1ddc9f374417be52fac84b192df9e61539a48dc6f71e2590a8f95f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-UI-001 — Intent equivalence
 Every user-facing visual operation MUST have an equivalent natural-language Intent path"
   FAS-UI-002:
@@ -23,9 +23,9 @@ Every user-facing visual operation MUST have an equivalent natural-language Inte
     statement_hash: "blake3:601a6db567ee7e6de683fd6704c6774327ef72cb87266b9f32c1992a0225d122"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-UI-002 — Dynamic interface
 A frontend MAY dynamically render interaction structures based on Intent context and system state"
   FAS-UI-003:
@@ -35,9 +35,9 @@ A frontend MAY dynamically render interaction structures based on Intent context
     statement_hash: "blake3:2435199c54dde078438c05796c83ea7b9d669729b781fb4bbf8579f38af5fd6f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-UI-003 — UI authority isolation
 A UI Agent MUST NOT gain business authority merely because it renders collects or transforms user interaction"
   FAS-UI-004:
@@ -47,9 +47,9 @@ A UI Agent MUST NOT gain business authority merely because it renders collects o
     statement_hash: "blake3:876b8b653de85d3ea273eccf5bbf0739b0642249c7cfe05ddf1ffe830bfeb913"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-UI-004 — Semantic linkage
 Dynamic interface elements SHOULD remain semantically linked to the capabilities or Intents they expose"
   FAS-UI-005:
@@ -59,9 +59,9 @@ Dynamic interface elements SHOULD remain semantically linked to the capabilities
     statement_hash: "blake3:9face0254c9247df9bb444d5c55634103630892eb3835a0b5b1516f34774d0dc"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-UI-005 — Multimodal continuity
 Visual conversational and mixed interfaces SHOULD preserve equivalent domain semantics"
   FAS-UI-006:
@@ -71,9 +71,9 @@ Visual conversational and mixed interfaces SHOULD preserve equivalent domain sem
     statement_hash: "blake3:a45b4b2a7f71af5e7e12d0ab44f4cac87b5f543bb6488b4e868c20672ac31800"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-UI-006 — A2UI neutrality
 A2UI or an equivalent mechanism MAY be used. The semantic requirement is Agent-to-user interface capability not a specific wire format"
   FAS-UI-007:
@@ -83,8 +83,8 @@ A2UI or an equivalent mechanism MAY be used. The semantic requirement is Agent-t
     statement_hash: "blake3:41879188d6340fd24c0503eabdc6006455ef0155459a10290198f1e34fc368b8"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-UI-007 — Confirmation fidelity
 When an Action requires confirmation the interface MUST represent the effect being confirmed without materially misleading the user"

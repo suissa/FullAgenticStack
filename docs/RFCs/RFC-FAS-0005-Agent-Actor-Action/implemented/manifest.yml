@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:eca1a6b9fb9c8f97af4b88c8105dc81c07e8be124e8a77fdceb29c49a6f5478c"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-001 — Agent responsibility
 An Agent MUST represent an explicit semantic responsibility boundary"
   FAS-A3-002:
@@ -23,9 +23,9 @@ An Agent MUST represent an explicit semantic responsibility boundary"
     statement_hash: "blake3:ff19a76e32c469805d49e09ad0a51c1d2d65d800a3c8b5c3470ba7c30c08ee06"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-002 — Actor locality
 Actor-owned state SHOULD be bounded to the execution or responsibility it supervises"
   FAS-A3-003:
@@ -35,9 +35,9 @@ Actor-owned state SHOULD be bounded to the execution or responsibility it superv
     statement_hash: "blake3:cfe616ca50fce4f9abd180df9e1370409c6bb774e19317c357db88f739285dc6"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-003 — Action boundedness
 An Action MUST have bounded purpose inputs outputs and authority"
   FAS-A3-004:
@@ -47,9 +47,9 @@ An Action MUST have bounded purpose inputs outputs and authority"
     statement_hash: "blake3:909d82f179102e131e7986022f19dec0081e74f7dd56686b5e5c03f8a91596af"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-004 — Explicit invariants
 Each protected Action MUST declare or inherit the invariants it preserves"
   FAS-A3-005:
@@ -59,9 +59,9 @@ Each protected Action MUST declare or inherit the invariants it preserves"
     statement_hash: "blake3:a86437fcd17289d809acbcc3e88480d70156b875c91ec5474204d59794be24f8"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-005 — No authority expansion
 An Action MUST NOT silently exceed authority granted by the governing execution context"
   FAS-A3-006:
@@ -71,9 +71,9 @@ An Action MUST NOT silently exceed authority granted by the governing execution 
     statement_hash: "blake3:c7a3bce5094bffec6aae7f9d4b37d01fb6ed560dc8181701e3dccffe5c4581a7"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-006 — Stable semantic identity
 Action identity SHOULD remain stable across implementation-language changes"
   FAS-A3-007:
@@ -83,9 +83,9 @@ Action identity SHOULD remain stable across implementation-language changes"
     statement_hash: "blake3:356836391297809d6f967d788d9e8c3b4a0a3658573322897d838644a3b9f020"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-007 — Composition
 Behaviors MAY compose Actions sequentially conditionally concurrently or through other orchestration semantics"
   FAS-A3-008:
@@ -95,8 +95,8 @@ Behaviors MAY compose Actions sequentially conditionally concurrently or through
     statement_hash: "blake3:34134961d06904f5172b8207e89d11560b5b21b7c5d3b819b35d1837e7e5acf2"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-A3-008 — Evidence
 Action completion MUST expose enough semantic success or failure evidence for Runtime acceptance"

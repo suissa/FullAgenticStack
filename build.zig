@@ -45,6 +45,12 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    const fullagenticstack_module = b.createModule(.{
+        .root_source_file = b.path("src/fullagenticstack.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+
     for (conformance_files, 0..) |path, index| {
         const module = b.createModule(.{
             .root_source_file = b.path(path),
@@ -52,6 +58,7 @@ pub fn build(b: *std.Build) void {
             .optimize = optimize,
         });
         module.addImport("conformance_harness", harness_module);
+        module.addImport("fullagenticstack", fullagenticstack_module);
         const tests = b.addTest(.{
             .name = b.fmt("rfc-conformance-{d}", .{index}),
             .root_module = module,

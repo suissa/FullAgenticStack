@@ -13,6 +13,7 @@ Supported annotations in project source/tests:
 from __future__ import annotations
 
 import argparse
+import difflib
 import re
 import sys
 from pathlib import Path
@@ -29,7 +30,7 @@ BUILD_FILE = ROOT / "build.zig"
 
 REQ_RE = re.compile(r"^###\s+(FAS-[A-Z0-9-]+)\s+[—-]\s+(.+?)\s*$")
 META_RE = re.compile(
-    r"^\|\s*(FAS-[A-Z0-9-]+)\s*\|\s*(REQUIRED|CONDITIONAL|OPTIONAL)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|"
+    r"^\|\s*(FAS-[A-Z0-9-]+)\s*\|\s*(REQUIRED|CONDITIONAL|OPTIONAL)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|"
 )
 ANNOT_RE = re.compile(
     r"@(?P<kind>satisfies|test|evidence)[ \t]+(?P<id>FAS-[A-Z0-9-]+)(?:[ \t]+(?P<value>[^\r\n]+))?"
@@ -37,6 +38,10 @@ ANNOT_RE = re.compile(
 NA_RE = re.compile(
     r"@not-applicable\s+(?P<id>FAS-[A-Z0-9-]+)\s+condition=(?P<condition>\S+)\s+reason=(?P<reason>\S+)"
 )
+ADVERSARIAL_RE = re.compile(
+    r"@adversarial[ \t]+(?P<id>FAS-[A-Z0-9-]+)(?:[ \t]+(?P<property>[^\r\n]+))?"
+)
+NORMATIVE_RE = re.compile(r"\b(?:MUST(?: NOT)?|SHOULD(?: NOT)?)\b")
 
 SOURCE_EXTS = {
     ".zig", ".rs", ".go", ".ts", ".tsx", ".js", ".py",
@@ -44,15 +49,46 @@ SOURCE_EXTS = {
 }
 
 
-def normalize_statement(text: str) -> str:
-    """Remove editorial-only formatting while retaining semantic tokens."""
-    normalized_lines: list[str] = []
+def normalize_statement(
+    text: str,
+    *,
+    normative_only: bool = False,
+    canonicalize_unicode_quotes: bool = False,
+) -> str:
+    """Canonicalize a requirement fingerprint without hashing explanatory MAY prose."""
+    if canonicalize_unicode_quotes:
+        text = (
+            text.replace("“", '"')
+            .replace("”", '"')
+            .replace("‘", "'")
+            .replace("’", "'")
+        )
 
-    for raw in text.splitlines():
-        line = raw.strip()
+    raw_parts: list[str] = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
         if not line:
             continue
+        if normative_only:
+            # Split prose lines into sentences only for RFCs that explicitly
+            # opt into normative-only fingerprints. Legacy lockfiles retain
+            # byte-equivalent normalization until migrated deliberately.
+            raw_parts.extend(
+                part.strip()
+                for part in re.split(r"(?<=[.!?])\s+", line)
+                if part.strip()
+            )
+        else:
+            raw_parts.append(line)
 
+    selected: list[str] = []
+    for index, part in enumerate(raw_parts):
+        # The first part is the stable requirement identity/title.
+        if index == 0 or not normative_only or NORMATIVE_RE.search(part):
+            selected.append(part)
+
+    normalized_lines: list[str] = []
+    for line in selected:
         line = line.replace("**", "").replace("__", "").replace("`", "")
         line = re.sub(r"^[-*+]\s+", "", line)
         line = re.sub(r"[,;](?=\s|$)", "", line)
@@ -63,7 +99,28 @@ def normalize_statement(text: str) -> str:
     return "\n".join(normalized_lines)
 
 
-def extract_requirements(path: Path):
+def _bool_setting(text: str, name: str, default: bool = False) -> bool:
+    match = re.search(
+        rf"^\s+{re.escape(name)}:\s*(true|false)\s*$",
+        text,
+        re.M | re.I,
+    )
+    if not match:
+        return default
+    return match.group(1).lower() == "true"
+
+
+def _test_policy_text(rfc_dir: Path) -> str:
+    path = rfc_dir / "implemented" / "tests.yml"
+    return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
+def extract_requirements(
+    path: Path,
+    *,
+    normative_only: bool = False,
+    canonicalize_unicode_quotes: bool = False,
+):
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
 
@@ -75,6 +132,7 @@ def extract_requirements(path: Path):
                 "class": match.group(2),
                 "activation_condition": match.group(3).strip(),
                 "required_evidence": match.group(4).strip(),
+                "adversarial_property": match.group(5).strip(),
             }
 
     found = []
@@ -95,7 +153,11 @@ def extract_requirements(path: Path):
             body.append(lines[j])
             j += 1
 
-        normalized = normalize_statement("\n".join([f"{req_id} — {title}", *body]))
+        normalized = normalize_statement(
+            "\n".join([f"{req_id} — {title}", *body]),
+            normative_only=normative_only,
+            canonicalize_unicode_quotes=canonicalize_unicode_quotes,
+        )
         statement_hash = "blake3:" + blake3(normalized.encode("utf-8")).hexdigest()
         meta = metadata.get(
             req_id,
@@ -103,6 +165,7 @@ def extract_requirements(path: Path):
                 "class": "REQUIRED",
                 "activation_condition": "always",
                 "required_evidence": "unspecified",
+                "adversarial_property": "unspecified",
             },
         )
 
@@ -142,7 +205,7 @@ def scan_annotations():
         for match in ANNOT_RE.finditer(text):
             item = out.setdefault(
                 match.group("id"),
-                {"sources": [], "tests": [], "evidence": [], "na": None},
+                {"sources": [], "tests": [], "evidence": [], "adversarial": [], "na": None},
             )
             kind = match.group("kind")
             value = (match.group("value") or "").strip()
@@ -164,10 +227,22 @@ def scan_annotations():
                     )
                 item["evidence"].append({"path": rel, "assertion": value})
 
+        for match in ADVERSARIAL_RE.finditer(text):
+            item = out.setdefault(
+                match.group("id"),
+                {"sources": [], "tests": [], "evidence": [], "adversarial": [], "na": None},
+            )
+            item["adversarial"].append(
+                {
+                    "path": rel,
+                    "property": (match.group("property") or "").strip(),
+                }
+            )
+
         for match in NA_RE.finditer(text):
             item = out.setdefault(
                 match.group("id"),
-                {"sources": [], "tests": [], "evidence": [], "na": None},
+                {"sources": [], "tests": [], "evidence": [], "adversarial": [], "na": None},
             )
             item["na"] = {
                 "condition": match.group("condition"),
@@ -231,7 +306,15 @@ def validate_not_applicable(req_id: str, meta: dict[str, str], annotation: dict)
 
 def manifest_for(rfc_dir: Path, annotations, mark_verified: bool = False):
     semantic = rfc_dir / "semantic.md"
-    requirements = extract_requirements(semantic)
+    policy_text = _test_policy_text(rfc_dir)
+    requirements = extract_requirements(
+        semantic,
+        normative_only=_bool_setting(policy_text, "normative_fingerprint_only"),
+        canonicalize_unicode_quotes=_bool_setting(
+            policy_text,
+            "canonicalize_unicode_quotes",
+        ),
+    )
     previous = parse_previous_verified(rfc_dir / "implemented" / "manifest.yml")
 
     match = re.match(r"^(RFC-FAS-\d{4})-", rfc_dir.name)
@@ -249,7 +332,7 @@ def manifest_for(rfc_dir: Path, annotations, mark_verified: bool = False):
     for req_id, normalized, statement_hash, meta in requirements:
         annotation = annotations.get(
             req_id,
-            {"sources": [], "tests": [], "evidence": [], "na": None},
+            {"sources": [], "tests": [], "evidence": [], "adversarial": [], "na": None},
         )
         verified = previous.get(req_id)
 
@@ -289,21 +372,36 @@ def manifest_for(rfc_dir: Path, annotations, mark_verified: bool = False):
                 f"    statement_hash: {q(statement_hash)}",
                 f"    verified_against: {q(verified) if verified else 'null'}",
                 f"    status: {status}",
-                "    sources:",
             ]
         )
 
-        for source in sources:
-            rows.append(f"      - {q(source)}")
+        if sources:
+            rows.append("    sources:")
+            for source in sources:
+                rows.append(f"      - {q(source)}")
+        else:
+            rows.append("    sources: []")
 
-        rows.append("    tests:")
-        for test in tests:
-            rows.append(f"      - {q(test)}")
+        if tests:
+            rows.append("    tests:")
+            for test in tests:
+                rows.append(f"      - {q(test)}")
+        else:
+            rows.append("    tests: []")
 
-        rows.append("    evidence_assertions:")
-        for evidence in annotation["evidence"]:
-            rows.append(f"      - path: {q(evidence['path'])}")
-            rows.append(f"        assertion: {q(evidence['assertion'])}")
+        if annotation["evidence"]:
+            rows.append("    evidence_assertions:")
+            for evidence in annotation["evidence"]:
+                rows.append(f"      - path: {q(evidence['path'])}")
+                rows.append(f"        assertion: {q(evidence['assertion'])}")
+        else:
+            rows.append("    evidence_assertions: []")
+
+        if annotation["adversarial"]:
+            rows.append("    adversarial_tests:")
+            for adversarial in annotation["adversarial"]:
+                rows.append(f"      - path: {q(adversarial['path'])}")
+                rows.append(f"        property: {q(adversarial['property'])}")
 
         if annotation["na"]:
             rows.extend(
@@ -320,6 +418,65 @@ def manifest_for(rfc_dir: Path, annotations, mark_verified: bool = False):
     return "\n".join(rows) + "\n"
 
 
+def validate_test_policy(rfc_dir: Path, annotations) -> None:
+    policy_text = _test_policy_text(rfc_dir)
+    if not policy_text or not _bool_setting(policy_text, "policy_engine_enabled"):
+        return
+
+    requirements = extract_requirements(
+        rfc_dir / "semantic.md",
+        normative_only=_bool_setting(policy_text, "normative_fingerprint_only"),
+        canonicalize_unicode_quotes=_bool_setting(
+            policy_text,
+            "canonicalize_unicode_quotes",
+        ),
+    )
+
+    derive_adversarial = _bool_setting(
+        policy_text,
+        "derive_adversarial_properties",
+    )
+    forbid_capability_masking = _bool_setting(
+        policy_text,
+        "forbid_capability_masking",
+    )
+
+    for req_id, _, _, meta in requirements:
+        annotation = annotations.get(
+            req_id,
+            {
+                "sources": [],
+                "tests": [],
+                "evidence": [],
+                "adversarial": [],
+                "na": None,
+            },
+        )
+        implemented = bool(annotation["sources"] and annotation["tests"])
+        if annotation["na"] or not implemented:
+            continue
+
+        if derive_adversarial:
+            declared = meta.get("adversarial_property", "").strip()
+            if declared and declared.lower() not in {"none", "n/a", "unspecified"}:
+                if not annotation["adversarial"]:
+                    raise ValueError(
+                        f"{req_id}: derive_adversarial_properties=true but "
+                        "no @adversarial conformance test is bound"
+                    )
+
+        if forbid_capability_masking and req_id == "FAS-CORE-001":
+            properties = {
+                item["property"]
+                for item in annotation["adversarial"]
+            }
+            if "capability_masking" not in properties:
+                raise ValueError(
+                    "FAS-CORE-001: forbid_capability_masking=true requires "
+                    "@adversarial FAS-CORE-001 capability_masking"
+                )
+
+
 def verify_bindings(rfc_dir: Path, generated: str):
     bindings = rfc_dir / "implementation" / "bindings.yml"
     if not bindings.exists():
@@ -331,6 +488,38 @@ def verify_bindings(rfc_dir: Path, generated: str):
     for req in set(re.findall(r"FAS-[A-Z][A-Z0-9]*-\d+", binding_text)):
         if req not in lock_ids:
             raise ValueError(f"{bindings}: references unknown requirement {req}")
+
+    if _bool_setting(binding_text, "require_requirement_component_map"):
+        bound_ids = set(
+            re.findall(r"^\s{2}(FAS-[A-Z0-9-]+):\s*$", binding_text, re.M)
+        )
+        missing = sorted(lock_ids.difference(bound_ids))
+        if missing:
+            raise ValueError(
+                f"{bindings}: missing requirement component bindings: "
+                + ", ".join(missing)
+            )
+
+        blocks = list(
+            re.finditer(
+                r"^\s{2}(FAS-[A-Z0-9-]+):\s*$",
+                binding_text,
+                re.M,
+            )
+        )
+        for index, match in enumerate(blocks):
+            req_id = match.group(1)
+            end = blocks[index + 1].start() if index + 1 < len(blocks) else len(binding_text)
+            block = binding_text[match.end():end]
+            component_list = re.search(
+                r"^\s{4}components:\s*\n(?P<body>(?:\s{6}-[^\n]+\n?)+)",
+                block,
+                re.M,
+            )
+            if not component_list:
+                raise ValueError(
+                    f"{bindings}: {req_id} must bind at least one component"
+                )
 
 
 def validate_refs(generated: str):
@@ -385,6 +574,7 @@ def main():
 
         try:
             generated = manifest_for(rfc_dir, annotations, mark_verified=args.verify)
+            validate_test_policy(rfc_dir, annotations)
             verify_bindings(rfc_dir, generated)
             validate_refs(generated)
             validate_test_visibility(generated)
@@ -397,9 +587,17 @@ def main():
         else:
             existing = manifest.read_text(encoding="utf-8") if manifest.exists() else ""
             if existing != generated:
+                diff = "".join(
+                    difflib.unified_diff(
+                        existing.splitlines(keepends=True),
+                        generated.splitlines(keepends=True),
+                        fromfile=str(manifest.relative_to(ROOT)),
+                        tofile="generated",
+                    )
+                )
                 errors.append(
                     f"{manifest.relative_to(ROOT)} is not generated/current; "
-                    "run: python tools/rfc_lock.py --write"
+                    "run: python tools/rfc_lock.py --write\n" + diff
                 )
 
     if errors:

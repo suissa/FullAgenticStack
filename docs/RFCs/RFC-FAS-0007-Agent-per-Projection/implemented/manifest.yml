@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:7308dfc3862024ccac2607e45a3057ba47a17b2b2c46dfce5f6c26f6b215f61d"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-001 — Explicit owner
 Every independent projection SHOULD have one explicit Agent or equivalent semantic owner"
   FAS-PROJ-002:
@@ -23,9 +23,9 @@ Every independent projection SHOULD have one explicit Agent or equivalent semant
     statement_hash: "blake3:5487cc5b4c806277e9637dae5dfca4212af54e4b3f361b88e886a3507848124c"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-002 — Source knowledge
 The owner MUST know the projection's source authority and derivation semantics"
   FAS-PROJ-003:
@@ -35,9 +35,9 @@ The owner MUST know the projection's source authority and derivation semantics"
     statement_hash: "blake3:2b2630712ffb2ffa2701aa26ab5f472900da22788c079a38a06a5ac8f5549921"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-003 — Validity
 The owner SHOULD be capable of determining whether the projection satisfies declared validity conditions"
   FAS-PROJ-004:
@@ -47,9 +47,9 @@ The owner SHOULD be capable of determining whether the projection satisfies decl
     statement_hash: "blake3:92e8e7c063f63eab9b2ae8c6c05754f3be03d377d95f1f63fd3c4d057147d187"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-004 — Rebuild
 The owner SHOULD support semantic rebuild when sufficient source evidence is available"
   FAS-PROJ-005:
@@ -59,9 +59,9 @@ The owner SHOULD support semantic rebuild when sufficient source evidence is ava
     statement_hash: "blake3:7a3b1f52bf9ca227eaf20c17d157068f3b04d2a3f60cd1ffcbd5ef6cb2aa9ce0"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-005 — Healing
 The owner MAY heal a projection if healing does not mutate source authority beyond granted permissions"
   FAS-PROJ-006:
@@ -71,9 +71,9 @@ The owner MAY heal a projection if healing does not mutate source authority beyo
     statement_hash: "blake3:e563feafe6b8d421638ff65910aa80cc60e931f748d20ddfe0cd004b327513dd"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-006 — Lineage
 A projection SHOULD expose lineage sufficient to explain its derivation"
   FAS-PROJ-007:
@@ -83,9 +83,9 @@ A projection SHOULD expose lineage sufficient to explain its derivation"
     statement_hash: "blake3:b5c76ba7e1c0dba819d7f84bd995a7e4a78f379bf6b2d3ac8530a8d7701c9e65"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-007 — Authority isolation
 Projection maintenance MUST NOT silently change authoritative source state"
   FAS-PROJ-008:
@@ -95,8 +95,8 @@ Projection maintenance MUST NOT silently change authoritative source state"
     statement_hash: "blake3:b276c7b212fbb40ef03fa8fcb99defe1004d1fc87d46852f13c00b6eff546a48"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-PROJ-008 — Independent lifecycle
 A projection SHOULD be able to report its own lifecycle state independently of the source"

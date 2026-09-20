@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:fba66928953a84253f607b0f705c1e560b7f6ab31c9d1e1d5ae0be2b358d2138"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-MAT-001 — No technology counting
 Maturity MUST NOT be inferred from the number of LLMs Agents databases or services"
   FAS-MAT-002:
@@ -23,9 +23,9 @@ Maturity MUST NOT be inferred from the number of LLMs Agents databases or servic
     statement_hash: "blake3:3f516319c0d391ca9a20f0ccf72f09e6e2dfe8c1a85c7ecbc17b3fab486f9fe1"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-MAT-002 — Cumulative semantics
 A higher level SHOULD preserve the semantic capabilities of preceding levels"
   FAS-MAT-003:
@@ -35,9 +35,9 @@ A higher level SHOULD preserve the semantic capabilities of preceding levels"
     statement_hash: "blake3:0ff76cf6f70751932324a71e2827d814d6ff07ff4148951efbfa43116b666323"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-MAT-003 — Evidence
 Maturity claims SHOULD reference conformance evidence where formal profiles exist"
   FAS-MAT-004:
@@ -47,9 +47,9 @@ Maturity claims SHOULD reference conformance evidence where formal profiles exis
     statement_hash: "blake3:faabd30f93ecad58f1c9abd999550b00d2af28e88fdb814235d152206cdcc4ec"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-MAT-004 — Framework neutrality
 Using a named Agent framework alone MUST NOT qualify a system for a maturity level"
   FAS-MAT-005:
@@ -59,8 +59,8 @@ Using a named Agent framework alone MUST NOT qualify a system for a maturity lev
     statement_hash: "blake3:1795179f1af63c853997bd252b5f0381edd6a4973fcbf698ceb6459646c2904d"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-MAT-005 — Architectural meaning
 The determining factor is which semantic responsibilities are agentic and governed not which products are installed"

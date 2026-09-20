@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:cf392593ba4c6fdf2468857d3433ebf453465fc2470acab03c622e3eb5fd3ac2"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-001 — Explicit target
 A conformance result MUST identify the system version deployment or artifact scope to which it applies"
   FAS-CONF-002:
@@ -23,9 +23,9 @@ A conformance result MUST identify the system version deployment or artifact sco
     statement_hash: "blake3:9a9ef4af4fed0b014b8abda4105869df29876c85e7d0dc591247514585ddd0eb"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-002 — Explicit exclusions
 Any excluded subsystem capability or environment MUST be declared
 An evaluator MUST NOT silently exclude a failing area from scope"
@@ -36,9 +36,9 @@ An evaluator MUST NOT silently exclude a failing area from scope"
     statement_hash: "blake3:a2680e6139812060b3e053c18ecc122fada8e3cb7d6d72dcbf097f7122c23fe4"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-003 — Justified non-applicability
 NOT_APPLICABLE MUST include evidence showing why the ActivationCondition is false"
   FAS-CONF-004:
@@ -48,9 +48,9 @@ NOT_APPLICABLE MUST include evidence showing why the ActivationCondition is fals
     statement_hash: "blake3:129fd1bf0992265e9ecbd8eedbb160755036553794cb0bb10c50205cff9fa29f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-004 — No missing-feature laundering
 A requirement MUST NOT become NOT_APPLICABLE merely because the implementation omitted the capability that the claimed profile requires
 For example FAS-MULTI-001 cannot be marked NOT_APPLICABLE in FAS-Core because audio ingress was not implemented. It is FAIL"
@@ -61,9 +61,9 @@ For example FAS-MULTI-001 cannot be marked NOT_APPLICABLE in FAS-Core because au
     statement_hash: "blake3:ff3b0c3d50c524ca25ed6d332168d4c1d0bc3a67b36de6ab6e3c39308e6aa4c2"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-005 — Evidence-based PASS
 PASS MUST be supported by evidence appropriate to the requirement"
   FAS-CONF-006:
@@ -73,9 +73,9 @@ PASS MUST be supported by evidence appropriate to the requirement"
     statement_hash: "blake3:9a3acebc8c459e563f2b7ce8d7de5b85d9f2796d74c66a548c713d79875cef09"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-006 — Evidence integrity
 Evidence used for authority- security- identity- or conformance-critical requirements SHOULD provide an integrity mechanism appropriate to risk"
   FAS-CONF-007:
@@ -85,9 +85,9 @@ Evidence used for authority- security- identity- or conformance-critical require
     statement_hash: "blake3:0d0f84190a0cee729485cb4ae12f93393b954f7e823fda733b0e71141b3018f5"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-007 — Human attestation limits
 HumanAttestation alone SHOULD NOT satisfy a directly machine-verifiable security- or authority-critical requirement"
   FAS-CONF-008:
@@ -97,9 +97,9 @@ HumanAttestation alone SHOULD NOT satisfy a directly machine-verifiable security
     statement_hash: "blake3:b8b4963fe4b18d3c38bb3484a809cbe4796b6a4dd6321660ba339bbd6b8b082d"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-008 — Assurance disclosure
 A conformance report SHOULD state who or what performed the verification and the resulting assurance level"
   FAS-CONF-009:
@@ -109,9 +109,9 @@ A conformance report SHOULD state who or what performed the verification and the
     statement_hash: "blake3:d94ed47966a7924354711a231b7ab7908a52e818b98288d8524fc5ffae778101"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-009 — Requirement traceability
 Each PASS SHOULD be traceable through:
 ~~~text
@@ -132,9 +132,9 @@ runtime/formal evidence
     statement_hash: "blake3:d6afa8e7be0d0b2f12e9dec66e9718c762f8df1458cc78c7eef0d2f60cf65a7a"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-010 — Honest uncertainty
 Missing evidence MUST result in NOT_VERIFIED rather than inferred success"
   FAS-CONF-011:
@@ -144,9 +144,9 @@ Missing evidence MUST result in NOT_VERIFIED rather than inferred success"
     statement_hash: "blake3:4a090033a24c91cc1ca0fb1669a053fe431341ad4777a4b72ce7da029a1f43df"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-011 — Reproducible evaluation
 Where practical another Agent or human evaluator SHOULD be able to reproduce the verification from the report references
 A report SHOULD identify test inputs target version or fingerprint relevant configuration environment assumptions evidence locations and RFC versions"
@@ -157,9 +157,9 @@ A report SHOULD identify test inputs target version or fingerprint relevant conf
     statement_hash: "blake3:99bd027afbbd24545c289633e8fda304766ce980c13ec184c44c03add0b2d1e1"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-012 — Capability masking prohibited
 A requirement MUST NOT PASS if the implementation removes disables hides short-circuits or makes unreachable the behavior being evaluated solely to avoid exercising the invariant
 Examples of masking:
@@ -175,9 +175,9 @@ An evaluator SHOULD include masking-detection tests where relevant"
     statement_hash: "blake3:bce30e0fb31d176169179bab2db78ca64ec4fadfa5912dc0e0c66b4f58ed371e"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-013 — Positive verification
 Applicable requirements SHOULD define at least one property showing expected compliant behavior"
   FAS-CONF-014:
@@ -187,9 +187,9 @@ Applicable requirements SHOULD define at least one property showing expected com
     statement_hash: "blake3:495d2cd76cd9d6dce7cc86480b401e14077f2a99a47b050d3d8f208f4c2363dc"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-014 — Adversarial verification
 Security- identity- authority- healing- integrity- and evidence-critical requirements SHOULD define at least one adversarial property intended to falsify the invariant
 Example:
@@ -208,9 +208,9 @@ protected effect MUST NOT occur
     statement_hash: "blake3:67e815f597ee724b99c3142fd0c633c73a7edbfabcd4a7d1e14ee551005322c3"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-015 — Complete capability inventory
 Universal capability requirements MUST be evaluated against a declared capability inventory"
   FAS-CONF-016:
@@ -220,9 +220,9 @@ Universal capability requirements MUST be evaluated against a declared capabilit
     statement_hash: "blake3:ad94ddcc994ffb724d716d11bb43fb90021f50ab0e28f9d2784abb0f3ceb7cb2"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-016 — No sample-based universal PASS
 A universal requirement MUST NOT PASS merely because selected examples succeed"
   FAS-CONF-017:
@@ -232,9 +232,9 @@ A universal requirement MUST NOT PASS merely because selected examples succeed"
     statement_hash: "blake3:015d93bba0548398f9c0dc75554d8338111d9faf6a1415670bd1794a64047336"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-017 — Fingerprint binding
 A conformance report SHOULD bind results to artifact and configuration fingerprints when practical"
   FAS-CONF-018:
@@ -244,9 +244,9 @@ A conformance report SHOULD bind results to artifact and configuration fingerpri
     statement_hash: "blake3:25efdedcbc6998f791d9cc5b77657b4fae1128e9b59413f73aa22454a258ebd4"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-018 — Stale transition
 If material drift invalidates supporting evidence affected PASS results MUST become STALE or be re-evaluated"
   FAS-CONF-019:
@@ -256,9 +256,9 @@ If material drift invalidates supporting evidence affected PASS results MUST bec
     statement_hash: "blake3:8e8f2eb106569c4eb0532474633c94287af42e11c9d4e0a10d215f8d09ee8cdb"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-019 — Target profile is not a claim
 A system MAY state “Targeting FAS-Extreme” without yet conforming
 It MUST NOT state “FullAgenticStack Extreme conformant” unless FAS-Extreme evaluates to PASS"
@@ -269,9 +269,9 @@ It MUST NOT state “FullAgenticStack Extreme conformant” unless FAS-Extreme e
     statement_hash: "blake3:c157ffe660c3b98766ad725fc81610c6b2194ce87b5f63dd95eb444394c4745f"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-020 — Claim integrity
 A public conformance claim SHOULD identify report identity target fingerprint evaluated profile RFC set assurance level and evaluation time"
   FAS-CONF-021:
@@ -281,9 +281,9 @@ A public conformance claim SHOULD identify report identity target fingerprint ev
     statement_hash: "blake3:c78a31c3772b9a18b7f25b372556cf8220020d4681533f5c8a220e23435f1e59"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-021 — Manifest generation
 The manifest MUST be reproducibly generated from:
 normalized semantic requirements
@@ -299,9 +299,9 @@ A handwritten status: implemented field MUST NOT be accepted as sufficient imple
     statement_hash: "blake3:e7221ca7b80675a1b3cdfd702852afbca9abb2509b489e9b22b3807b564e59fd"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-022 — Requirement-level statement hash
 Each normative requirement MUST have an independent statement fingerprint
 The current reference implementation uses BLAKE3 over the normalized requirement identifier title and normative statement body
@@ -320,9 +320,9 @@ A change to one requirement MUST NOT automatically make unrelated requirements S
     statement_hash: "blake3:b9f7ad2380f5591880bc7a5411caaeb132cae70a9397a2321ced5057a348080c"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-023 — Implementation status vocabulary
 The generated implementation lockfile uses:
 implemented
@@ -339,9 +339,9 @@ partial means some implementation/test/evidence binding exists but the requireme
     statement_hash: "blake3:1c156691d6fde689f668c128be9a3797c4db9385ab6795c6aed4a9f245630116"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-024 — Reference existence verification
 Every generated source and test reference MUST resolve to an existing artifact during lock verification
 Missing renamed or deleted referenced artifacts MUST invalidate or downgrade the affected requirement"
@@ -352,9 +352,9 @@ Missing renamed or deleted referenced artifacts MUST invalidate or downgrade the
     statement_hash: "blake3:9e40550f1867353dc81073c6bb5690cc00d23d5bbe00f8cb60a3762a24fdab35"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-025 — Evidence assertion requirement
 For machine-verifiable evidence obligations conformance MUST assert evidence production
 For example testing only that execution returns GovernanceRejected is insufficient when the requirement also requires governance evidence
@@ -370,9 +370,9 @@ try harness.expectEmitted(\"Governance.Rejected\")
     statement_hash: "blake3:f872001f31fff273e5cc45e58c066867c31ce1148575a817a5eac5664369cc34"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-026 — Build visibility
 Every committed executable conformance source MUST be reachable from an explicit build or CI target
 For the Zig reference profile:
@@ -387,9 +387,9 @@ MUST compile and execute all RFC conformance suites"
     statement_hash: "blake3:380dad3a5d973297ee7037585a99b4555b847c7044f30eeb8f59fe6cb1c2b268"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-CONF-027 — Descriptive binding non-authority
 implementation/bindings.yml is descriptive planning metadata
 It MAY map semantic requirements to conceptual components but it MUST NOT independently establish conformance
