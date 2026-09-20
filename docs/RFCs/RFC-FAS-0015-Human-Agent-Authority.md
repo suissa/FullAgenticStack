@@ -87,3 +87,17 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-AUTH-001 | REQUIRED | protected_action_exists | authority context evidence | protected Action executes without identifiable authority |
+| FAS-AUTH-002 | REQUIRED | authority_granted | scope/limit evidence | authority is global or materially unbounded without reason |
+| FAS-AUTH-003 | REQUIRED | natural_language_request_exists | authority escalation test | language such as 'do whatever' expands authority |
+| FAS-AUTH-004 | REQUIRED | policy_requires_human_approval | human approval evidence | Runtime bypasses required approval |
+| FAS-AUTH-005 | OPTIONAL | delegated_autonomy_supported | delegation contract | autonomy operates without explicit scope/constraints |
+| FAS-AUTH-006 | CONDITIONAL | delegation_is_revocable | revocation test | revoked authority remains usable |
+| FAS-AUTH-007 | REQUIRED | authority_decision_occurs | decision evidence | later reviewer cannot determine authority basis |
+| FAS-AUTH-008 | REQUIRED | agent_authority_granted | least-authority evidence | Agent receives unrelated privileges |
