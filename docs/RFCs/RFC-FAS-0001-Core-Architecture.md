@@ -121,3 +121,18 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-CORE-001 | REQUIRED | human_facing_capability_exists | capability inventory + intent coverage | exposed capability cannot be reached by Intent |
+| FAS-CORE-002 | REQUIRED | always | ingress discovery + executable request test | no natural-language ingress exists |
+| FAS-CORE-003 | REQUIRED | always | public ingress contract | caller must select technical operation instead of submitting desired outcome |
+| FAS-CORE-004 | REQUIRED | always | black-box invocation test | caller must name internal Agent/service/store/language |
+| FAS-CORE-005 | REQUIRED | FAS-Core claim | text/audio/image test evidence | one mandatory modality is absent |
+| FAS-CORE-006 | REQUIRED | accepted_intent_exists | resolution-to-capability trace | accepted Intent resolves to neither capability nor explicit failure |
+| FAS-CORE-007 | REQUIRED | protected_effect_possible | authority-decision evidence | interpretation alone causes protected effect |
+| FAS-CORE-008 | REQUIRED | relevant_execution_occurs | correlated execution evidence | effect occurs without reconstructable request/path/outcome |
+| FAS-CORE-009 | CONDITIONAL | independent_responsibility_domain_exists | ownership map | responsibility has no explicit semantic owner |
