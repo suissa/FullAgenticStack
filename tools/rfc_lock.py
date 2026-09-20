@@ -44,6 +44,14 @@ def normalize_statement(text: str) -> str:
 def extract_requirements(path: Path):
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
+    metadata = {}
+    for line in lines:
+        mm = META_RE.match(line)
+        if mm:
+            metadata[mm.group(1)] = {
+                "class": mm.group(2),
+                "activation_condition": mm.group(3).strip(),
+            }
     found = []
     i = 0
     while i < len(lines):
@@ -62,7 +70,8 @@ def extract_requirements(path: Path):
             body.append(lines[j])
             j += 1
         normalized = normalize_statement("\n".join([f"{req_id} — {title}", *body]))
-        found.append((req_id, normalized, "blake3:" + blake3(normalized.encode()).hexdigest()))
+        meta = metadata.get(req_id, {"class": "REQUIRED", "activation_condition": "always"})
+        found.append((req_id, normalized, "blake3:" + blake3(normalized.encode()).hexdigest(), meta))
         i = j
     return found
 
@@ -95,6 +104,9 @@ def scan_annotations():
             elif kind == "test":
                 item["tests"].append(rel)
             elif kind == "evidence":
+                literal = re.escape(value)
+                if not re.search(r'expectEmitted\\(\\s*["\\']' + literal + r'["\\']\\s*\\)', text):
+                    raise ValueError(f"{rel}: @evidence {m.group('id')} {value!r} has no matching expectEmitted assertion")
                 item["evidence"].append({"path": rel, "assertion": value})
         for m in NA_RE.finditer(text):
             item = out.setdefault(m.group("id"), {"sources": [], "tests": [], "evidence": [], "na": None})
@@ -131,13 +143,15 @@ def manifest_for(rfc_dir: Path, annotations, mark_verified=False):
     rows.append("generated_by: tools/rfc_lock.py")
     rows.append("source_of_truth: semantic.md")
     rows.append("requirements:")
-    for req_id, normalized, statement_hash in requirements:
+    for req_id, normalized, statement_hash, meta in requirements:
         a = annotations.get(req_id, {"sources": [], "tests": [], "evidence": [], "na": None})
         verified = previous.get(req_id)
         fully_bound = bool(a["sources"] and a["tests"])
         if mark_verified and fully_bound and not a["na"]:
             verified = statement_hash
         if a["na"]:
+            if meta["class"] != "CONDITIONAL":
+                raise ValueError(f"{req_id}: not_applicable is only valid for CONDITIONAL requirements")
             status = "not_applicable"
         elif verified and verified != statement_hash:
             status = "stale"
@@ -149,6 +163,8 @@ def manifest_for(rfc_dir: Path, annotations, mark_verified=False):
             status = "not_implemented"
 
         rows.append(f"  {req_id}:")
+        rows.append(f"    requirement_class: {meta['class'].lower()}")
+        rows.append(f"    activation_condition: {q(meta['activation_condition'])}")
         rows.append(f"    statement_hash: {q(statement_hash)}")
         rows.append(f"    verified_against: {q(verified) if verified else 'null'}")
         rows.append(f"    status: {status}")
@@ -200,7 +216,11 @@ def main():
         print("error: --verify requires --write", file=sys.stderr)
         return 2
 
-    annotations = scan_annotations()
+    try:
+        annotations = scan_annotations()
+    except ValueError as exc:
+        print("error:", exc, file=sys.stderr)
+        return 1
     changed = False
     errors = []
 
