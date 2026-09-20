@@ -1,27 +1,80 @@
 # RFC-FAS-0009 — Agentic Frontend and A2UI
 
-Status: Draft Standard  
-Category: Standards Track  
-Version: 0.1.0
+**Status:** Draft Standard  
+**Category:** Standards Track  
+**Version:** 0.2.0  
+**Last Updated:** 2026-09-20  
+**Dependencies:** RFC-FAS-0000, RFC-FAS-0001, RFC-FAS-0002
 
-## Principle
+Normative keywords **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** define requirement strength.
 
-The frontend is a semantic projection of user intent and system state, not necessarily a fixed catalog of screens.
 
-### FAS-UI-001
-Every user-facing frontend capability MUST have an equivalent natural-language Intent path.
+## 1. Purpose
 
-### FAS-UI-002
-A FullAgenticStack frontend MAY be generated or adapted dynamically by Agents.
+The FullAgenticStack frontend exposes semantic capabilities without requiring every capability to be represented by a fixed screen hierarchy.
 
-### FAS-UI-003
-A UI Agent MUST NOT gain additional business authority merely because it renders or collects user interaction.
+Dynamic Agent-to-User Interface mechanisms represent a higher maturity form. No specific protocol is required by this RFC.
 
-### FAS-UI-004
-Dynamic UI descriptions SHOULD preserve semantic links to the Intents and capabilities they expose.
+## 2. Normative requirements
 
-### FAS-UI-005
-A2UI or any equivalent Agent-to-User-Interface mechanism MAY be used. No specific UI protocol is required by this RFC.
+### FAS-UI-001 — Intent equivalence
+Every user-facing visual operation MUST have an equivalent natural-language Intent path.
 
-### FAS-UI-006
-The system SHOULD be able to represent the same capability through conversational, visual or mixed interaction without changing the underlying Intent contract.
+### FAS-UI-002 — Dynamic interface
+A frontend MAY dynamically render interaction structures based on Intent, context and system state.
+
+### FAS-UI-003 — UI authority isolation
+A UI Agent MUST NOT gain business authority merely because it renders, collects or transforms user interaction.
+
+### FAS-UI-004 — Semantic linkage
+Dynamic interface elements SHOULD remain semantically linked to the capabilities or Intents they expose.
+
+### FAS-UI-005 — Multimodal continuity
+Visual, conversational and mixed interfaces SHOULD preserve equivalent domain semantics.
+
+### FAS-UI-006 — A2UI neutrality
+A2UI or an equivalent mechanism MAY be used. The semantic requirement is Agent-to-user interface capability, not a specific wire format.
+
+### FAS-UI-007 — Confirmation fidelity
+When an Action requires confirmation, the interface MUST represent the effect being confirmed without materially misleading the user.
+
+## 3. Semantic frontend model
+
+Intent → UI context → interaction representation → user response → Intent or authority update.
+
+The frontend is a projection of semantic state and interaction needs, not an independent authority domain.
+
+## 4. Preconditions
+
+A generated interaction SHOULD know:
+- which capability is being exposed;
+- required inputs;
+- confirmation or authority requirements;
+- possible result semantics.
+
+## 5. Failure semantics
+
+- **InterfaceCapabilityMismatch**
+- **MissingRequiredInput**
+- **UnsafeImplicitAction**
+- **StaleInterfaceState**
+- **SemanticDrift**
+- **MisleadingConfirmation**
+
+## 6. Evidence
+
+For protected Actions, the system SHOULD be able to correlate user-facing representation with the Action or authority decision it produced.
+
+## 7. Non-conforming example
+
+A generated button labeled “Preview” actually executes a payment. The UI representation does not preserve capability semantics.
+
+## Agent implementation guidance
+
+An implementation Agent MUST treat semantic requirements as authoritative and technology choices as bindings. It MAY choose languages, libraries, data engines, protocols, process boundaries and deployment topology when those choices preserve every normative invariant.
+
+The Agent SHOULD maintain traceability from RFC requirement to semantic capability, implementation artifact, verification test and runtime evidence.
+
+## Compatibility and evolution
+
+Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.

@@ -1,28 +1,71 @@
-# FullAgenticStack RFCs
+# FullAgenticStack RFC Series
 
-This directory contains the normative, technology-independent specifications for FullAgenticStack.
+The FullAgenticStack RFC series defines a semantic, technology-independent software architecture intended to be read by both humans and AI Agents.
 
-These RFCs are written for both humans and AI Agents. They define semantics, responsibilities, invariants, authority boundaries and conformance requirements. They do not prescribe programming languages, databases, frameworks, vendors or deployment products unless a technology is itself the subject of an RFC.
+The RFCs define **what the architecture means and guarantees**. Technology Profiles define how a particular project chooses to realize those guarantees.
 
-## Series
+## Governing model
 
-- RFC-FAS-0000 — Semantic-First and Agent-Readable Specification Model
-- RFC-FAS-0001 — FullAgenticStack Core Architecture
-- RFC-FAS-0002 — Intent as the Universal Software Interface
-- RFC-FAS-0003 — Multimodal Intent Ingress
-- RFC-FAS-0004 — Agentic Runtime
-- RFC-FAS-0005 — Agent-Actor-Action Model
-- RFC-FAS-0006 — Agentic Data Architecture
-- RFC-FAS-0007 — Agent per Projection
-- RFC-FAS-0008 — Agentic Event Architecture
-- RFC-FAS-0009 — Agentic Frontend and A2UI
-- RFC-FAS-0010 — Polyglot Agent Actions
-- RFC-FAS-0011 — Agentic Observability
-- RFC-FAS-0012 — Self-Healing and Supervision
-- RFC-FAS-0013 — eXtreme Zero Trust
-- RFC-FAS-0014 — Passwordless Agentic Identity
-- RFC-FAS-0015 — Human-Agent Authority
-- RFC-FAS-0016 — FullAgenticStack Conformance
-- RFC-FAS-0017 — FullAgenticStack Maturity Levels
+RFC = semantics and invariants  
+Technology Profile = developer constraints  
+Implementation Agent = realization  
+Conformance = observable behavior + evidence
 
-Normative keywords MUST, MUST NOT, SHOULD, SHOULD NOT and MAY are interpreted as requirement levels.
+## RFC index
+
+| RFC | Title | Purpose |
+|---|---|---|
+| 0000 | Semantic-First and Agent-Readable Specification Model | Governs RFC language and technology neutrality |
+| 0001 | FullAgenticStack Core Architecture | Defines the paradigm and minimum invariants |
+| 0002 | Intent as the Universal Software Interface | Defines Intent as the universal human/Agent interface |
+| 0003 | Multimodal Intent Ingress | Defines text, audio and image convergence |
+| 0004 | Agentic Runtime | Defines Runtime-owned orchestration |
+| 0005 | Agent-Actor-Action Model | Defines core execution roles |
+| 0006 | Agentic Data Architecture | Defines semantic data responsibilities |
+| 0007 | Agent per Projection | Defines projection ownership and lifecycle |
+| 0008 | Agentic Event Architecture | Defines event semantics |
+| 0009 | Agentic Frontend and A2UI | Defines dynamic Agent-to-user interface semantics |
+| 0010 | Polyglot Agent Actions | Defines technology-independent Action execution |
+| 0011 | Agentic Observability | Defines evidence as a first-class responsibility |
+| 0012 | Self-Healing and Supervision | Defines bounded recovery |
+| 0013 | eXtreme Zero Trust | Defines system-wide explicit trust |
+| 0014 | Passwordless Agentic Identity | Defines passwordless and email-independent identity |
+| 0015 | Human-Agent Authority | Defines explicit delegated authority |
+| 0016 | FullAgenticStack Conformance | Defines testable conformance profiles |
+| 0017 | FullAgenticStack Maturity Levels | Defines architectural maturity |
+
+## Common RFC structure
+
+Where applicable, RFCs define:
+- scope and purpose;
+- semantic model;
+- terminology;
+- normative requirements;
+- preconditions;
+- postconditions;
+- invariants;
+- authority boundaries;
+- failure semantics;
+- evidence requirements;
+- normative and non-conforming examples;
+- Agent implementation guidance;
+- compatibility rules.
+
+## Stable requirement identifiers
+
+Requirement IDs are intended for machine traceability.
+
+An implementation may declare, for example:
+
+implements:
+- FAS-INTENT-001
+- FAS-RUNTIME-004
+- FAS-OBS-003
+
+and associate each identifier with implementation artifacts, tests and runtime evidence.
+
+## Technology neutrality
+
+Core RFCs SHOULD use semantic names such as Vector Capability, Event Capability, Intent Resolver or Projection Agent rather than vendor products.
+
+A developer only needs to specify the desired technology constraints separately. An implementation Agent should then map the semantic RFC requirements to those constraints without changing the architecture's meaning.
