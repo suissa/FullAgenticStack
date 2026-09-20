@@ -88,3 +88,18 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-EVENT-001 | REQUIRED | event_exists | event semantic contract | future command is represented as occurred fact |
+| FAS-EVENT-002 | REQUIRED | event_exists | event identity examples | identity is transport-specific rather than semantic |
+| FAS-EVENT-003 | REQUIRED | causal_context_available | correlation evidence | relevant event cannot link to causal context |
+| FAS-EVENT-004 | REQUIRED | event_transport_exists | transport substitution test | semantic meaning changes with broker/protocol |
+| FAS-EVENT-005 | OPTIONAL | event_listeners_exist | decoupled listener evidence | consumer requires producer-specific direct coupling |
+| FAS-EVENT-006 | CONDITIONAL | replay_or_reconstruction_supported | replay contract/tests | replay effects are undefined or unsafe |
+| FAS-EVENT-007 | REQUIRED | event_observed_by_agent | authority test | observation grants mutation authority |
+| FAS-EVENT-008 | REQUIRED | relevant_action_occurs | outcome event/evidence | relevant Action leaves no semantic outcome evidence |
+| FAS-EVENT-009 | CONDITIONAL | duplicate_delivery_possible | duplicate-delivery test | duplicate observation changes semantics incorrectly |
