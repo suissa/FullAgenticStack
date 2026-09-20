@@ -24,8 +24,8 @@ test "delegated authority is scoped and rejection is evidenced" {
         0,
         &evidence,
     ));
-    try std.testing.expect(evidence.emitted("Authority.Accepted"));
-    try std.testing.expect(evidence.emitted("Authority.Rejected"));
+    try evidence.expectEmitted("Authority.Accepted");
+    try evidence.expectEmitted("Authority.Rejected");
 }
 
 // @test FAS-AUTH-003
