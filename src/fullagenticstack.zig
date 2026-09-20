@@ -1,3 +1,21 @@
+pub const specification = @import("specification.zig");
+pub const intent = @import("intent.zig");
+pub const multimodal = @import("multimodal.zig");
+pub const agentic_runtime = @import("runtime.zig");
+pub const a3 = @import("a3.zig");
+pub const data = @import("data.zig");
+pub const projection = @import("projection.zig");
+pub const events = @import("events.zig");
+pub const a2ui = @import("a2ui.zig");
+pub const polyglot = @import("polyglot.zig");
+pub const observability = @import("observability.zig");
+pub const healing = @import("healing.zig");
+pub const zero_trust = @import("zero_trust.zig");
+pub const identity = @import("identity.zig");
+pub const authority = @import("authority.zig");
+pub const conformance = @import("conformance.zig");
+pub const maturity = @import("maturity.zig");
+
 const std = @import("std");
 
 pub const Modality = enum { text, audio, image };
