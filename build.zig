@@ -27,12 +27,19 @@ pub fn build(b: *std.Build) void {
 
     const conformance = b.step("conformance", "Compile and run every RFC conformance suite");
 
+    const harness_module = b.createModule(.{
+        .root_source_file = b.path("tools/conformance_harness.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+
     for (conformance_files, 0..) |path, index| {
         const module = b.createModule(.{
             .root_source_file = b.path(path),
             .target = target,
             .optimize = optimize,
         });
+        module.addImport("conformance_harness", harness_module);
         const tests = b.addTest(.{
             .name = b.fmt("rfc-conformance-{d}", .{index}),
             .root_module = module,
