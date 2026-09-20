@@ -49,6 +49,10 @@ jobs:
       - name: Run all RFC executable conformance proofs
         run: zig build conformance
 
+      - name: Mark fully bound requirements verified
+        if: github.event_name == 'push'
+        run: python tools/rfc_lock.py --write --verify
+
       - name: Commit generated lockfiles
         if: github.event_name == 'push'
         shell: bash
