@@ -18,6 +18,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: rfc-conformance-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   conformance:
     if: github.actor != 'github-actions[bot]'
