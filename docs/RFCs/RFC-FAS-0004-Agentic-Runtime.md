@@ -102,3 +102,18 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-RUNTIME-001 | REQUIRED | accepted_intent_exists | Intent→capability trace | accepted Intent has no capability or explicit failure |
+| FAS-RUNTIME-002 | REQUIRED | capability_selected | binding evidence | selected responsibility has no executable owner |
+| FAS-RUNTIME-003 | REQUIRED | protected_effect_possible | governance decision evidence | effect occurs before applicable authority evaluation |
+| FAS-RUNTIME-004 | REQUIRED | intent_accepted | goal preservation evidence | Runtime mutates accepted goal |
+| FAS-RUNTIME-005 | REQUIRED | always | distinct evidence for resolution/authority/acceptance | one opaque result makes these responsibilities indistinguishable |
+| FAS-RUNTIME-006 | REQUIRED | execution_path_selected | path evidence | selected path cannot be explained |
+| FAS-RUNTIME-007 | REQUIRED | action_executes | execution vs acceptance evidence | Action execution is automatically treated as Intent success |
+| FAS-RUNTIME-008 | REQUIRED | action_failure_occurs | isolation test | failure corrupts unrelated execution context |
+| FAS-RUNTIME-009 | OPTIONAL | always | topology-independent conformance tests | test requires one topology despite equivalent semantics |
