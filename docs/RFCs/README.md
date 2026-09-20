@@ -116,3 +116,47 @@ PR          = concrete code change
 - [RFC-FAS-0015 — Human Agent Authority](./RFC-FAS-0015-Human-Agent-Authority/)
 - [RFC-FAS-0016 — Conformance](./RFC-FAS-0016-Conformance/)
 - [RFC-FAS-0017 — Maturity Levels](./RFC-FAS-0017-Maturity-Levels/)
+
+
+## Generated semantic lockfiles
+
+Every `implemented/manifest.yml` is generated, not manually authoritative.
+
+The generator:
+
+1. extracts each normative requirement from `semantic.md`;
+2. normalizes the individual requirement statement;
+3. calculates a BLAKE3 `statement_hash`;
+4. discovers `@satisfies`, `@test`, `@evidence` and justified `@not-applicable` annotations;
+5. verifies source/test references exist;
+6. derives `implemented | partial | not_implemented | not_applicable | stale`;
+7. preserves `verified_against` per requirement;
+8. makes only the changed requirement stale when semantic meaning changes.
+
+The CI contract is:
+
+~~~text
+generate lock
+→ zig build conformance
+→ mark fully bound requirements verified
+→ commit generated lock
+~~~
+
+For pull requests, the lock is not regenerated silently: `--check` fails when the committed lock does not match the current semantic/source state.
+
+### Evidence is asserted
+
+Evidence-critical tests use `tools/conformance_harness.zig` and assert emitted evidence directly.
+
+Example:
+
+~~~zig
+try std.testing.expectError(error.GovernanceRejected, runtime.execute(&ctx));
+try harness.expectEmitted("Governance.Rejected");
+~~~
+
+### One authoritative binding chain
+
+`implementation/bindings.yml` is planning/documentation metadata.
+
+The generated `implemented/manifest.yml` is the only binding chain with conformance authority.
