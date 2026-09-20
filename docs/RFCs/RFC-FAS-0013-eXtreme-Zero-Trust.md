@@ -91,3 +91,18 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-XZT-001 | REQUIRED | protected_interaction_occurs | identity/authentication evidence | protected interaction proceeds with insufficient identity proof |
+| FAS-XZT-002 | REQUIRED | protected_effect_possible | authorization evidence | effect occurs without explicit authorization |
+| FAS-XZT-003 | REQUIRED | trust_granted | scope/time evidence | trust remains unbounded |
+| FAS-XZT-004 | REQUIRED | delegation_occurs | delegation scope evidence | Agent inherits unrestricted invoker authority |
+| FAS-XZT-005 | REQUIRED | internal_component_interacts | internal authorization tests | internal location is treated as implicit trust |
+| FAS-XZT-006 | CONDITIONAL | risk_requires_independent_verification | verifiable proof/evidence | identity/authority/effect evidence cannot be independently verified |
+| FAS-XZT-007 | CONDITIONAL | protected_exchange_occurs | channel protection evidence | tamper/replay succeeds without detection where protection is required |
+| FAS-XZT-008 | REQUIRED | FAS-Extreme claim | RFC-FAS-0014 conformance evidence | password dependency exists |
+| FAS-XZT-009 | REQUIRED | context_materially_changes | context re-evaluation evidence | stale authorization remains valid after material context change |
