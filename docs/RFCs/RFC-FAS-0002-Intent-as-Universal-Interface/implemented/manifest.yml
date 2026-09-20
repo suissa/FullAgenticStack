@@ -11,9 +11,9 @@ requirements:
     statement_hash: "blake3:686d97083e45e28a45a39308e2a22c941a8bdb89665cd2414a701ec124f56769"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-001 — Universal intent access
 Every human-facing capability MUST have at least one natural-language invocation path"
   FAS-INTENT-002:
@@ -23,9 +23,9 @@ Every human-facing capability MUST have at least one natural-language invocation
     statement_hash: "blake3:449e9586801b1244c4af991486312fd6c46c00736b163ad0438835f5b9750e07"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-002 — Canonical identity
 Semantically equivalent expressions SHOULD resolve to the same canonical Intent identity"
   FAS-INTENT-003:
@@ -35,9 +35,9 @@ Semantically equivalent expressions SHOULD resolve to the same canonical Intent 
     statement_hash: "blake3:05e22df16f55e584308316632ddefbd536a265a8a60e0f8da0cd32f0c9e5f7c1"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-003 — Surface independence
 Intent identity SHOULD remain stable across supported channels languages and modalities"
   FAS-INTENT-004:
@@ -47,9 +47,9 @@ Intent identity SHOULD remain stable across supported channels languages and mod
     statement_hash: "blake3:5bdd8bb501c6d298e4a8f35e57243cf768a14afaba1d99cb11179f9aa5ff78f6"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-004 — Topology independence
 Intent MUST NOT encode implementation topology as part of its semantic identity unless topology is itself part of the requested outcome"
   FAS-INTENT-005:
@@ -59,9 +59,9 @@ Intent MUST NOT encode implementation topology as part of its semantic identity 
     statement_hash: "blake3:04e0808ab00a92d147e096369842c842bad29ccb77eb8cb67d1a1a921ff8f36c"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-005 — Goal preservation
 Once accepted the semantic objective of an Intent MUST NOT be silently changed"
   FAS-INTENT-006:
@@ -71,9 +71,9 @@ Once accepted the semantic objective of an Intent MUST NOT be silently changed"
     statement_hash: "blake3:634e2bd82694fc1d838c48775a89d3b04a9bc8747b264c9489f6e6213463bff4"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-006 — Explicit reinterpretation
 A materially different interpretation MUST become a new candidate Intent or require explicit resolution"
   FAS-INTENT-007:
@@ -83,9 +83,9 @@ A materially different interpretation MUST become a new candidate Intent or requ
     statement_hash: "blake3:62c34195c7f58b78a2ced490d07d2262328f72ef866c81eea731a825c07be0ca"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-007 — No implicit authority
 Resolving an Intent MUST NOT imply authorizing it"
   FAS-INTENT-008:
@@ -95,9 +95,9 @@ Resolving an Intent MUST NOT imply authorizing it"
     statement_hash: "blake3:80dd86d254d59156573e4e290ad9ff33d44bf03a2166e38471236fbeb8554cb7"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-008 — Multiple Behaviors
 Multiple Behaviors MAY satisfy the same Intent if applicable policies and invariants remain satisfied"
   FAS-INTENT-009:
@@ -107,8 +107,8 @@ Multiple Behaviors MAY satisfy the same Intent if applicable policies and invari
     statement_hash: "blake3:db5976f8247519841db2e5ea0d8bd7106c8de16b061df0e867fed2da57e8a68a"
     verified_against: null
     status: not_implemented
-    sources:
-    tests:
-    evidence_assertions:
+    sources: []
+    tests: []
+    evidence_assertions: []
     normalized_statement: "FAS-INTENT-009 — Honest failure
 Failure to understand or fulfill an Intent MUST be represented explicitly rather than fabricated as successful execution"
