@@ -72,3 +72,16 @@ The Agent SHOULD maintain traceability from RFC requirement to semantic capabili
 ## Compatibility and evolution
 
 Minor revisions MAY clarify wording without silently changing the meaning of stable requirement identifiers. Breaking semantic changes SHOULD receive new identifiers or a new major version.
+
+
+## Machine-actionable requirement annotations
+
+| Requirement | Class | Activation condition | Required evidence | Adversarial property |
+|---|---|---|---|---|
+| FAS-POLY-001 | REQUIRED | action_or_agent_exists | semantic contract independent of language | language name defines semantic identity |
+| FAS-POLY-002 | OPTIONAL | multiple_bindings_used | per-Action binding map | same Agent cannot preserve contracts across bindings |
+| FAS-POLY-003 | REQUIRED | runtime_binds_actions | contract-based dispatch evidence | Runtime dispatches by language identity rather than semantic capability |
+| FAS-POLY-004 | REQUIRED | binding_changes | cross-binding conformance tests | technology substitution changes semantics/authority/evidence |
+| FAS-POLY-005 | OPTIONAL | developer_constraints_exist | Technology Profile | Agent ignores explicit developer technology constraints |
+| FAS-POLY-006 | OPTIONAL | technology_not_fixed | selection rationale | Agent chooses binding without considering stated constraints |
+| FAS-POLY-007 | REQUIRED | cross_language_boundary_exists | round-trip semantic evidence | failure/authority/evidence context is lost at boundary |
