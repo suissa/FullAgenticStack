@@ -13,6 +13,7 @@ Supported annotations in project source/tests:
 from __future__ import annotations
 
 import argparse
+import difflib
 import re
 import sys
 from pathlib import Path
@@ -582,9 +583,17 @@ def main():
         else:
             existing = manifest.read_text(encoding="utf-8") if manifest.exists() else ""
             if existing != generated:
+                diff = "".join(
+                    difflib.unified_diff(
+                        existing.splitlines(keepends=True),
+                        generated.splitlines(keepends=True),
+                        fromfile=str(manifest.relative_to(ROOT)),
+                        tofile="generated",
+                    )
+                )
                 errors.append(
                     f"{manifest.relative_to(ROOT)} is not generated/current; "
-                    "run: python tools/rfc_lock.py --write"
+                    "run: python tools/rfc_lock.py --write\n" + diff
                 )
 
     if errors:
