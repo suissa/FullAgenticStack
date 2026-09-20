@@ -7,80 +7,96 @@ requirements:
   FAS-ID-001:
     requirement_class: required
     activation_condition: "FAS-Extreme claim"
-    statement_hash: "blake3:484342b3a09c0b53d7afd7025759ff31218ffe990a2005ab95828ada2532aa72"
+    required_evidence: "authentication flow evidence"
+    statement_hash: "blake3:566eb74ea72c979ad72afbfef87837de527549eef38291cca0217606fb526ffb"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-001 — No reusable passwords\\nA FullAgenticStack Extreme implementation MUST NOT require reusable shared-secret passwords for human authentication."
+    normalized_statement: "FAS-ID-001 — No reusable passwords
+A FullAgenticStack Extreme implementation MUST NOT require reusable shared-secret passwords for human authentication"
   FAS-ID-002:
     requirement_class: required
     activation_condition: "FAS-Extreme claim"
-    statement_hash: "blake3:49dac9d4cdeeb51e1d2f8f59f4f637c0f9f0ad3699b997fe23980e9f30793ecb"
+    required_evidence: "identity model evidence"
+    statement_hash: "blake3:a6128efbcc7cdee365bd0326e0a4c6ab71be199e1781286a6b0c41ce6cd23c5d"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-002 — Email independence\\nEmail MUST NOT be required as the primary authentication secret or mandatory foundational identity anchor."
+    normalized_statement: "FAS-ID-002 — Email independence
+Email MUST NOT be required as the primary authentication secret or mandatory foundational identity anchor"
   FAS-ID-003:
     requirement_class: required
     activation_condition: "protected_identity_used"
-    statement_hash: "blake3:b791270ebda54e973bdc4a7736be04dd87ff37b32d8b7af2c24e7e67b5db963b"
+    required_evidence: "credential/proof evidence"
+    statement_hash: "blake3:0adce04719ff9c36beac9f2f14dfc57af9792c43ed094c58e49f0d1fe8b2d545"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-003 — Verifiable identity\\nHuman and Agent identities SHOULD be bound to verifiable credentials or proofs appropriate to their authority."
+    normalized_statement: "FAS-ID-003 — Verifiable identity
+Human and Agent identities SHOULD be bound to verifiable credentials or proofs appropriate to their authority"
   FAS-ID-004:
     requirement_class: required
     activation_condition: "authentication_occurs"
-    statement_hash: "blake3:0048fe3d98e6ad65cc5008a69d8a2bc2278bb5c01cffa62f504131a312a28b70"
+    required_evidence: "authn/authz separation evidence"
+    statement_hash: "blake3:c4bd07051537d5534fcb2fe2ea463c68c79e1451e00f4064ef0fc669b5a23f9c"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-004 — Authentication/authorization separation\\nAuthentication MUST remain semantically separate from authorization."
+    normalized_statement: "FAS-ID-004 — Authentication/authorization separation
+Authentication MUST remain semantically separate from authorization"
   FAS-ID-005:
     requirement_class: required
     activation_condition: "communication_identifier_used"
-    statement_hash: "blake3:467678f168067061c1d0d54ff84fc887789bd80b6d655f9b06a6569c9578e999"
+    required_evidence: "authority test"
+    statement_hash: "blake3:7080a04b5333ff666543688ccb6299fa4124749a05215ee53f3f092a993c698d"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-005 — Communication identifiers are insufficient\\nPossession of a communication identifier alone MUST NOT prove protected authority."
+    normalized_statement: "FAS-ID-005 — Communication identifiers are insufficient
+Possession of a communication identifier alone MUST NOT prove protected authority"
   FAS-ID-006:
     requirement_class: required
     activation_condition: "agent_identity_exists"
-    statement_hash: "blake3:7eba5629762441bf1badbb7e242c2b321e9746403da9b14e7f6fbc313c67a041"
+    required_evidence: "attribution evidence"
+    statement_hash: "blake3:028532c406003a5ff3ed2c507c8f8906c56bb7e42b0b1c2f523f2ee7b97fc0e0"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-006 — Agent attribution\\nAgent identity SHOULD be uniquely attributable within its trust domain."
+    normalized_statement: "FAS-ID-006 — Agent attribution
+Agent identity SHOULD be uniquely attributable within its trust domain"
   FAS-ID-007:
     requirement_class: required
     activation_condition: "identity_recovery_supported"
-    statement_hash: "blake3:c93fc744dd73baddf0d61443863d2855db99519af50ea3947c56f96a7237a2af"
+    required_evidence: "recovery security tests"
+    statement_hash: "blake3:0186f238f0e0813909f28a213d928c5b8029ba33cd79a1727367446c575c739a"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-007 — Secure recovery\\nIdentity recovery MUST NOT silently weaken the guarantees of the primary identity model."
+    normalized_statement: "FAS-ID-007 — Secure recovery
+Identity recovery MUST NOT silently weaken the guarantees of the primary identity model"
   FAS-ID-008:
     requirement_class: required
     activation_condition: "agent_credential_exists"
-    statement_hash: "blake3:7f1e96da92de71424be6208c5f192d20576d2b432411a88b8d20850dadcd4f1c"
+    required_evidence: "credential scope evidence"
+    statement_hash: "blake3:e2ba429568e3a8326bbbb3bc7de1f1539a58587e4b45fe7c787d9288a8d7de56"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-ID-008 — Credential scope\\nAgent credentials SHOULD be scoped to the authority actually required."
+    normalized_statement: "FAS-ID-008 — Credential scope
+Agent credentials SHOULD be scoped to the authority actually required"

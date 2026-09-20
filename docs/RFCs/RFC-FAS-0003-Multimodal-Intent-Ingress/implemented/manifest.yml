@@ -7,60 +7,72 @@ requirements:
   FAS-MULTI-001:
     requirement_class: required
     activation_condition: "FAS-Core claim"
-    statement_hash: "blake3:5bb790d5800257a56fd7d55d12835717693946bb90fa5aa319c50a8980153ce7"
+    required_evidence: "text/audio/image executable tests"
+    statement_hash: "blake3:720211b4a1cbdfb08a3e3cf07aaabaf6ab709d12473a9a07d1777c9b9a834d49"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MULTI-001 — Required modalities\\nA conforming FullAgenticStack Core implementation MUST accept text, audio and image as human request inputs."
+    normalized_statement: "FAS-MULTI-001 — Required modalities
+A conforming FullAgenticStack Core implementation MUST accept text audio and image as human request inputs"
   FAS-MULTI-002:
     requirement_class: required
     activation_condition: "required_modality_received"
-    statement_hash: "blake3:8457d61bb6199939b632b7072ab11d3fc3354bba9681033ececdf12c1ab45bc3"
+    required_evidence: "cross-modality Intent evidence"
+    statement_hash: "blake3:d50c8073d4caddea3482f1919ed171313e706e35fa83e2c638550ba90c593cce"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MULTI-002 — Semantic convergence\\nAll required modalities MUST converge toward the same semantic Intent model."
+    normalized_statement: "FAS-MULTI-002 — Semantic convergence
+All required modalities MUST converge toward the same semantic Intent model"
   FAS-MULTI-003:
     requirement_class: required
     activation_condition: "modality_processing_occurs"
-    statement_hash: "blake3:d23f76a43c137f3f70bbc67baaf0246041e11d9b01ede1385c6131caaf2ccd2e"
+    required_evidence: "source-to-semantic trace"
+    statement_hash: "blake3:e5c2ee106f0b1a8a8ab1616e31f9dc1b9ed464902496a864931d14780b704f33"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MULTI-003 — Goal preservation\\nA modality processor MUST preserve the user's expressed semantic objective."
+    normalized_statement: "FAS-MULTI-003 — Goal preservation
+A modality processor MUST preserve the user's expressed semantic objective"
   FAS-MULTI-004:
     requirement_class: required
     activation_condition: "protected_effect_possible"
-    statement_hash: "blake3:d03b8295437de7095079c827c916fdcb66ddf5aff56bd67acba41fd8e84672b7"
+    required_evidence: "authority trace"
+    statement_hash: "blake3:ed63f797b87f2698ff82cd97c92a44e57e31e3d82893158fa4dcd1b51ea7156f"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MULTI-004 — No modality authority\\nExtracting or interpreting modality content MUST NOT itself grant authority to cause business effects."
+    normalized_statement: "FAS-MULTI-004 — No modality authority
+Extracting or interpreting modality content MUST NOT itself grant authority to cause business effects"
   FAS-MULTI-005:
     requirement_class: required
     activation_condition: "equivalent_cross_modality_cases_exist"
-    statement_hash: "blake3:c1f675c6b8479c8b44f51fc115f2a83f45fa9f82073aab8e341473c9c6dd04f0"
+    required_evidence: "equivalence corpus"
+    statement_hash: "blake3:ca1423b2a99ac8464b0e92c9ac56a6f879d6a8bed1311d831fee26eb49d7e52b"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MULTI-005 — Equivalent meaning\\nEquivalent meaning expressed through different modalities SHOULD resolve to equivalent canonical Intent."
+    normalized_statement: "FAS-MULTI-005 — Equivalent meaning
+Equivalent meaning expressed through different modalities SHOULD resolve to equivalent canonical Intent"
   FAS-MULTI-006:
     requirement_class: optional
     activation_condition: "extended_modality_supported"
-    statement_hash: "blake3:07fe629cc3a5fd7741f59fa7110ebea7c44cedf9eb194f077da814dcb6419de6"
+    required_evidence: "modality contract"
+    statement_hash: "blake3:2fa24e8fadd52800c30a107e41ad7ca58ba432f221a013f11c5a95cd74e618ca"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-MULTI-006 — Extended modalities\\nA system MAY support video, documents, sensors, device streams, location signals and other modalities."
+    normalized_statement: "FAS-MULTI-006 — Extended modalities
+A system MAY support video documents sensors device streams location signals and other modalities"

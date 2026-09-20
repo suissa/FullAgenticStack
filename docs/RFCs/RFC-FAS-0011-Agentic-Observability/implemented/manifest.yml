@@ -7,80 +7,96 @@ requirements:
   FAS-OBS-001:
     requirement_class: required
     activation_condition: "relevant_execution_occurs"
-    statement_hash: "blake3:7a24db7ee4ff37ff17ed63f3c53b8028143b144a784262f9fb4c4cde02f2bfdd"
+    required_evidence: "machine-readable evidence"
+    statement_hash: "blake3:199564514dc05b49aaeec348a2b187ec4b582e955c8726fdf425270be76d5221"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-001 — Machine-readable evidence\\nRelevant execution MUST produce machine-readable evidence."
+    normalized_statement: "FAS-OBS-001 — Machine-readable evidence
+Relevant execution MUST produce machine-readable evidence"
   FAS-OBS-002:
     requirement_class: required
     activation_condition: "protected_or_relevant_execution_occurs"
-    statement_hash: "blake3:92cc6f353a80fa591172ca7c1146e11bf85b4168f9cda21c2d64753636fe2aa9"
+    required_evidence: "correlation trace"
+    statement_hash: "blake3:2fce8f9ad02908da234ad478cf018c04bfc45d8d376f6c9f4fb4d453d03d2b59"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-002 — Correlation\\nEvidence SHOULD correlate Intent, Behavior, Action, authority decision, effects and final result."
+    normalized_statement: "FAS-OBS-002 — Correlation
+Evidence SHOULD correlate Intent Behavior Action authority decision effects and final result"
   FAS-OBS-003:
     requirement_class: required
     activation_condition: "capability_selection_occurs"
-    statement_hash: "blake3:b476a127a57188aa36795308cb5c193422df2ca2c1247b0a051cd95490842fcc"
+    required_evidence: "selection rationale/evidence"
+    statement_hash: "blake3:20c61612358e93a0744e44ada2ce0b3e6c937caca55707d7e29b28d46b4d5ca7"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-003 — Decision explainability\\nThe system SHOULD retain enough evidence to explain why a capability or Action was selected."
+    normalized_statement: "FAS-OBS-003 — Decision explainability
+The system SHOULD retain enough evidence to explain why a capability or Action was selected"
   FAS-OBS-004:
     requirement_class: required
     activation_condition: "observation_occurs"
-    statement_hash: "blake3:2ade795c3c4dff282f7ddd3254847906adf94cb311e92111007b64f04e14896a"
+    required_evidence: "authority test"
+    statement_hash: "blake3:965dca4d81a15c2e9110cbb4b5e1c5581c3a2626a202d2bcc99a9813213b3a29"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-004 — Observation/authority separation\\nRecording or observing an occurrence MUST NOT grant authority over the observed domain."
+    normalized_statement: "FAS-OBS-004 — Observation/authority separation
+Recording or observing an occurrence MUST NOT grant authority over the observed domain"
   FAS-OBS-005:
     requirement_class: required
     activation_condition: "execution_completes"
-    statement_hash: "blake3:0721705a8fc662c041aaef7b9ac18b3921d0ee52ebe1e443b7f343fe7532bf66"
+    required_evidence: "outcome status evidence"
+    statement_hash: "blake3:2671e86077ae668ebc63c65bf30ad359ed6e7bc19ed7a9816ee83c64146e31f5"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-005 — Outcome distinguishability\\nEvidence MUST distinguish accepted success, semantic failure and unresolved outcome."
+    normalized_statement: "FAS-OBS-005 — Outcome distinguishability
+Evidence MUST distinguish accepted success semantic failure and unresolved outcome"
   FAS-OBS-006:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:fac1bca4f80499e91b26f765e04dd327ede8857bb06a5b30923ac7b18b29ac8f"
+    required_evidence: "technology-neutral evidence mapping"
+    statement_hash: "blake3:1a7b4ea8301081a222dbc357a36d269c57f2b9a6794edda9589fcae44703c876"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-006 — Technology neutrality\\nLogs, metrics, traces, Events, Proofs and other mechanisms are implementation forms. Required semantic evidence is normative."
+    normalized_statement: "FAS-OBS-006 — Technology neutrality
+Logs metrics traces Events Proofs and other mechanisms are implementation forms. Required semantic evidence is normative"
   FAS-OBS-007:
     requirement_class: conditional
     activation_condition: "evidence_used_for_audit_governance_or_conformance"
-    statement_hash: "blake3:cd6a7223f5554c47d4919c27818b8e9cbed2e5d1bbd01b0ed8ac046481c719be"
+    required_evidence: "integrity evidence"
+    statement_hash: "blake3:f3fe4aa78c247aa388314e6a32bf3971f5690b4de649d2b007417840b48fab4e"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-007 — Evidence integrity\\nWhere evidence is used for audit, governance or conformance, its integrity SHOULD be protected according to risk."
+    normalized_statement: "FAS-OBS-007 — Evidence integrity
+Where evidence is used for audit governance or conformance its integrity SHOULD be protected according to risk"
   FAS-OBS-008:
     requirement_class: required
     activation_condition: "sensitive_data_possible"
-    statement_hash: "blake3:ff4bf5db684b378efe18a491777f16998930268a8d46886dea95ed1c6b276ce6"
+    required_evidence: "data minimization evidence"
+    statement_hash: "blake3:0512ed9b6790c34b57e6d5784867b2f65ab06f7314d9ae99598fbf094b8609a4"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-OBS-008 — Bounded sensitive data\\nObservability SHOULD preserve necessary evidence without unnecessarily copying sensitive content."
+    normalized_statement: "FAS-OBS-008 — Bounded sensitive data
+Observability SHOULD preserve necessary evidence without unnecessarily copying sensitive content"

@@ -7,80 +7,96 @@ requirements:
   FAS-PROJ-001:
     requirement_class: conditional
     activation_condition: "independent_projection_exists"
-    statement_hash: "blake3:2a10d632c6d3b4efbd47c25d6963e7561ba36104eb7cde3f814e8632b974f6bd"
+    required_evidence: "projection ownership map"
+    statement_hash: "blake3:7308dfc3862024ccac2607e45a3057ba47a17b2b2c46dfce5f6c26f6b215f61d"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-001 — Explicit owner\\nEvery independent projection SHOULD have one explicit Agent or equivalent semantic owner."
+    normalized_statement: "FAS-PROJ-001 — Explicit owner
+Every independent projection SHOULD have one explicit Agent or equivalent semantic owner"
   FAS-PROJ-002:
     requirement_class: conditional
     activation_condition: "independent_projection_exists"
-    statement_hash: "blake3:6a6874121a4c7eb373bd38ca0750a3c085aaed1e655461355589749c26f7dfae"
+    required_evidence: "source/derivation contract"
+    statement_hash: "blake3:5487cc5b4c806277e9637dae5dfca4212af54e4b3f361b88e886a3507848124c"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-002 — Source knowledge\\nThe owner MUST know the projection's source authority and derivation semantics."
+    normalized_statement: "FAS-PROJ-002 — Source knowledge
+The owner MUST know the projection's source authority and derivation semantics"
   FAS-PROJ-003:
     requirement_class: conditional
     activation_condition: "projection_serves_results"
-    statement_hash: "blake3:f3dd83104a20014dca0b914e96d2cc63676fc07c4726611712161c1865abf437"
+    required_evidence: "validity test"
+    statement_hash: "blake3:2b2630712ffb2ffa2701aa26ab5f472900da22788c079a38a06a5ac8f5549921"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-003 — Validity\\nThe owner SHOULD be capable of determining whether the projection satisfies declared validity conditions."
+    normalized_statement: "FAS-PROJ-003 — Validity
+The owner SHOULD be capable of determining whether the projection satisfies declared validity conditions"
   FAS-PROJ-004:
     requirement_class: conditional
     activation_condition: "projection_rebuild_expected"
-    statement_hash: "blake3:ce13fa66ee732226c74f1d59cd9d75fce360100f3b9d2137512bd9fa3cd074f8"
+    required_evidence: "rebuild evidence"
+    statement_hash: "blake3:92e8e7c063f63eab9b2ae8c6c05754f3be03d377d95f1f63fd3c4d057147d187"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-004 — Rebuild\\nThe owner SHOULD support semantic rebuild when sufficient source evidence is available."
+    normalized_statement: "FAS-PROJ-004 — Rebuild
+The owner SHOULD support semantic rebuild when sufficient source evidence is available"
   FAS-PROJ-005:
     requirement_class: optional
     activation_condition: "projection_healing_supported"
-    statement_hash: "blake3:221cceabfa231e98b0f2e21c647e1096e3701c3fdb4ab8c47009360d9ed3b2f4"
+    required_evidence: "healing trace"
+    statement_hash: "blake3:7a3b1f52bf9ca227eaf20c17d157068f3b04d2a3f60cd1ffcbd5ef6cb2aa9ce0"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-005 — Healing\\nThe owner MAY heal a projection if healing does not mutate source authority beyond granted permissions."
+    normalized_statement: "FAS-PROJ-005 — Healing
+The owner MAY heal a projection if healing does not mutate source authority beyond granted permissions"
   FAS-PROJ-006:
     requirement_class: conditional
     activation_condition: "projection_exists"
-    statement_hash: "blake3:9756203d149ec39b549f150bdfac6b29be6a1b2a8c25c16ce50d092a9bd6162c"
+    required_evidence: "lineage evidence"
+    statement_hash: "blake3:e563feafe6b8d421638ff65910aa80cc60e931f748d20ddfe0cd004b327513dd"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-006 — Lineage\\nA projection SHOULD expose lineage sufficient to explain its derivation."
+    normalized_statement: "FAS-PROJ-006 — Lineage
+A projection SHOULD expose lineage sufficient to explain its derivation"
   FAS-PROJ-007:
     requirement_class: conditional
     activation_condition: "projection_maintenance_occurs"
-    statement_hash: "blake3:e82e9dafc5970c3227126fd1eadaea79027e1c35e63ebfc570d9e68a3223b154"
+    required_evidence: "source mutation test"
+    statement_hash: "blake3:b5c76ba7e1c0dba819d7f84bd995a7e4a78f379bf6b2d3ac8530a8d7701c9e65"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-007 — Authority isolation\\nProjection maintenance MUST NOT silently change authoritative source state."
+    normalized_statement: "FAS-PROJ-007 — Authority isolation
+Projection maintenance MUST NOT silently change authoritative source state"
   FAS-PROJ-008:
     requirement_class: conditional
     activation_condition: "projection_exists"
-    statement_hash: "blake3:1b6ad64e7268adb46dc320087add037125407954990c4c6eccc386c484c5237a"
+    required_evidence: "lifecycle status evidence"
+    statement_hash: "blake3:b276c7b212fbb40ef03fa8fcb99defe1004d1fc87d46852f13c00b6eff546a48"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-PROJ-008 — Independent lifecycle\\nA projection SHOULD be able to report its own lifecycle state independently of the source."
+    normalized_statement: "FAS-PROJ-008 — Independent lifecycle
+A projection SHOULD be able to report its own lifecycle state independently of the source"

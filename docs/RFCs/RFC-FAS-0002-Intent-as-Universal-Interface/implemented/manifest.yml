@@ -7,90 +7,108 @@ requirements:
   FAS-INTENT-001:
     requirement_class: required
     activation_condition: "human_facing_capability_exists"
-    statement_hash: "blake3:cbda377ba279a6e304500f2efdf38e96d3c1f3ce6764fd1fe1cfadfc9a041dbd"
+    required_evidence: "capability inventory + intent coverage"
+    statement_hash: "blake3:686d97083e45e28a45a39308e2a22c941a8bdb89665cd2414a701ec124f56769"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-001 — Universal intent access\\nEvery human-facing capability MUST have at least one natural-language invocation path."
+    normalized_statement: "FAS-INTENT-001 — Universal intent access
+Every human-facing capability MUST have at least one natural-language invocation path"
   FAS-INTENT-002:
     requirement_class: required
     activation_condition: "semantic_equivalence_cases_exist"
-    statement_hash: "blake3:a3949c5b549252be9431bb136961d446fba2c2808d60f08d9e8841ede2289298"
+    required_evidence: "equivalence test set"
+    statement_hash: "blake3:449e9586801b1244c4af991486312fd6c46c00736b163ad0438835f5b9750e07"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-002 — Canonical identity\\nSemantically equivalent expressions SHOULD resolve to the same canonical Intent identity."
+    normalized_statement: "FAS-INTENT-002 — Canonical identity
+Semantically equivalent expressions SHOULD resolve to the same canonical Intent identity"
   FAS-INTENT-003:
     requirement_class: conditional
     activation_condition: "multiple_supported_surfaces_or_modalities"
-    statement_hash: "blake3:9cc309c12511d234f494023897f738d5bd62be811ecbd578a5d1332f84d984e5"
+    required_evidence: "cross-surface resolution evidence"
+    statement_hash: "blake3:05e22df16f55e584308316632ddefbd536a265a8a60e0f8da0cd32f0c9e5f7c1"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-003 — Surface independence\\nIntent identity SHOULD remain stable across supported channels, languages and modalities."
+    normalized_statement: "FAS-INTENT-003 — Surface independence
+Intent identity SHOULD remain stable across supported channels languages and modalities"
   FAS-INTENT-004:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:8a77cc6a281956346eb3b3663c0f55ee6af0d14d3dfc99ed6f21fbe133051225"
+    required_evidence: "canonical Intent schema + topology mutation test"
+    statement_hash: "blake3:5bdd8bb501c6d298e4a8f35e57243cf768a14afaba1d99cb11179f9aa5ff78f6"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-004 — Topology independence\\nIntent MUST NOT encode implementation topology as part of its semantic identity unless topology is itself part of the requested outcome."
+    normalized_statement: "FAS-INTENT-004 — Topology independence
+Intent MUST NOT encode implementation topology as part of its semantic identity unless topology is itself part of the requested outcome"
   FAS-INTENT-005:
     requirement_class: required
     activation_condition: "intent_accepted"
-    statement_hash: "blake3:09d8c2c1592b72f0354d9575b82dcc87b4e31fca4b47f5c37cf9510b8cf3448b"
+    required_evidence: "before/after Intent evidence"
+    statement_hash: "blake3:04e0808ab00a92d147e096369842c842bad29ccb77eb8cb67d1a1a921ff8f36c"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-005 — Goal preservation\\nOnce accepted, the semantic objective of an Intent MUST NOT be silently changed."
+    normalized_statement: "FAS-INTENT-005 — Goal preservation
+Once accepted the semantic objective of an Intent MUST NOT be silently changed"
   FAS-INTENT-006:
     requirement_class: required
     activation_condition: "material_reinterpretation_occurs"
-    statement_hash: "blake3:08fc55be0959152d2e534d5d7d955b96dcbfb8371a45de686fa644c6bf36ed32"
+    required_evidence: "reinterpretation/confirmation evidence"
+    statement_hash: "blake3:634e2bd82694fc1d838c48775a89d3b04a9bc8747b264c9489f6e6213463bff4"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-006 — Explicit reinterpretation\\nA materially different interpretation MUST become a new candidate Intent or require explicit resolution."
+    normalized_statement: "FAS-INTENT-006 — Explicit reinterpretation
+A materially different interpretation MUST become a new candidate Intent or require explicit resolution"
   FAS-INTENT-007:
     requirement_class: required
     activation_condition: "protected_effect_possible"
-    statement_hash: "blake3:06ceb705a6a938c27bbbbc299b601742c884943dc859985c6d64c84b0366d180"
+    required_evidence: "separate resolution and authority evidence"
+    statement_hash: "blake3:62c34195c7f58b78a2ced490d07d2262328f72ef866c81eea731a825c07be0ca"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-007 — No implicit authority\\nResolving an Intent MUST NOT imply authorizing it."
+    normalized_statement: "FAS-INTENT-007 — No implicit authority
+Resolving an Intent MUST NOT imply authorizing it"
   FAS-INTENT-008:
     requirement_class: optional
     activation_condition: "multiple_behaviors_exist"
-    statement_hash: "blake3:de7d338eb8fad6701bae26e27db5f5689ba095f569d2d55aa25d9567ee37f495"
+    required_evidence: "behavior selection evidence"
+    statement_hash: "blake3:80dd86d254d59156573e4e290ad9ff33d44bf03a2166e38471236fbeb8554cb7"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-008 — Multiple Behaviors\\nMultiple Behaviors MAY satisfy the same Intent if applicable policies and invariants remain satisfied."
+    normalized_statement: "FAS-INTENT-008 — Multiple Behaviors
+Multiple Behaviors MAY satisfy the same Intent if applicable policies and invariants remain satisfied"
   FAS-INTENT-009:
     requirement_class: required
     activation_condition: "resolution_or_execution_failure_occurs"
-    statement_hash: "blake3:80a8603a8040062fe6b08d98154d3a0480fa3b64d31669927ae625f9413fc199"
+    required_evidence: "semantic failure evidence"
+    statement_hash: "blake3:db5976f8247519841db2e5ea0d8bd7106c8de16b061df0e867fed2da57e8a68a"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-INTENT-009 — Honest failure\\nFailure to understand or fulfill an Intent MUST be represented explicitly rather than fabricated as successful execution."
+    normalized_statement: "FAS-INTENT-009 — Honest failure
+Failure to understand or fulfill an Intent MUST be represented explicitly rather than fabricated as successful execution"

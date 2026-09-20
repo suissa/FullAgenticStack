@@ -7,69 +7,82 @@ requirements:
   FAS-AUTH-001:
     requirement_class: required
     activation_condition: "protected_action_exists"
-    statement_hash: "blake3:c0ac3fbb48b9f871f263c32fa9754a1fbd5ec35c86a06afd15bcce176235fc19"
+    required_evidence: "authority context evidence"
+    statement_hash: "blake3:124cbab821c3199bb3cc545ed3fe913f660e9c0ff3201558a9550f1aca9c758f"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-001 — Authority context\\nEvery protected Action MUST execute under an identifiable authority context."
+    normalized_statement: "FAS-AUTH-001 — Authority context
+Every protected Action MUST execute under an identifiable authority context"
   FAS-AUTH-002:
     requirement_class: required
     activation_condition: "authority_granted"
-    statement_hash: "blake3:b49fbdd74c31d32125a5443544edca19b29e9a4c347fe5ec5ea329a8e71cf90d"
+    required_evidence: "scope/limit evidence"
+    statement_hash: "blake3:076506979005a04bc4aa90b3d3ae3e7fd59ad02f6111dcaa704ca564225c371f"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0015-Human-Agent-Authority/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-002 — Explicit scope\\nAuthority MUST define permitted scope and SHOULD define relevant limits such as duration, value, target, resource or frequency."
+    normalized_statement: "FAS-AUTH-002 — Explicit scope
+Authority MUST define permitted scope and SHOULD define relevant limits such as duration value target resource or frequency"
   FAS-AUTH-003:
     requirement_class: required
     activation_condition: "natural_language_request_exists"
-    statement_hash: "blake3:d87617d872ef781c3581f4721085811af0fe6cb72a0a6c98c9aef370dc658011"
+    required_evidence: "authority escalation test"
+    statement_hash: "blake3:4942f970a50285c36713cfc6ea0dfa0af939725fa84859839fec69e80b72c6f5"
     verified_against: null
     status: partial
     sources:
     tests:
       - "docs/RFCs/RFC-FAS-0015-Human-Agent-Authority/implemented/conformance.zig"
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-003 — No linguistic escalation\\nAn Agent MUST NOT infer additional authority merely because a user requested an outcome in natural language."
+    normalized_statement: "FAS-AUTH-003 — No linguistic escalation
+An Agent MUST NOT infer additional authority merely because a user requested an outcome in natural language"
   FAS-AUTH-004:
     requirement_class: required
     activation_condition: "policy_requires_human_approval"
-    statement_hash: "blake3:e9df7e2bdcd882a6cbc738e2db143f6de286a050b4107d8613e95a298e1c5a25"
+    required_evidence: "human approval evidence"
+    statement_hash: "blake3:e139518e605d4d92f8aab107a90516b27f5924cb13f6d1d734f8ef8ce2d2a091"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-004 — Human approval\\nThe Runtime MUST be able to require human approval when policy demands it."
+    normalized_statement: "FAS-AUTH-004 — Human approval
+The Runtime MUST be able to require human approval when policy demands it"
   FAS-AUTH-005:
     requirement_class: optional
     activation_condition: "delegated_autonomy_supported"
-    statement_hash: "blake3:171cb704eb12e9ec87ef3b1172215ebd7e14affc33f79db51bfde9a300693fb5"
+    required_evidence: "delegation contract"
+    statement_hash: "blake3:e11fa6097461c58ff121d1b79d62a2fd1d2cdca32cdf62d5865fa85b473e7062"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-005 — Delegation\\nDelegated authority MAY permit autonomous execution when scope and constraints are explicit."
+    normalized_statement: "FAS-AUTH-005 — Delegation
+Delegated authority MAY permit autonomous execution when scope and constraints are explicit"
   FAS-AUTH-006:
     requirement_class: conditional
     activation_condition: "delegation_is_revocable"
-    statement_hash: "blake3:0b7671c4e2ac156b13c9be79cca3bda4ad0e86272297683f687b9ba32610218e"
+    required_evidence: "revocation test"
+    statement_hash: "blake3:dffe8ff01b57beaaf4af3a810bc5552fdcd7d9a11b06c9db4f52699ceeabca93"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-006 — Revocation\\nDelegated authority SHOULD be revocable unless the domain explicitly requires irrevocable effects."
+    normalized_statement: "FAS-AUTH-006 — Revocation
+Delegated authority SHOULD be revocable unless the domain explicitly requires irrevocable effects"
   FAS-AUTH-007:
     requirement_class: required
     activation_condition: "authority_decision_occurs"
-    statement_hash: "blake3:47c2df06479fef28e498fb0e1bd455ee08c38cad87f80a95fe128e9cad2ff061"
+    required_evidence: "decision evidence"
+    statement_hash: "blake3:aa781d02d1d13a1dee492d02292d9e39c891a6f754b026ed0f7fcf604a44c8dc"
     verified_against: null
     status: not_implemented
     sources:
@@ -77,14 +90,17 @@ requirements:
     evidence_assertions:
       - path: "docs/RFCs/RFC-FAS-0015-Human-Agent-Authority/implemented/conformance.zig"
         assertion: "Authority.Rejected"
-    normalized_statement: "FAS-AUTH-007 — Evidence\\nAuthority decisions SHOULD produce evidence suitable for later explanation and audit."
+    normalized_statement: "FAS-AUTH-007 — Evidence
+Authority decisions SHOULD produce evidence suitable for later explanation and audit"
   FAS-AUTH-008:
     requirement_class: required
     activation_condition: "agent_authority_granted"
-    statement_hash: "blake3:b882d5bb8f8fb11a1dc46299a05fdfe21bd78b4f0c3fa55bbb54e5e615d3f352"
+    required_evidence: "least-authority evidence"
+    statement_hash: "blake3:cfe063565665f328d1ef284e5b5340b71637730c6059c546b7d1fbf307485131"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-AUTH-008 — Least authority\\nAn Agent SHOULD receive no more authority than required to satisfy its assigned capability."
+    normalized_statement: "FAS-AUTH-008 — Least authority
+An Agent SHOULD receive no more authority than required to satisfy its assigned capability"

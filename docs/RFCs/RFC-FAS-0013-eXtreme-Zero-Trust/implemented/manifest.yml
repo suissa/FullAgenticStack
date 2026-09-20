@@ -7,90 +7,108 @@ requirements:
   FAS-XZT-001:
     requirement_class: required
     activation_condition: "protected_interaction_occurs"
-    statement_hash: "blake3:4e6613f4083c62f8243606a9e1bc79aeca117f6e64c168428dc614b28974a613"
+    required_evidence: "identity/authentication evidence"
+    statement_hash: "blake3:83a4365577cbcd8bd7514bc57937e9dfeafc7a57dcba343f6127901b5c36a2bf"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-001 — Explicit authentication\\nProtected interactions MUST authenticate the initiating identity to a degree appropriate to risk."
+    normalized_statement: "FAS-XZT-001 — Explicit authentication
+Protected interactions MUST authenticate the initiating identity to a degree appropriate to risk"
   FAS-XZT-002:
     requirement_class: required
     activation_condition: "protected_effect_possible"
-    statement_hash: "blake3:c79b24a21ea430df0d44977cc405efa210de5351cff104774943bb4d1612b717"
+    required_evidence: "authorization evidence"
+    statement_hash: "blake3:e66a9c11cb3fcfbd6f40cd42d286dd17101c1c0a09944e3eaa47e03d9eceb103"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-002 — Explicit authorization\\nProtected effects MUST be explicitly authorized."
+    normalized_statement: "FAS-XZT-002 — Explicit authorization
+Protected effects MUST be explicitly authorized"
   FAS-XZT-003:
     requirement_class: required
     activation_condition: "trust_granted"
-    statement_hash: "blake3:4c53e947c08cb7e5e6132f541236259995541c48cfdf9bba01fdf64c310392ea"
+    required_evidence: "scope/time evidence"
+    statement_hash: "blake3:e70bf0e8a84392743686f989227adf332f1d6f46fde17e9f88e01d7caedb7f23"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-003 — Bounded trust\\nTrust MUST be bounded by scope and SHOULD be bounded by time."
+    normalized_statement: "FAS-XZT-003 — Bounded trust
+Trust MUST be bounded by scope and SHOULD be bounded by time"
   FAS-XZT-004:
     requirement_class: required
     activation_condition: "delegation_occurs"
-    statement_hash: "blake3:7de5e1f26899dd701c2589ff61c9640d9641d4da9b6b18ecb26a872e8a28ab08"
+    required_evidence: "delegation scope evidence"
+    statement_hash: "blake3:912818fa6b3e5bc369eff971aff5d66db3907a89ffdc6500006b4688f59c014a"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-004 — Delegation containment\\nAn Agent MUST NOT inherit unrestricted authority from its invoker."
+    normalized_statement: "FAS-XZT-004 — Delegation containment
+An Agent MUST NOT inherit unrestricted authority from its invoker"
   FAS-XZT-005:
     requirement_class: required
     activation_condition: "internal_component_interacts"
-    statement_hash: "blake3:44071717b8b50a11d31114de08553812d083ce9af743bd4f68a3a9e1a01846c9"
+    required_evidence: "internal authorization tests"
+    statement_hash: "blake3:148dc59217224a73f37fa268791b9565cfe75d397e68adcf04c863d56544b60f"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-005 — Internal components are not implicitly trusted\\nInternal components MUST NOT be considered trusted merely because they execute inside the same network, host, process group or deployment."
+    normalized_statement: "FAS-XZT-005 — Internal components are not implicitly trusted
+Internal components MUST NOT be considered trusted merely because they execute inside the same network host process group or deployment"
   FAS-XZT-006:
     requirement_class: conditional
     activation_condition: "risk_requires_independent_verification"
-    statement_hash: "blake3:547976ed43b32085e858a578f2a795398df4814c422be5eab67e220eedc2c2f8"
+    required_evidence: "verifiable proof/evidence"
+    statement_hash: "blake3:f0341e74b45b35db883b10b40da54937d0a6d2e3e42f0816f3754c44ab4cb7bd"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-006 — Verifiable evidence\\nIdentity, authority and protected-effect evidence SHOULD be independently verifiable where risk requires it."
+    normalized_statement: "FAS-XZT-006 — Verifiable evidence
+Identity authority and protected-effect evidence SHOULD be independently verifiable where risk requires it"
   FAS-XZT-007:
     requirement_class: conditional
     activation_condition: "protected_exchange_occurs"
-    statement_hash: "blake3:30da0157f97a2746af25e7078da8557a91b183c30df660e78ee10b715df10886"
+    required_evidence: "channel protection evidence"
+    statement_hash: "blake3:3f04540c7cf1e6f20221d292cbb8bbac5acd21f3547f3bcab80d33b13acc6301"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-007 — Protected exchange\\nProtected communication SHOULD provide confidentiality, integrity, authenticity and replay resistance according to risk."
+    normalized_statement: "FAS-XZT-007 — Protected exchange
+Protected communication SHOULD provide confidentiality integrity authenticity and replay resistance according to risk"
   FAS-XZT-008:
     requirement_class: required
     activation_condition: "FAS-Extreme claim"
-    statement_hash: "blake3:315882fe188bd16ef6a6e61b91aa94c4d83282f6d7fa0597cd2ad611f3494591"
+    required_evidence: "RFC-FAS-0014 conformance evidence"
+    statement_hash: "blake3:03e6190b64bb68a0523924f4486c1fe555b637899510b7fa259dce71ae5a6fdb"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-008 — Passwordless Extreme profile\\nThe Extreme profile MUST satisfy RFC-FAS-0014."
+    normalized_statement: "FAS-XZT-008 — Passwordless Extreme profile
+The Extreme profile MUST satisfy RFC-FAS-0014"
   FAS-XZT-009:
     requirement_class: required
     activation_condition: "context_materially_changes"
-    statement_hash: "blake3:9f90df825b85241d2ed7301c15401aa5e622ab7f4ccfede552e0c22ff1aa2182"
+    required_evidence: "context re-evaluation evidence"
+    statement_hash: "blake3:5878314a7dc8503f6292b8606e03884268eb2d5e738bc308db1424818784356e"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-XZT-009 — Continuous applicability\\nTrust evaluation SHOULD remain valid for the current context; historical authorization MUST NOT automatically authorize materially changed context."
+    normalized_statement: "FAS-XZT-009 — Continuous applicability
+Trust evaluation SHOULD remain valid for the current context historical authorization MUST NOT automatically authorize materially changed context"

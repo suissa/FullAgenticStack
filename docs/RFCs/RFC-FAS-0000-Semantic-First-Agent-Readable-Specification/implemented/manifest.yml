@@ -7,240 +7,307 @@ requirements:
   FAS-SPEC-001:
     requirement_class: required
     activation_condition: "normative_capability_exists"
-    statement_hash: "blake3:c8aee898e9ba3aa49cf7b4fe9de8ccc1b11be815d9e49b1c0dc058368ff459e1"
+    required_evidence: "requirement semantic fields"
+    statement_hash: "blake3:3e8cf0c58637aad03aefcc1894ed92c3187b12a0b9dfa6c45a2eade16434cced"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-001 — Semantic completeness\\nEvery normative capability MUST define enough information for an implementation Agent to identify responsibility, inputs, outputs, invariants, authority and evidence obligations."
+    normalized_statement: "FAS-SPEC-001 — Semantic completeness
+Every normative capability MUST define enough information for an implementation Agent to identify responsibility inputs outputs invariants authority and evidence obligations"
   FAS-SPEC-002:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:cf696ca5d17cb91a01461947d2ce7f2e5187ad83e10a68fa7c7742c53da75cba"
+    required_evidence: "technology-neutral wording"
+    statement_hash: "blake3:aac0184b1021d481382727406eb3bb79d38eb2c4aee7a720c36b0d72c9610dff"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-002 — Technology independence\\nA normative requirement MUST NOT require a specific implementation product or language unless that technology is explicitly in scope."
+    normalized_statement: "FAS-SPEC-002 — Technology independence
+A normative requirement MUST NOT require a specific implementation product or language unless that technology is explicitly in scope"
   FAS-SPEC-003:
     requirement_class: required
     activation_condition: "implementation_binding_changes"
-    statement_hash: "blake3:43d82c8675774d6a3c459f44648d3cead948fe470ba978f82f8523ddc554d0f3"
+    required_evidence: "cross-binding semantic comparison"
+    statement_hash: "blake3:e84b86cbf225f82b171e57fb2076e17f80b39b4aa829f737aac2c470baf889de"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-003 — Stable meaning\\nA semantic requirement SHOULD retain its meaning when the implementation technology changes."
+    normalized_statement: "FAS-SPEC-003 — Stable meaning
+A semantic requirement SHOULD retain its meaning when the implementation technology changes"
   FAS-SPEC-004:
     requirement_class: required
     activation_condition: "protected_effect_possible"
-    statement_hash: "blake3:1149cc3ea01821dbf4a3d2d3a61ae2251d6ecfb219e0ef323af9b76d71deb73a"
+    required_evidence: "authority declaration"
+    statement_hash: "blake3:46e0f2570f15d2bd434a65a99f2161edcefb9b85f06118b0ee17f0c2eee73416"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-004 — Explicit authority\\nIf a capability can cause protected effects, its authority boundary MUST be explicit."
+    normalized_statement: "FAS-SPEC-004 — Explicit authority
+If a capability can cause protected effects its authority boundary MUST be explicit"
   FAS-SPEC-005:
     requirement_class: required
     activation_condition: "capability_can_fail"
-    statement_hash: "blake3:770cbfe75b968d92fb64afc92cc4796e6998747f0fd1ec5a1f4a1b270aff3141"
+    required_evidence: "semantic failure definitions"
+    statement_hash: "blake3:0a29518e4eb35cdc1610f96fc48f90cb89017f52404f84bc9485de91a1b8e00e"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-005 — Explicit failure semantics\\nA normative capability SHOULD define semantic failure conditions rather than relying only on implementation exceptions."
+    normalized_statement: "FAS-SPEC-005 — Explicit failure semantics
+A normative capability SHOULD define semantic failure conditions rather than relying only on implementation exceptions"
   FAS-SPEC-006:
     requirement_class: required
     activation_condition: "normative_requirement_exists"
-    statement_hash: "blake3:d7df1980330db19c00a393e7e3b1514c6951238ea8d12e574a6931263cfa13c5"
+    required_evidence: "stable ID registry"
+    statement_hash: "blake3:f60b413287beee9da883b05e5253de2a35d782340e0bde59b7ec327e8df54f5c"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-006 — Stable identifiers\\nNormative requirements SHOULD have persistent identifiers that Agents can reference directly."
+    normalized_statement: "FAS-SPEC-006 — Stable identifiers
+Normative requirements SHOULD have persistent identifiers that Agents can reference directly"
   FAS-SPEC-007:
     requirement_class: required
     activation_condition: "conformance_or_implementation_claim_exists"
-    statement_hash: "blake3:8a2d081163a2748cac3275b843be357aa75a8609f72cbeadc7ad25fe9cdf0486"
+    required_evidence: "traceability chain"
+    statement_hash: "blake3:0f7638a4df4d40719b9114947553b4c062bbda17bac6d5be1cc346e71ab9cc04"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-007 — Traceability\\nA conforming implementation SHOULD support requirement → capability → implementation → test → runtime evidence traceability."
+    normalized_statement: "FAS-SPEC-007 — Traceability
+A conforming implementation SHOULD support requirement → capability → implementation → test → runtime evidence traceability"
   FAS-SPEC-008:
     requirement_class: required
     activation_condition: "conformance_evaluated"
-    statement_hash: "blake3:6b8d87ecfd239f8d4ad77449246c77770f66b7165440a4a8a3ccda264560f5c1"
+    required_evidence: "behavior/invariant evidence"
+    statement_hash: "blake3:54e7adcef65d994c393bda59121d047999fb5acb98a0f8f045807d6bae454c73"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-008 — Behavioral conformance\\nConformance MUST be based primarily on observable semantic behavior and invariant preservation, not product choice."
+    normalized_statement: "FAS-SPEC-008 — Behavioral conformance
+Conformance MUST be based primarily on observable semantic behavior and invariant preservation not product choice"
   FAS-SPEC-009:
     requirement_class: optional
     activation_condition: "developer_constraints_exist"
-    statement_hash: "blake3:14d26aba16bf02c764f796304a200105205320dde4577b2ddc361e9d0598cc9f"
+    required_evidence: "Technology Profile"
+    statement_hash: "blake3:e5671714acc8ef72468ceabc84855146f6f22336a280462924a299d993daebcc"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-009 — Developer bindings\\nA developer MAY provide a Technology Profile defining implementation constraints."
+    normalized_statement: "FAS-SPEC-009 — Developer bindings
+A developer MAY provide a Technology Profile defining implementation constraints"
   FAS-SPEC-010:
     requirement_class: optional
     activation_condition: "technology_not_fully_bound"
-    statement_hash: "blake3:19ebe3dc46b78560ec703b3a4e28bdc12d9d147efebeb4dc1fdddbbeb7a3f505"
+    required_evidence: "implementation rationale"
+    statement_hash: "blake3:d88c5018d044cf0cda589caa4a9a704f98fa466b99d852fd3cf8f95c15852699"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-010 — Agent freedom\\nAn implementation Agent MAY choose mechanisms not named by the RFC if all required semantics remain preserved."
+    normalized_statement: "FAS-SPEC-010 — Agent freedom
+An implementation Agent MAY choose mechanisms not named by the RFC if all required semantics remain preserved"
   FAS-SPEC-011:
     requirement_class: required
     activation_condition: "normative_requirement_exists"
-    statement_hash: "blake3:708e21c95caf644234dec6f7b90b5b1b916c4deed2e9e94144dfae32e9bb16a5"
+    required_evidence: "requirement metadata"
+    statement_hash: "blake3:ae5b58cbceb03047f3f3c4089896a120ac59f6ca86c1bf83f2f120a4b0189eee"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-011 — Requirement class\\nEach normative requirement SHOULD declare one of:\\n- REQUIRED — must be evaluated whenever the containing conformance profile includes it.\\n- CONDITIONAL — must be evaluated when its ActivationCondition is true.\\n- OPTIONAL — does not block profile conformance unless a profile explicitly elevates it.\\nRequirementClass is distinct from MUST/SHOULD/MAY wording. The normative verb defines obligation strength inside the requirement; RequirementClass defines profile applicability."
+    normalized_statement: "FAS-SPEC-011 — Requirement class
+Each normative requirement SHOULD declare one of:
+REQUIRED — must be evaluated whenever the containing conformance profile includes it
+CONDITIONAL — must be evaluated when its ActivationCondition is true
+OPTIONAL — does not block profile conformance unless a profile explicitly elevates it
+RequirementClass is distinct from MUST/SHOULD/MAY wording. The normative verb defines obligation strength inside the requirement RequirementClass defines profile applicability"
   FAS-SPEC-012:
     requirement_class: conditional
     activation_condition: "requirement_class=CONDITIONAL"
-    statement_hash: "blake3:f89cff2048d0203d22b08409702bf38af3c840b91f094718366b6756d9f082ca"
+    required_evidence: "activation condition"
+    statement_hash: "blake3:1783e16544daf86154819511618501ade23d9514ea8723fba397124649068255"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-012 — Activation condition\\nCONDITIONAL requirements MUST define a machine-evaluable or semantically explicit ActivationCondition.\\nExample:\\ntext\\nRequirement: FAS-PROJ-001\\nClass: CONDITIONAL\\nActivationCondition:\\nindependentprojectionexists == true\\n"
+    normalized_statement: "FAS-SPEC-012 — Activation condition
+CONDITIONAL requirements MUST define a machine-evaluable or semantically explicit ActivationCondition
+Example:
+```text
+Requirement: FAS-PROJ-001
+Class: CONDITIONAL
+ActivationCondition:
+independent_projection_exists == true
+```"
   FAS-SPEC-013:
     requirement_class: required
     activation_condition: "normative_requirement_exists"
-    statement_hash: "blake3:b1708cf632963422046dee95aa61102cd4d80d2535ad849d87c8f224f321167d"
+    required_evidence: "evidence declaration"
+    statement_hash: "blake3:398da0bfa65a7dbab5d6f211675f51dd4a2f4bcf945128820c4373e576773475"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-013 — Required evidence\\nA requirement SHOULD define the minimum evidence class needed to support PASS."
+    normalized_statement: "FAS-SPEC-013 — Required evidence
+A requirement SHOULD define the minimum evidence class needed to support PASS"
   FAS-SPEC-014:
     requirement_class: required
     activation_condition: "normative_requirement_exists"
-    statement_hash: "blake3:092d7574b4cd1cc6a6e60a898b75781f470fe2524d4f9a830bbb9655835828a6"
+    required_evidence: "verification property"
+    statement_hash: "blake3:a72de3ba2e5ed1b28f75dab727710c133b2c91c4f0271ca062f4d7abbdf2c1e0"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-014 — Verification property\\nA requirement SHOULD define at least one observable property whose satisfaction supports PASS."
+    normalized_statement: "FAS-SPEC-014 — Verification property
+A requirement SHOULD define at least one observable property whose satisfaction supports PASS"
   FAS-SPEC-015:
     requirement_class: conditional
     activation_condition: "requirement_is_critical"
-    statement_hash: "blake3:9e8a781adce2cdd39987f14e8f57c81174f6d59f40cd81d1927b1857d153ad35"
+    required_evidence: "adversarial property"
+    statement_hash: "blake3:d86763f1d33b6aaa641199c6ab3f1d9d0a8821dc0056fc8e340c5f6673370172"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-015 — Adversarial property\\nSecurity-, authority-, integrity-, healing- and conformance-critical requirements SHOULD define at least one negative or adversarial property that attempts to falsify the invariant."
+    normalized_statement: "FAS-SPEC-015 — Adversarial property
+Security- authority- integrity- healing- and conformance-critical requirements SHOULD define at least one negative or adversarial property that attempts to falsify the invariant"
   FAS-SPEC-016:
     requirement_class: required
     activation_condition: "NOT_APPLICABLE_possible"
-    statement_hash: "blake3:4f74527361bcf932ed2b2f3b34fb6986f9341be5c789a6486f02a06f7690b18b"
+    required_evidence: "non-applicability evidence"
+    statement_hash: "blake3:4e7a3c175044ebcc7888b9141ce1dbb9139349da463f075a9eae32158e718884"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-016 — Non-applicability\\nA CONDITIONAL requirement MAY become NOTAPPLICABLE only when its ActivationCondition is demonstrably false.\\nNOTAPPLICABLE MUST NOT be used merely because implementation or evidence is missing."
+    normalized_statement: "FAS-SPEC-016 — Non-applicability
+A CONDITIONAL requirement MAY become NOT_APPLICABLE only when its ActivationCondition is demonstrably false
+NOT_APPLICABLE MUST NOT be used merely because implementation or evidence is missing"
   FAS-SPEC-017:
     requirement_class: required
     activation_condition: "conformance_evaluated"
-    statement_hash: "blake3:4300abb788b77ba00df4512a57b0d321372d0258ce6a70eda35446a576fc12bc"
+    required_evidence: "masking detection"
+    statement_hash: "blake3:32670486eb59b4fe6f180d7e6e149c9a83c98ce153648f3831f112c4ee56e86e"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-017 — No capability masking\\nA requirement MUST NOT be satisfied by removing, disabling, hiding, short-circuiting or making unreachable the behavior being evaluated when that behavior is required by the claimed profile."
+    normalized_statement: "FAS-SPEC-017 — No capability masking
+A requirement MUST NOT be satisfied by removing disabling hiding short-circuiting or making unreachable the behavior being evaluated when that behavior is required by the claimed profile"
   FAS-SPEC-018:
     requirement_class: conditional
     activation_condition: "profile_override_exists"
-    statement_hash: "blake3:4e7101b2704eb46b1c75b4a6394f5848a445c92a1e7a0713e012e1aa1262434b"
+    required_evidence: "profile manifest"
+    statement_hash: "blake3:7c6d5e7bdb1ebcea49447b1cda55643ea7db178aa778921788ed787c6c3c7404"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-018 — Profile elevation\\nA conformance profile MAY elevate OPTIONAL or CONDITIONAL requirements to REQUIRED for that profile. Such elevation MUST be explicit in the profile manifest."
+    normalized_statement: "FAS-SPEC-018 — Profile elevation
+A conformance profile MAY elevate OPTIONAL or CONDITIONAL requirements to REQUIRED for that profile. Such elevation MUST be explicit in the profile manifest"
   FAS-SPEC-019:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:08276c3f4c89412ae67877b1b2c1d9d95b6e203bb0546b82f09e3c21aa4f0ac7"
+    required_evidence: "unspecified"
+    statement_hash: "blake3:1c543f37a95392baf56182f2a8e6e56d08773923565a123ded39cdd4ebcf3230"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-019 — Generated semantic lockfiles\\nThe implemented manifest MUST be generated from semantic requirements and implementation evidence. It MUST NOT be treated as a manually authoritative declaration.\\nA generated lockfile MAY be committed to version control, but CI MUST be able to regenerate it deterministically and detect divergence."
+    normalized_statement: "FAS-SPEC-019 — Generated semantic lockfiles
+The implemented manifest MUST be generated from semantic requirements and implementation evidence. It MUST NOT be treated as a manually authoritative declaration
+A generated lockfile MAY be committed to version control but CI MUST be able to regenerate it deterministically and detect divergence"
   FAS-SPEC-020:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:b68cb761422f6909cb98c0269a149875d93de194cdd7c68cb33608a87e0f575f"
+    required_evidence: "unspecified"
+    statement_hash: "blake3:cb0a556d8f335b53c50433075ebe7709c20075a1bf635749932b459081e86ac9"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-020 — Requirement-level fingerprints\\nSemantic drift MUST be tracked at requirement granularity rather than only at file granularity.\\nEach normative requirement SHOULD have a fingerprint computed from its normalized normative statement.\\nEditorial changes that do not change the normalized statement SHOULD NOT invalidate unrelated requirements."
+    normalized_statement: "FAS-SPEC-020 — Requirement-level fingerprints
+Semantic drift MUST be tracked at requirement granularity rather than only at file granularity
+Each normative requirement SHOULD have a fingerprint computed from its normalized normative statement
+Editorial changes that do not change the normalized statement SHOULD NOT invalidate unrelated requirements"
   FAS-SPEC-021:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:ea2c77f127cc6ccd4de4da3dc5c464db51790b69ee06c5448833c3c82b1d5bab"
+    required_evidence: "unspecified"
+    statement_hash: "blake3:74878c355bc742b0651ecd7bcdd2d5bf8b0ee9b765f0c4d5cca47805ed71c6f4"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-021 — Source-derived implementation binding\\nImplementation status SHOULD be derived from verifiable implementation annotations, source references, tests and evidence rather than handwritten status fields.\\nA missing source or test reference MUST invalidate the generated implementation claim."
+    normalized_statement: "FAS-SPEC-021 — Source-derived implementation binding
+Implementation status SHOULD be derived from verifiable implementation annotations source references tests and evidence rather than handwritten status fields
+A missing source or test reference MUST invalidate the generated implementation claim"
   FAS-SPEC-022:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:7aa2fbe2155b20cf155edf2ccb52e7295bd79f1e373560611d1a2629d745fe80"
+    required_evidence: "unspecified"
+    statement_hash: "blake3:173b494203a6a42e8fa12be8da77afe97f38927163a9e68db16c81a2d59d65fc"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-022 — Asserted evidence\\nEvidence obligations MUST be verified by executable assertions where machine verification is practical.\\nListing an event name or proof identifier without asserting that it was produced MUST NOT satisfy an evidence-critical requirement."
+    normalized_statement: "FAS-SPEC-022 — Asserted evidence
+Evidence obligations MUST be verified by executable assertions where machine verification is practical
+Listing an event name or proof identifier without asserting that it was produced MUST NOT satisfy an evidence-critical requirement"
   FAS-SPEC-023:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:9f77ba17fc295790135079fd495866647702a6d6b4e43b93e2aafea1896cbbae"
+    required_evidence: "unspecified"
+    statement_hash: "blake3:8f13404c4d077d991510801a5494d5ce39267973627a1028a5a54c3bc4a1a8eb"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-023 — Build-visible conformance\\nExecutable conformance proofs MUST participate in the project build or CI graph.\\nA conformance source file that is never compiled or executed MUST NOT count as verification."
+    normalized_statement: "FAS-SPEC-023 — Build-visible conformance
+Executable conformance proofs MUST participate in the project build or CI graph
+A conformance source file that is never compiled or executed MUST NOT count as verification"
   FAS-SPEC-024:
     requirement_class: required
     activation_condition: "always"
-    statement_hash: "blake3:00c2cd4247c07c17b364a706484926e6509259bb729afd91355ecf56d5886524"
+    required_evidence: "unspecified"
+    statement_hash: "blake3:4a5cfa5b2f7070deb9032ad82aefb1b51315190b727909984272064a765f20e9"
     verified_against: null
     status: not_implemented
     sources:
     tests:
     evidence_assertions:
-    normalized_statement: "FAS-SPEC-024 — Single authoritative implementation chain\\nImplementation planning metadata MAY describe conceptual components, but conformance authority MUST come from one generated chain connecting requirement → real source → test → evidence.\\nIf descriptive bindings and generated implementation bindings diverge, CI MUST fail or report the divergence explicitly."
+    normalized_statement: "FAS-SPEC-024 — Single authoritative implementation chain
+Implementation planning metadata MAY describe conceptual components but conformance authority MUST come from one generated chain connecting requirement → real source → test → evidence
+If descriptive bindings and generated implementation bindings diverge CI MUST fail or report the divergence explicitly"
