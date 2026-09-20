@@ -260,12 +260,18 @@ def manifest_for(rfc_dir: Path, annotations, mark_verified: bool = False):
         if annotation["na"]:
             validate_not_applicable(req_id, meta, annotation["na"])
 
+        # A missing/renamed implementation or test binding invalidates the old
+        # verification and downgrades the requirement instead of preserving a
+        # misleading historical verification fingerprint.
+        if not fully_bound and not annotation["na"]:
+            verified = None
+
         if mark_verified and fully_bound and not annotation["na"]:
             verified = statement_hash
 
         if annotation["na"]:
             status = "not_applicable"
-        elif verified and verified != statement_hash:
+        elif fully_bound and verified and verified != statement_hash:
             status = "stale"
         elif fully_bound:
             status = "implemented"
