@@ -69,13 +69,17 @@ def normalize_statement(
         line = raw_line.strip()
         if not line:
             continue
-        # Split prose lines into sentences so a MAY sentence beside a MUST
-        # sentence can be excluded independently from the semantic fingerprint.
-        raw_parts.extend(
-            part.strip()
-            for part in re.split(r"(?<=[.!?])\s+", line)
-            if part.strip()
-        )
+        if normative_only:
+            # Split prose lines into sentences only for RFCs that explicitly
+            # opt into normative-only fingerprints. Legacy lockfiles retain
+            # byte-equivalent normalization until migrated deliberately.
+            raw_parts.extend(
+                part.strip()
+                for part in re.split(r"(?<=[.!?])\s+", line)
+                if part.strip()
+            )
+        else:
+            raw_parts.append(line)
 
     selected: list[str] = []
     for index, part in enumerate(raw_parts):
