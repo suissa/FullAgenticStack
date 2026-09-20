@@ -15,8 +15,8 @@ test "healing never bypasses authority and emits escalation evidence" {
         .invariant_ok = true,
     };
     try std.testing.expectEqual(fas.healing.HealingResult.escalated, s.heal(f));
-    try std.testing.expect(evidence.emitted("Healing.Escalated"));
-    try std.testing.expect(!evidence.emitted("Healing.Recovered"));
+    try evidence.expectEmitted("Healing.Escalated");
+    try evidence.expectNotEmitted("Healing.Recovered");
 }
 
 // @test FAS-HEAL-008
@@ -32,6 +32,6 @@ test "retry is bounded and eventually escalates" {
     };
     try std.testing.expectEqual(fas.healing.HealingResult.retry, s.heal(f));
     try std.testing.expectEqual(fas.healing.HealingResult.escalated, s.heal(f));
-    try std.testing.expect(evidence.emitted("Healing.Retry"));
-    try std.testing.expect(evidence.emitted("Healing.Escalated"));
+    try evidence.expectEmitted("Healing.Retry");
+    try evidence.expectEmitted("Healing.Escalated");
 }
