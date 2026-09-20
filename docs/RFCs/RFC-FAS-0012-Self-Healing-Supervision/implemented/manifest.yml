@@ -71,10 +71,13 @@ A healing strategy MUST NOT be accepted if it violates required invariants"
     required_evidence: "diagnosis/strategy/outcome evidence"
     statement_hash: "blake3:65eb4841e76806003f3f02b95e7a634009d673bbe84512279733041c4b1e59b0"
     verified_against: null
-    status: not_implemented
+    status: partial
     sources:
     tests:
+      - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
     evidence_assertions:
+      - path: "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
+        assertion: "Healing.Escalated"
     normalized_statement: "FAS-HEAL-006 — Evidence
 Healing SHOULD produce evidence describing detected condition diagnosis selected strategy and outcome"
   FAS-HEAL-007:
@@ -101,5 +104,7 @@ Escalation MUST remain available when autonomous recovery is unauthorized or ins
     tests:
       - "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
     evidence_assertions:
+      - path: "docs/RFCs/RFC-FAS-0012-Self-Healing-Supervision/implemented/conformance.zig"
+        assertion: "Healing.Escalated"
     normalized_statement: "FAS-HEAL-008 — Bounded retries
 Retry behavior SHOULD be bounded by semantic or policy constraints so that healing cannot become unbounded repetition"

@@ -39,6 +39,8 @@ The Runtime MUST bind selected semantic responsibilities to executable owners"
     tests:
       - "docs/RFCs/RFC-FAS-0004-Agentic-Runtime/implemented/conformance.zig"
     evidence_assertions:
+      - path: "docs/RFCs/RFC-FAS-0004-Agentic-Runtime/implemented/conformance.zig"
+        assertion: "Governance.Rejected"
     normalized_statement: "FAS-RUNTIME-003 — Governance
 Protected effects MUST be evaluated against applicable authority and constraints before acceptance"
   FAS-RUNTIME-004:
@@ -76,6 +78,8 @@ Resolution execution authority and result acceptance MUST remain semantically di
     tests:
       - "docs/RFCs/RFC-FAS-0004-Agentic-Runtime/implemented/conformance.zig"
     evidence_assertions:
+      - path: "docs/RFCs/RFC-FAS-0004-Agentic-Runtime/implemented/conformance.zig"
+        assertion: "Runtime.Acceptance.Ok"
     normalized_statement: "FAS-RUNTIME-006 — Evidence
 The Runtime MUST produce enough evidence to explain the selected execution path"
   FAS-RUNTIME-007:

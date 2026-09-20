@@ -98,9 +98,10 @@ Authority decisions SHOULD produce evidence suitable for later explanation and a
     required_evidence: "least-authority evidence"
     statement_hash: "blake3:cfe063565665f328d1ef284e5b5340b71637730c6059c546b7d1fbf307485131"
     verified_against: null
-    status: not_implemented
+    status: partial
     sources:
     tests:
+      - "docs/RFCs/RFC-FAS-0015-Human-Agent-Authority/implemented/conformance.zig"
     evidence_assertions:
     normalized_statement: "FAS-AUTH-008 — Least authority
 An Agent SHOULD receive no more authority than required to satisfy its assigned capability"
