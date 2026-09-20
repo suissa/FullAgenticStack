@@ -1,3 +1,9 @@
+<p align="center">
+<img width="2172" height="724" alt="image" src="https://github.com/user-attachments/assets/a0fc1eba-c879-48b6-9110-92f74ac7f034" />
+
+   
+</p>
+
 # FullAgenticStack: A Software Architecture Paradigm for Fully Agentic Systems
 
 ## Abstract
