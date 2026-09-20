@@ -32,7 +32,7 @@ META_RE = re.compile(
     r"^\|\s*(FAS-[A-Z0-9-]+)\s*\|\s*(REQUIRED|CONDITIONAL|OPTIONAL)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|"
 )
 ANNOT_RE = re.compile(
-    r"@(?P<kind>satisfies|test|evidence)\s+(?P<id>FAS-[A-Z0-9-]+)(?:\s+(?P<value>[^\r\n]+))?"
+    r"@(?P<kind>satisfies|test|evidence)[ \t]+(?P<id>FAS-[A-Z0-9-]+)(?:[ \t]+(?P<value>[^\r\n]+))?"
 )
 NA_RE = re.compile(
     r"@not-applicable\s+(?P<id>FAS-[A-Z0-9-]+)\s+condition=(?P<condition>\S+)\s+reason=(?P<reason>\S+)"
